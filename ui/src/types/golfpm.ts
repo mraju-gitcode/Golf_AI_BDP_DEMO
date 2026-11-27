@@ -15,6 +15,11 @@ export interface KnowledgeDocument {
   usage: string;
 }
 
+export type DocumentPreview =
+  | { kind: 'sections'; doc: KnowledgeDocument; banner: string; sections: { heading: string; lines: string[] }[] }
+  | { kind: 'table'; doc: KnowledgeDocument; banner: string; note: string; headers: string[]; rows: string[][] }
+  | { kind: 'pdf'; doc: KnowledgeDocument; url: string };
+
 export interface KnowledgeResponse {
   documents: KnowledgeDocument[];
   stats: { total: number; indexed: number; public: number; internal: number };

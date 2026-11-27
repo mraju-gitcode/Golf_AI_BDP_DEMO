@@ -91,10 +91,6 @@ export function Header({
           <span className="hidden sm:inline">{statusConfig.text}</span>
         </button>
 
-        <span className="hidden md:inline-flex items-center px-2.5 py-1 rounded-full border border-[#DDE4E0] dark:border-[#2B3D34] bg-[#F4F6F5] dark:bg-[#1D2A24] text-[#4C5C54] dark:text-[#B3C2BA] text-xs font-medium whitespace-nowrap shrink-0">
-          Demo · synthetic data
-        </span>
-
         <button
           type="button"
           onClick={onToggleTheme}

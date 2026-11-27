@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Download, FileSpreadsheet, FileText, RefreshCw, Search } from 'lucide-react';
-import { API_BASE_URL, golfpmApi } from '../api/client';
+import { Eye, FileSpreadsheet, FileText, RefreshCw, Search } from 'lucide-react';
+import { golfpmApi } from '../api/client';
 import type { KnowledgeDocument, KnowledgeResponse } from '../types/golfpm';
+import { DocumentViewer } from './DocumentViewer';
 import { ToneBadge } from './ToneBadge';
 
 type Filter = 'all' | 'public' | 'internal' | 'data';
@@ -29,6 +30,7 @@ export function KnowledgeView({ onError }: { onError: (err: unknown, fallback: s
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState<Filter>('all');
   const [query, setQuery] = useState('');
+  const [viewing, setViewing] = useState<KnowledgeDocument | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -79,6 +81,7 @@ export function KnowledgeView({ onError }: { onError: (err: unknown, fallback: s
 
   return (
     <div className="space-y-5">
+      {viewing && <DocumentViewer doc={viewing} onClose={() => setViewing(null)} />}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="font-display font-bold text-xl text-[#1D2A24] dark:text-[#EAF1ED]">Knowledge Sources</h1>
@@ -174,12 +177,13 @@ export function KnowledgeView({ onError }: { onError: (err: unknown, fallback: s
                   ) : (
                     <ToneBadge label="Not searched" tone="grey" />
                   )}
-                  <a
-                    href={`${API_BASE_URL}/api/documents/file/${d.file}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#006A40] dark:text-[#6EE09F] hover:underline mt-1"
+                  <button
+                    type="button"
+                    onClick={() => setViewing(d)}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#006A40] dark:text-[#6EE09F] hover:underline mt-1 cursor-pointer"
                   >
-                    <Download className="w-3.5 h-3.5" /> Open file
-                  </a>
+                    <Eye className="w-3.5 h-3.5" /> Open
+                  </button>
                 </div>
               </li>
             );

@@ -1,5 +1,6 @@
 import type {
   AgentConfig,
+  DocumentPreview,
   KnowledgeResponse,
   EvaluationRunResponse,
   HealthResponse,
@@ -131,6 +132,10 @@ export const golfpmApi = {
       method: 'POST',
       body: JSON.stringify(payload),
     });
+  },
+
+  getDocumentPreview(id: string): Promise<DocumentPreview> {
+    return request<DocumentPreview>(`/api/documents/${encodeURIComponent(id)}/preview`);
   },
 
   getDocuments(): Promise<KnowledgeResponse> {

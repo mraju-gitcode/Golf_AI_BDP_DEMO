@@ -274,12 +274,33 @@ def list_documents():
 
 
 @app.get("/api/documents/file/{path:path}")
-def document_file(path: str):
+def document_file(path: str, inline: bool = False):
     base = documents.OUT.resolve()
     target = (base / path).resolve()
     if base not in target.parents or not target.is_file():
         raise HTTPException(404, "document not found")
-    return FileResponse(target, filename=target.name)
+    return FileResponse(target, filename=target.name, content_disposition_type="inline" if inline else "attachment")
+
+
+@app.get("/api/documents/{doc_id}/preview")
+def document_preview(doc_id: str):
+    """Content for the in-app viewer: document sections, a spreadsheet table, or an inline PDF."""
+    doc = next((d for d in (documents.load_manifest() or documents.build()) if d["id"] == doc_id), None)
+    if not doc:
+        raise HTTPException(404, "document not found")
+    if doc["file"].startswith("knowledge/"):
+        md = documents.KB_DIR / (doc["file"].split("/", 1)[1].rsplit(".", 1)[0] + ".md")
+        if md.exists():
+            meta, sections = documents.parse_md(md)
+            return {"kind": "sections", "doc": doc, "banner": documents.BANNER,
+                    "sections": [{"heading": h, "lines": [l.strip() for l in t.splitlines() if l.strip()]} for h, t in sections]}
+    if doc["format"] == "xlsx":
+        from openpyxl import load_workbook
+        ws = load_workbook(documents.OUT / doc["file"], read_only=True).active
+        rows = [[("" if c is None else str(c)) for c in r] for r in ws.iter_rows(values_only=True)]
+        return {"kind": "table", "doc": doc, "banner": rows[0][0] if rows else "", "note": rows[1][0] if len(rows) > 1 else "",
+                "headers": rows[3] if len(rows) > 3 else [], "rows": rows[4:]}
+    return {"kind": "pdf", "doc": doc, "url": f"/api/documents/file/{doc['file']}?inline=true"}
 
 
 web = ROOT / "web"            # classic console (no build step)

@@ -1,0 +1,88 @@
+{
+  "_note": "Admin-editable runtime config (FR-16, FR-17, FR-21). Changed from the dashboard without a code change.",
+  "kill_switch": false,
+  "confidence_threshold": 0.6,
+  "tech_support_max_rounds": 3,
+  "reply_language": "en",
+  "ai_disclosure": {
+    "enabled": true,
+    "text": "This reply was prepared with the help of the GolfPM automated assistant. Reply to this email if you would like to reach a team member."
+  },
+  "signature": "GolfPM Team\nGolf Product Management",
+  "reply_to_cc": false,
+  "categories": {
+    "1": {
+      "name": "Order Status, ETA, Inventory and Shipping",
+      "short": "Order status",
+      "pattern": "agent",
+      "mode": "draft",
+      "owner": "Customer Service (fallback)",
+      "sla_minutes": 30
+    },
+    "2": {
+      "name": "Returns, RGR/RMA, Warranty and Credits",
+      "short": "Returns & warranty",
+      "pattern": "approval",
+      "mode": "draft",
+      "owner": "Warranty CSR",
+      "sla_minutes": 240
+    },
+    "3": {
+      "name": "Technical Support and Product Quality",
+      "short": "Tech support",
+      "pattern": "agent",
+      "mode": "draft",
+      "owner": "Advanced Technical team",
+      "sla_minutes": 60
+    },
+    "4": {
+      "name": "PM Order Holds",
+      "short": "PM order holds",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "Product Manager (hold owner)",
+      "sla_minutes": 240
+    },
+    "5": {
+      "name": "Product, SKU Information and Compatibility",
+      "short": "Product & SKU",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "Product Support team",
+      "sla_minutes": 480
+    },
+    "6": {
+      "name": "CirrusPRO / GSP Onboarding and Subscriptions",
+      "short": "CirrusPRO / GSP",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "GSP team",
+      "sla_minutes": 480
+    },
+    "7": {
+      "name": "Purchase Orders and Order Administration",
+      "short": "Purchase orders",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "Customer Service",
+      "sla_minutes": 240
+    },
+    "8": {
+      "name": "Quotes, Pricing, Tariffs and RFQs",
+      "short": "Quotes & pricing",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "Sales (territory owner)",
+      "sla_minutes": 480
+    },
+    "9": {
+      "name": "Other / General Correspondence",
+      "short": "Other",
+      "pattern": "route",
+      "mode": "send",
+      "owner": "GolfPM default recipient",
+      "sla_minutes": 1440
+    }
+  },
+  "answer_general_inquiries": true
+}

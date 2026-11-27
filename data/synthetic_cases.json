@@ -1,0 +1,1301 @@
+{
+  "_note": "Generated synthetic emails (golfpm.synthetic). Labels come from the templates.",
+  "cases": [
+    {
+      "id": "SY-001",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Ship date SO-TEST-104582",
+      "body": "Hi, could you confirm the ship date for SO-TEST-104582? Thanks, Mike",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-002",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order SO-TEST-104582",
+      "body": "When will SO-TEST-104582 ship? Our crew is booked for install. Mike",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-003",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "ETA for PO 55187",
+      "body": "Hello, what is the current ETA for PO 55187? Regards, Dana",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-004",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tracking for PO 55120",
+      "body": "Can you send tracking for PO 55120? The course is asking. Dana",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-005",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Where is our order?",
+      "body": "Hi, any update on when our last rotor order will arrive? Jen",
+      "expected": {
+        "category": 1,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-006",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Order update",
+      "body": "Checking on the status of our order from a few weeks ago. Sam",
+      "expected": {
+        "category": 1,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-007",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "SO-TEST-104611 update",
+      "body": "SO-TEST-104611 still shows backordered. When will it ship? Mike",
+      "expected": {
+        "category": 1,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-008",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Stock availability",
+      "body": "Do you have 60 golf rotors available for quick ship next week? Dana",
+      "expected": {
+        "category": 1,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-009",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Ship date SO-TEST-104582",
+      "body": "Good morning, Hi, could you confirm the ship date for SO-TEST-104582? Thanks, Mike",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-010",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order SO-TEST-104582",
+      "body": "Hi team, When will SO-TEST-104582 ship? Our crew is booked for install. Mike",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-011",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "ETA for PO 55187",
+      "body": "Hello, what is the current ETA for PO 55187? Regards, Dana",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-012",
+      "type": "Synthetic",
+      "scenario": "Generated category 1 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tracking for PO 55120",
+      "body": "Hello, Can you send tracking for PO 55120? The course is asking. Dana",
+      "expected": {
+        "category": 1,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-013",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty on failed rotors",
+      "body": "Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-014",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "RMA request",
+      "body": "We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-015",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Return for credit",
+      "body": "We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "expected": {
+        "category": 2,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-016",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Damage claim",
+      "body": "A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "expected": {
+        "category": 2,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-017",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty on failed rotors",
+      "body": "Hello, Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-018",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "RMA request",
+      "body": "Hello, We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-019",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Return for credit",
+      "body": "Good morning, We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "expected": {
+        "category": 2,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-020",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Damage claim",
+      "body": "Hello, A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "expected": {
+        "category": 2,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-021",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty on failed rotors",
+      "body": "Hi team, Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-022",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "RMA request",
+      "body": "Hello, We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-023",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Return for credit",
+      "body": "Hello, We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "expected": {
+        "category": 2,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-024",
+      "type": "Synthetic",
+      "scenario": "Generated category 2 email",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Damage claim",
+      "body": "A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "expected": {
+        "category": 2,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-025",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Rotor stuck",
+      "body": "One rotor on hole 4 pops up but doesn't rotate. Pressure is fine. What should we check? Sam",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-026",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Adjusting arc",
+      "body": "How do we adjust the arc on our part-circle rotors? Jen",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-027",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "CirrusPRO program",
+      "body": "How do I create a new watering program in CirrusPRO for our new chipping green? Mike",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-028",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Hole 12 stations",
+      "body": "Several stations on hole 12 won't come on from central control. Could the decoders be the issue? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-029",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Irrigation issue",
+      "body": "Something is wrong with our sprinklers. Can someone help? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 3,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-030",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Smoke from controller",
+      "body": "There is smoke coming out of a field controller after the storm. Can we reset it? Chris",
+      "expected": {
+        "category": 3,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-031",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Rotor stuck",
+      "body": "One rotor on hole 4 pops up but doesn't rotate. Pressure is fine. What should we check? Sam",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-032",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Adjusting arc",
+      "body": "Hello, How do we adjust the arc on our part-circle rotors? Jen",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-033",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "CirrusPRO program",
+      "body": "Hi team, How do I create a new watering program in CirrusPRO for our new chipping green? Mike",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-034",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Hole 12 stations",
+      "body": "Hello, Several stations on hole 12 won't come on from central control. Could the decoders be the issue? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-035",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Irrigation issue",
+      "body": "Something is wrong with our sprinklers. Can someone help? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 3,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-036",
+      "type": "Synthetic",
+      "scenario": "Generated category 3 email",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Smoke from controller",
+      "body": "Hello, There is smoke coming out of a field controller after the storm. Can we reset it? Chris",
+      "expected": {
+        "category": 3,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-037",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-038",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-039",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-040",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-041",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-042",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-043",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-044",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-045",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-046",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-047",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Hold on SO-TEST-104790",
+      "body": "Good morning, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-048",
+      "type": "Synthetic",
+      "scenario": "Generated category 4 email",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Order on hold",
+      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "expected": {
+        "category": 4,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-049",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-050",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-051",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Hi team, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-052",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-053",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Good morning, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-054",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Hi team, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-055",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Hello, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-056",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Hi team, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-057",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Good morning, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-058",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-059",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Discontinued part",
+      "body": "Hello, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-060",
+      "type": "Synthetic",
+      "scenario": "Generated category 5 email",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Nozzle compatibility",
+      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "expected": {
+        "category": 5,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-061",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-062",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-063",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "Hi team, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-064",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-065",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-066",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Good morning, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-067",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-068",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-069",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "Good morning, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-070",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Good morning, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-071",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "CirrusPRO subscription",
+      "body": "Hi team, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-072",
+      "type": "Synthetic",
+      "scenario": "Generated category 6 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "GSP renewal",
+      "body": "Hi team, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "expected": {
+        "category": 6,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-073",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-074",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-075",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Hi team, Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-076",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Hello, Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-077",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-078",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-079",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-080",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-081",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-082",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Hello, Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-083",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "New PO 55300",
+      "body": "Hello, Please find attached PO 55300 for the spring stock order. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-084",
+      "type": "Synthetic",
+      "scenario": "Generated category 7 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Change to PO 55120",
+      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-085",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-086",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-087",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Hi team, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-088",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-089",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Hi team, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-090",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-091",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-092",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Hello, Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-093",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Hello, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-094",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-095",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "RFQ - 9 hole upgrade",
+      "body": "Good morning, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-096",
+      "type": "Synthetic",
+      "scenario": "Generated category 8 email",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Tariff question",
+      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
+      "expected": {
+        "category": 8,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-097",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-098",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    },
+    {
+      "id": "SY-099",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-100",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    },
+    {
+      "id": "SY-101",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Hello, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-102",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "Hello, We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    },
+    {
+      "id": "SY-103",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Good morning, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-104",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    },
+    {
+      "id": "SY-105",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Hello, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-106",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "Hello, We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    },
+    {
+      "id": "SY-107",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Catalog request",
+      "body": "Good morning, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
+      "expected": {
+        "category": 9,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-108",
+      "type": "Synthetic",
+      "scenario": "Generated category 9 email",
+      "from": "office@oakmontvalley.example.com",
+      "subject": "Boost your leads",
+      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "expected": {
+        "category": 9,
+        "action": "file"
+      }
+    }
+  ]
+}

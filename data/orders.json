@@ -1,0 +1,91 @@
+{
+  "_note": "SYNTHETIC stand-in for the daily RBMG_ORDERS_BY_DATE export. Invented orders only.",
+  "source": "RBMG_ORDERS_BY_DATE daily export (synthetic)",
+  "as_of": "2026-11-27 06:00 ET",
+  "orders": [
+    {
+      "order_no": "SO-TEST-104582",
+      "customer_po": "PH-2211",
+      "sold_to": "ACC-PINEHOLLOW",
+      "ship_to": "Pine Hollow Golf Club",
+      "status": "Scheduled to ship",
+      "ship_date": "2026-12-09",
+      "carrier": null,
+      "tracking": null,
+      "lines": "TEST-7710 golf rotor x 24",
+      "internal_note": "Plant TEST-East line 3 capacity constrained"
+    },
+    {
+      "order_no": "SO-TEST-104611",
+      "customer_po": "PH-2240",
+      "sold_to": "ACC-PINEHOLLOW",
+      "ship_to": "Pine Hollow Golf Club",
+      "status": "Backordered",
+      "ship_date": null,
+      "carrier": null,
+      "tracking": null,
+      "lines": "TEST-5520 decoder x 12",
+      "internal_note": "Awaiting component from supplier"
+    },
+    {
+      "order_no": "SO-TEST-104590",
+      "customer_po": "CR-0912",
+      "sold_to": "ACC-CEDARRIDGE",
+      "ship_to": "Cedar Ridge Country Club",
+      "status": "Shipped",
+      "ship_date": "2026-11-18",
+      "carrier": "TEST Freight",
+      "tracking": "TEST-TRK-77001",
+      "lines": "TEST-7712 golf rotor x 10",
+      "internal_note": ""
+    },
+    {
+      "order_no": "SO-TEST-104655",
+      "customer_po": "55120",
+      "sold_to": "ACC-FAIRWAY",
+      "ship_to": "Lakeview Golf Club",
+      "status": "Shipped",
+      "ship_date": "2026-11-20",
+      "carrier": "TEST Freight",
+      "tracking": "TEST-TRK-88123",
+      "lines": "TEST-7710 golf rotor x 30",
+      "internal_note": ""
+    },
+    {
+      "order_no": "SO-TEST-104702",
+      "customer_po": "55187",
+      "sold_to": "ACC-FAIRWAY",
+      "ship_to": "Fairway Irrigation Supply (stock)",
+      "status": "Scheduled to ship",
+      "ship_date": "2026-12-14",
+      "carrier": null,
+      "tracking": null,
+      "lines": "TEST-7710 golf rotor x 24",
+      "internal_note": ""
+    },
+    {
+      "order_no": "SO-TEST-104790",
+      "customer_po": "55201",
+      "sold_to": "ACC-FAIRWAY",
+      "ship_to": "Lakeview Golf Club",
+      "status": "On hold",
+      "ship_date": null,
+      "carrier": null,
+      "tracking": null,
+      "lines": "TEST-9100 valve x 6",
+      "internal_note": "PM approval required: golf application review"
+    },
+    {
+      "order_no": "SO-TEST-104500",
+      "customer_po": "RB-118",
+      "sold_to": "ACC-RIVERBEND",
+      "ship_to": "Riverbend Golf Club, 123 Test Road",
+      "status": "Scheduled to ship",
+      "ship_date": "2026-12-02",
+      "carrier": null,
+      "tracking": null,
+      "lines": "TEST-7710 golf rotor x 18",
+      "internal_note": ""
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "_note": "SYNTHETIC demo data. All accounts, people and domains are invented (example.com).",
+  "internal_domains": ["rainbird.example.com", "rainbird-plant.example.com"],
+  "accounts": [
+    {
+      "id": "ACC-PINEHOLLOW",
+      "name": "Pine Hollow Golf Club",
+      "type": "course",
+      "domains": ["pinehollowgc.example.com"],
+      "contacts": ["mike.alvarez@pinehollowgc.example.com", "jeff.hale@pinehollowgc.example.com"]
+    },
+    {
+      "id": "ACC-CEDARRIDGE",
+      "name": "Cedar Ridge Country Club",
+      "type": "course",
+      "domains": ["cedarridgecc.example.com"],
+      "contacts": ["jen.walsh@cedarridgecc.example.com", "irrigation@cedarridgecc.example.com", "luis.romero@cedarridgecc.example.com"]
+    },
+    {
+      "id": "ACC-FAIRWAY",
+      "name": "Fairway Irrigation Supply",
+      "type": "distributor",
+      "domains": ["fairwayirrigation.example.com"],
+      "linked_accounts": ["ACC-LAKEVIEW"],
+      "contacts": ["orders@fairwayirrigation.example.com", "dana.price@fairwayirrigation.example.com", "parts@fairwayirrigation.example.com", "purchasing@fairwayirrigation.example.com"]
+    },
+    {
+      "id": "ACC-LAKEVIEW",
+      "name": "Lakeview Golf Club",
+      "type": "course",
+      "domains": ["lakeviewgolf.example.com"],
+      "contacts": ["ops@lakeviewgolf.example.com", "sam.ortiz@lakeviewgolf.example.com"]
+    },
+    {
+      "id": "ACC-HARBORPOINT",
+      "name": "Harbor Point Club",
+      "type": "course",
+      "domains": ["harborpointclub.example.com"],
+      "contacts": ["gm@harborpointclub.example.com", "irrigation@harborpointclub.example.com"]
+    },
+    {
+      "id": "ACC-MEADOWBROOK",
+      "name": "Meadowbrook Golf Club",
+      "type": "course",
+      "domains": ["meadowbrookgc.example.com"],
+      "contacts": ["pro.shop@meadowbrookgc.example.com", "office@meadowbrookgc.example.com"]
+    },
+    {
+      "id": "ACC-CAMPODELSOL",
+      "name": "Campo del Sol",
+      "type": "course",
+      "domains": ["campodelsol.example.com"],
+      "contacts": ["mantenimiento@campodelsol.example.com"]
+    },
+    {
+      "id": "ACC-RIVERBEND",
+      "name": "Riverbend Golf Club",
+      "type": "course",
+      "domains": ["riverbendgc.example.com"],
+      "contacts": ["super@riverbendgc.example.com"]
+    }
+  ]
+}

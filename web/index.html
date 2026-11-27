@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GolfPM Agent Console</title>
+<style>
+  :root { --bg:#f6f7f5; --panel:#fff; --ink:#1d2321; --muted:#5f6b66; --line:#dfe3e0; --accent:#1f6f4a; --warn:#a35a00; --bad:#b3261e; --chip:#eef2ef; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141816; --panel:#1c211f; --ink:#e6ebe8; --muted:#9aa7a1; --line:#2e3532; --accent:#5cc28f; --warn:#e0a050; --bad:#f08b84; --chip:#252c29; } }
+  * { box-sizing:border-box } body { margin:0; font:14px/1.45 system-ui, sans-serif; background:var(--bg); color:var(--ink); }
+  header { display:flex; gap:12px; align-items:center; padding:10px 16px; border-bottom:1px solid var(--line); background:var(--panel); flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 12px 0 0; } nav button { margin-right:4px; }
+  button { font:inherit; padding:5px 10px; border:1px solid var(--line); background:var(--chip); color:var(--ink); border-radius:6px; cursor:pointer; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); } button.on { outline:2px solid var(--accent); }
+  main { display:grid; grid-template-columns:320px 1fr; gap:12px; padding:12px 16px; }
+  @media (max-width:800px){ main { grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:12px; min-width:0; }
+  .list { max-height:75vh; overflow:auto; } .item { padding:6px 8px; border-bottom:1px solid var(--line); cursor:pointer; }
+  .item:hover { background:var(--chip); } .muted { color:var(--muted); font-size:12px; }
+  .chip { display:inline-block; padding:1px 7px; border-radius:10px; background:var(--chip); font-size:12px; margin-right:4px; }
+  .ok { color:var(--accent); } .bad { color:var(--bad); } .warn { color:var(--warn); }
+  pre { white-space:pre-wrap; background:var(--chip); padding:8px; border-radius:6px; margin:6px 0; font:12px/1.4 ui-monospace, monospace; }
+  .step { border-left:3px solid var(--accent); padding:4px 8px; margin:6px 0; } .step.guardrails { border-color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; } .kpi { font-size:22px; font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:12px; } td,th { border-bottom:1px solid var(--line); padding:4px; text-align:left; }
+  textarea,input,select { font:inherit; width:100%; padding:6px; border:1px solid var(--line); border-radius:6px; background:var(--panel); color:var(--ink); }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>GolfPM Agent Console</h1>
+  <nav>
+    <button data-tab="mail" class="on">Mailbox</button>
+    <button data-tab="review">CSR review</button>
+    <button data-tab="admin">Admin</button>
+    <button data-tab="eval">Evaluation</button>
+  </nav>
+  <span id="mode" class="chip"></span>
+  <button id="reset">Reset demo</button>
+</header>
+
+<main id="tab-mail">
+  <section class="panel">
+    <b>Test emails</b> <span class="muted">(click to send into the mailbox)</span>
+    <div id="cases" class="list"></div>
+    <details><summary>Compose an email</summary>
+      <input id="c-from" placeholder="from" value="mike.alvarez@pinehollowgc.example.com">
+      <input id="c-subj" placeholder="subject" style="margin-top:4px">
+      <textarea id="c-body" rows="5" placeholder="body" style="margin-top:4px"></textarea>
+      <button class="primary" id="c-send" style="margin-top:4px">Send</button>
+    </details>
+  </section>
+  <section class="panel" id="detail"><span class="muted">Send an email to see the pipeline trace and outputs.</span></section>
+</main>
+
+<main id="tab-review" class="hidden"><section class="panel" style="grid-column:1/-1" id="queue"></section></main>
+<main id="tab-admin" class="hidden"><section class="panel" style="grid-column:1/-1" id="admin"></section></main>
+<main id="tab-eval" class="hidden"><section class="panel" style="grid-column:1/-1">
+  <button class="primary" id="run-eval">Run test set (Chris's 39 + red team)</button>
+  <button id="gen-syn">Generate synthetic set</button> <button id="run-syn">Run synthetic set</button>
+  <div id="eval"></div></section></main>
+
+<script>
+const $ = s => document.querySelector(s);
+const api = async (p, o={}) => { const r = await fetch(p, {headers:{'Content-Type':'application/json'}, ...o}); if(!r.ok) throw new Error(await r.text()); return r.json(); };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('on', x === b));
+  ['mail','review','admin','eval'].forEach(t => $('#tab-'+t).classList.toggle('hidden', t !== b.dataset.tab));
+  if (b.dataset.tab === 'review') loadQueue(); if (b.dataset.tab === 'admin') loadAdmin();
+});
+
+async function init() {
+  const h = await api('/api/health'); $('#mode').textContent = h.mode;
+  const cases = await api('/api/test-cases');
+  $('#cases').innerHTML = cases.map(c => `<div class="item" data-id="${c.id}"><b>${c.id}</b> <span class="chip">${esc(c.type)}</span><div class="muted">${esc(c.scenario)}</div></div>`).join('');
+  document.querySelectorAll('#cases .item').forEach(el => el.onclick = async () => {
+    try { showEmail(await api(`/api/test-cases/${el.dataset.id}/send`, {method:'POST'})); } catch (e) { $('#detail').innerHTML = `<pre class="bad">${esc(e.message)}</pre>`; }
+  });
+}
+
+function showEmail(e) {
+  const r = e.result || {};
+  $('#detail').innerHTML = `
+    <div><b>${esc(e.subject)}</b> <span class="muted">from ${esc(e.from_addr)}</span></div>
+    <div style="margin:6px 0"><span class="chip">Action: <b>${esc(r.action)}</b></span><span class="chip">Category: ${esc(r.category)}</span>
+      <span class="chip">Confidence: ${esc(r.confidence)}</span><span class="chip">${esc(r.method)}</span><span class="chip">${r.duration_ms} ms</span>
+      <span class="chip">Case ${esc(e.case_id)}</span> <button id="takeover">CSR take over thread</button></div>
+    <div class="muted">${esc(r.reason)}</div>
+    <h4>Pipeline trace</h4>${e.trace.map(t => `<div class="step ${t.step}"><span class="chip">${t.step}</span> ${esc(t.title)}
+      ${Object.keys(t.detail||{}).length ? `<details><summary class="muted">detail</summary><pre>${esc(JSON.stringify(t.detail, null, 2))}</pre></details>` : ''}</div>`).join('')}
+    <h4>Outputs</h4>${e.outbox.map(m => `<div><span class="chip">${m.kind}</span> to <b>${esc(m.recipient)}</b> <span class="chip ${m.status==='sent'?'ok':'warn'}">${m.status}</span><pre>${esc(m.body)}</pre></div>`).join('') || '<span class="muted">No outbound messages</span>'}`;
+  $('#takeover').onclick = async () => { await api(`/api/cases/${e.case_id}/takeover`, {method:'POST', body:JSON.stringify({csr:'Demo CSR'})}); alert('Thread now owned by a CSR; the agent will stay out.'); };
+}
+
+$('#c-send').onclick = async () => showEmail(await api('/api/emails', {method:'POST', body:JSON.stringify({from:$('#c-from').value, subject:$('#c-subj').value, body:$('#c-body').value})}));
+$('#reset').onclick = async () => { await api('/api/reset?config=true', {method:'POST'}); $('#detail').innerHTML = '<span class="muted">Demo reset.</span>'; };
+
+async function loadQueue() {
+  const q = await api('/api/review-queue');
+  $('#queue').innerHTML = `<b>CSR review queue</b> (${q.length})` + q.map(m => `
+    <div style="border-top:1px solid var(--line); padding:8px 0">
+      <span class="chip">${m.kind === 'approval' ? 'Warranty approval' : 'Draft reply'}</span> to <b>${esc(m.recipient)}</b> · ${esc(m.subject)}
+      <span class="chip ${m.overdue?'bad':''}">${m.age_minutes} min / SLA ${m.sla_minutes}</span>${m.meta.blocked ? '<span class="chip bad">blocked by output checks</span>' : ''}
+      <textarea rows="8" id="b-${m.id}">${esc(m.kind === 'approval' ? m.meta.proposed_reply : m.body)}</textarea>
+      ${m.kind === 'approval' ? `<details><summary>Case summary for the CSR</summary><pre>${esc(m.body)}</pre></details>` : ''}
+      <button class="primary" data-a="approve" data-id="${m.id}">Approve & send</button>
+      <button data-a="edit" data-id="${m.id}">Send edited</button> <button data-a="reject" data-id="${m.id}">Reject</button>
+    </div>`).join('');
+  document.querySelectorAll('#queue button[data-a]').forEach(b => b.onclick = async () => {
+    await api(`/api/review/${b.dataset.id}`, {method:'POST', body:JSON.stringify({decision:b.dataset.a, body: b.dataset.a==='edit' ? $('#b-'+b.dataset.id).value : null})});
+    loadQueue();
+  });
+}
+
+async function loadAdmin() {
+  const [m, cfg] = await Promise.all([api('/api/metrics'), api('/api/config')]);
+  const k = (label, v) => `<div class="panel"><div class="muted">${label}</div><div class="kpi">${v}</div></div>`;
+  $('#admin').innerHTML = `<div class="grid">${k('Emails', m.emails)}${k('Agent handled (1-3)', m.agent_handled)}${k('Routed', m.routed)}${k('Escalated', m.escalated)}
+      ${k('Review queue', m.review_queue)}${k('Overdue vs SLA', m.overdue)}${k('Guardrail blocks', m.guardrail_blocks)}${k('Avg processing', m.avg_processing_ms + ' ms')}</div>
+    <h4>Volume by category</h4><table>${Object.entries(m.by_category).map(([c, v]) => `<tr><td>${c}. ${esc(v.name)}</td><td>${v.count}</td>
+      <td><select data-cat="${c}">${['draft','send'].map(o => `<option ${cfg.categories[c].mode===o?'selected':''}>${o}</option>`).join('')}</select></td>
+      <td>${esc(cfg.categories[c].owner)}</td><td>SLA ${cfg.categories[c].sla_minutes} min</td></tr>`).join('')}</table>
+    <p><label><input type="checkbox" id="ks" style="width:auto" ${cfg.kill_switch?'checked':''}> <b class="bad">Kill switch</b> (all email goes to people)</label>
+       <label style="margin-left:16px"><input type="checkbox" id="ai" style="width:auto" ${cfg.ai_disclosure.enabled?'checked':''}> AI disclosure footer</label>
+       <label style="margin-left:16px">Confidence threshold <input id="th" type="number" step="0.05" min="0" max="1" value="${cfg.confidence_threshold}" style="width:80px"></label></p>`;
+  document.querySelectorAll('#admin select').forEach(s => s.onchange = () => api('/api/config', {method:'PUT', body:JSON.stringify({categories:{[s.dataset.cat]:{mode:s.value}}})}));
+  $('#ks').onchange = e => api('/api/config', {method:'PUT', body:JSON.stringify({kill_switch:e.target.checked})});
+  $('#ai').onchange = e => api('/api/config', {method:'PUT', body:JSON.stringify({ai_disclosure:{enabled:e.target.checked}})});
+  $('#th').onchange = e => api('/api/config', {method:'PUT', body:JSON.stringify({confidence_threshold:parseFloat(e.target.value)})});
+}
+
+async function runEval(file) {
+  $('#eval').innerHTML = '<p class="muted">Running...</p>';
+  const r = await api('/api/evaluation/run?file=' + file, {method:'POST'}); const s = r.summary;
+  $('#eval').innerHTML = `<p><b>${s.passed}/${s.total} passed</b> · routing ${(s.routing_accuracy*100).toFixed(1)}% · action ${(s.action_accuracy*100).toFixed(1)}% ·
+    guardrails ${(s.guardrail_pass_rate*100).toFixed(1)}% · safety/red-team ${s.safety_cases_passed} · ${s.method} · ${s.seconds}s</p>
+    <table><tr><th>ID</th><th>Scenario</th><th>Category exp/got</th><th>Action exp/got</th><th>Result</th><th>Reason</th></tr>
+    ${r.results.map(x => `<tr><td>${x.id}</td><td>${esc(x.scenario)}</td><td>${x.expected_category ?? '-'} / ${x.predicted_category ?? '-'}</td>
+      <td>${x.expected_action} / ${x.predicted_action}</td><td class="${x.passed?'ok':'bad'}">${x.passed?'PASS':'FAIL'}</td><td class="muted">${esc(x.reason)}</td></tr>`).join('')}</table>`;
+}
+$('#run-eval').onclick = () => runEval('test_cases.json');
+$('#run-syn').onclick = () => runEval('synthetic_cases.json');
+$('#gen-syn').onclick = async () => { const r = await api('/api/synthetic/generate?per_category=10', {method:'POST'}); alert(`Generated ${r.written} synthetic emails`); };
+init();
+</script>
+</body>
+</html>

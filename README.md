@@ -17,9 +17,9 @@ cp .env.example .env        # add OPENAI_API_KEY (OPENAI_KEY also works) for LLM
 uvicorn golfpm.api:app --port 8000
 ```
 
-- Test console: http://localhost:8000
+- Demo UI (Rain Bird themed): http://localhost:8000
 - API docs: http://localhost:8000/docs
-- Demo UI (to build in Google AI Studio): see [docs/UI_SPEC_FOR_AI_STUDIO.md](docs/UI_SPEC_FOR_AI_STUDIO.md)
+- Rebuild or restyle the UI in Google AI Studio: see [docs/UI_SPEC_FOR_AI_STUDIO.md](docs/UI_SPEC_FOR_AI_STUDIO.md)
 
 **Modes**
 - **LLM mode** (key present): OpenAI models handle triage and write the replies. The default model is `gpt-5-mini`; set `GOLFPM_TRIAGE_MODEL` / `GOLFPM_REPLY_MODEL` to change it.

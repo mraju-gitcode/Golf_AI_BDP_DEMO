@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import documents, evaluation, knowledge, mailbox, store, synthetic
+from . import documents, evaluation, knowledge, mailbox, scenarios, store, synthetic
 from .config import ROOT, get_config, llm_enabled, reset_config, update_config
 from .llm import mode_label
 from .pipeline import PIPELINE_LOCK, process_email
@@ -100,6 +100,14 @@ def get_email(email_id: str):
 @app.get("/api/test-cases")
 def test_cases(file: str = "test_cases.json"):
     return evaluation.load_cases(file)
+
+
+@app.get("/api/scenarios")
+def list_scenarios(test_set: str = "validated"):
+    """Test scenario metadata DB: every scenario, its metadata and its last evaluation result."""
+    if test_set not in scenarios.SETS:
+        raise HTTPException(404, "unknown test set")
+    return scenarios.list_scenarios(test_set)
 
 
 @app.post("/api/test-cases/{case_id}/send")

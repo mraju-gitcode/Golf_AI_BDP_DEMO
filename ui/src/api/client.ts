@@ -4,6 +4,7 @@ import type {
   LiveStatus,
   DocumentPreview,
   KnowledgeResponse,
+  ScenarioLibrary,
   EvaluationRunResponse,
   HealthResponse,
   MetricsResponse,
@@ -146,6 +147,10 @@ export const golfpmApi = {
 
   getActivity(limit = 60): Promise<ActivityItem[]> {
     return request<ActivityItem[]>(`/api/activity?limit=${limit}`);
+  },
+
+  getScenarios(testSet: 'validated' | 'synthetic' = 'validated'): Promise<ScenarioLibrary> {
+    return request<ScenarioLibrary>(`/api/scenarios?test_set=${testSet}`);
   },
 
   getDocuments(): Promise<KnowledgeResponse> {

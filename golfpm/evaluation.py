@@ -20,7 +20,9 @@ from .pipeline import PIPELINE_LOCK, process_email
 
 
 def load_cases(name: str = "test_cases.json") -> list[dict]:
-    return json.loads((DATA / name).read_text())["cases"]
+    """Scenarios from the test-scenario metadata DB (validated set by default)."""
+    from . import scenarios
+    return scenarios.load_cases(scenarios.FILE_TO_SET.get(name, "validated"))
 
 
 def _raw(tc: dict, thread_ids: dict) -> dict:
@@ -108,6 +110,8 @@ def run(case_file: str = "test_cases.json", only: list[str] | None = None, worke
         key = str(r["expected_category"]) if r["expected_category"] else "none"
         by_cat[key]["total"] += 1
         by_cat[key]["passed"] += r["passed"]
+    from . import scenarios
+    scenarios.record_results(results, results[0]["method"] if results else None)
     n = len(results) or 1
     summary = {
         "total": len(results),

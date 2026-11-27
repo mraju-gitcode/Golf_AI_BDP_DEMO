@@ -2,6 +2,7 @@ import {
   BarChart3,
   ClipboardCheck,
   Compass,
+  Database,
   FlaskConical,
   Library,
   Inbox,
@@ -49,6 +50,7 @@ export function Sidebar({
       shortLabel: 'Settings',
       icon: SlidersHorizontal,
     },
+    { id: 'scenarios', label: 'Test Scenarios', shortLabel: 'Scenarios', icon: Database },
     {
       id: 'testing',
       label: 'Quality & Testing',

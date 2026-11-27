@@ -7,6 +7,7 @@ import { Header } from './components/Header';
 import { InboxView } from './components/InboxView';
 import { LiveActivityLog } from './components/LivePanels';
 import { KnowledgeView } from './components/KnowledgeView';
+import { ScenarioLibraryView } from './components/ScenarioLibraryView';
 import { QualityTestingView } from './components/QualityTestingView';
 import { SettingsView } from './components/SettingsView';
 import { Sidebar } from './components/Sidebar';
@@ -682,6 +683,8 @@ export default function App() {
           )}
 
           {activeSection === 'knowledge' && <KnowledgeView onError={handleApiError} />}
+
+          {activeSection === 'scenarios' && <ScenarioLibraryView onError={handleApiError} />}
 
           {activeSection === 'dashboard' && (
             <DashboardView

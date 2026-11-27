@@ -205,6 +205,8 @@ def write(total: int = 90, use_llm: bool = False) -> int:
     (DATA / "synthetic_cases.json").write_text(json.dumps(
         {"_note": "Generated from the demo story (data/story.md) by golfpm.synthetic. Labels come from the scenarios.",
          "cases": cases}, indent=2))
+    from . import scenarios
+    scenarios.seed()
     return len(cases)
 
 

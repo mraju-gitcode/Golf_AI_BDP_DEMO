@@ -1,4 +1,4 @@
-export type NavSection = 'journey' | 'inbox' | 'review' | 'knowledge' | 'dashboard' | 'settings' | 'testing';
+export type NavSection = 'journey' | 'inbox' | 'review' | 'knowledge' | 'scenarios' | 'dashboard' | 'settings' | 'testing';
 
 export interface KnowledgeDocument {
   id: string;
@@ -41,6 +41,44 @@ export interface ActivityItem {
   case_id?: string | null;
   from_addr?: string | null;
   subject?: string | null;
+}
+
+export interface ScenarioRow {
+  id: string;
+  test_set: string;
+  source: string;
+  category: number | null;
+  category_name: string;
+  test_type: string;
+  scenario: string;
+  sender: string;
+  subject: string;
+  body: string;
+  thread_of?: string | null;
+  expected_category: number | null;
+  expected_action: string;
+  open_items: string;
+  evaluation_questions: string;
+  last_passed?: number | null;
+  last_action?: string | null;
+  last_reason?: string | null;
+  last_run_at?: number | null;
+}
+
+export interface ScenarioLibrary {
+  test_set: string;
+  scenarios: ScenarioRow[];
+  stats: {
+    total: number;
+    categories_covered: number;
+    categories_total: number;
+    by_category: Record<string, { name: string; count: number; passed: number; run: number; types: Record<string, number> }>;
+    by_type: Record<string, number>;
+    evaluation_questions: Record<string, number>;
+    passed: number;
+    last_run_at: number | null;
+    sources: string[];
+  };
 }
 
 export interface KnowledgeResponse {

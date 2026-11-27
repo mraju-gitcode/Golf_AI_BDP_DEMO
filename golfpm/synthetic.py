@@ -156,7 +156,8 @@ def _llm_email(person, brief, subject, body) -> tuple[str, str]:
     ])
     text = msg.content if isinstance(msg.content, str) else "".join(p.get("text", "") for p in msg.content if isinstance(p, dict))
     data = json.loads(text[text.find("{"): text.rfind("}") + 1])
-    return data["subject"], data["body"]
+    clean = lambda t: t.replace(" \u2014 ", ", ").replace("\u2014", "-")
+    return clean(data["subject"]), clean(data["body"])
 
 
 def generate(total: int = 90, use_llm: bool = False, seed: int = 7) -> list[dict]:

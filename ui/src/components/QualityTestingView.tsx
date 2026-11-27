@@ -245,12 +245,12 @@ export function QualityTestingView({
                 <tbody className="divide-y divide-[#EEF2F0] dark:divide-[#202E27] text-xs">
                   {rows.map((row) => {
                     const catMismatch =
-                      row.expectedCategory !== '—' &&
-                      row.predictedCategory !== '—' &&
+                      row.expectedCategory !== '-' &&
+                      row.predictedCategory !== '-' &&
                       row.expectedCategory !== row.predictedCategory;
                     const actMismatch =
-                      row.expectedAction !== '—' &&
-                      row.predictedAction !== '—' &&
+                      row.expectedAction !== '-' &&
+                      row.predictedAction !== '-' &&
                       row.expectedAction !== row.predictedAction;
 
                     return (

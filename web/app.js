@@ -28,7 +28,7 @@ const KIND = { reply: "Email to customer", forward: "Forwarded", teams: "Microso
 
 let CONFIG = null, CASES = [], SENT = new Map(), listMode = "scenarios", activeId = null;
 
-function catName(c) { return c && CONFIG ? `${c}. ${CONFIG.categories[c].short}` : "—"; }
+function catName(c) { return c && CONFIG ? `${c}. ${CONFIG.categories[c].short}` : "-"; }
 function senderName(addr) {
   const local = (addr || "").split("@")[0];
   const m = local.match(/^([a-z]+)\.([a-z]+)$/);
@@ -71,7 +71,7 @@ async function renderList() {
   } else {
     const emails = await api("/api/emails");
     el.innerHTML = emails.length ? emails.map(e => {
-      const [label, tone] = ACTION[e.result?.action] || ["—", ""];
+      const [label, tone] = ACTION[e.result?.action] || ["-", ""];
       return `<div class="mail ${activeId === e.id ? "active" : ""}" data-eid="${e.id}">
         <div class="row1"><span class="sender">${esc(senderName(e.from_addr))}</span><span class="tag ${tone}">${label}</span></div>
         <div class="subj">${esc(e.subject)}</div>
@@ -107,7 +107,7 @@ $("#c-send").onclick = async () => {
 
 async function renderEmail(e, animate, resendId = null) {
   const r = e.result || {};
-  const [label] = ACTION[r.action] || ["—"];
+  const [label] = ACTION[r.action] || ["-"];
   const atts = (e.attachments || []).map(a => `<span class="tag">📎 ${esc(a.name)}</span>`).join("");
   $("#detail").innerHTML = `
     <div class="card card-b email-view">
@@ -125,8 +125,8 @@ async function renderEmail(e, animate, resendId = null) {
       <div class="outcome">
         <div class="o hero"><div class="k">Outcome</div><div class="v">${esc(label)}</div></div>
         <div class="o"><div class="k">Category</div><div class="v">${esc(catName(r.category))}</div></div>
-        <div class="o"><div class="k">Confidence</div><div class="v">${r.confidence != null ? Math.round(r.confidence * 100) + "%" : "—"}</div></div>
-        <div class="o"><div class="k">Handled in</div><div class="v">${r.duration_ms ?? "—"} ms</div></div>
+        <div class="o"><div class="k">Confidence</div><div class="v">${r.confidence != null ? Math.round(r.confidence * 100) + "%" : "-"}</div></div>
+        <div class="o"><div class="k">Handled in</div><div class="v">${r.duration_ms ?? "-"} ms</div></div>
         <div class="o"><div class="k">Case</div><div class="v small">${esc(e.case_id)}</div></div>
       </div>
       <div class="reason">${esc(r.reason)}</div>
@@ -292,7 +292,7 @@ async function runEval(file, label) {
       <div class="card"><div class="card-h"><h3>${esc(label)} results</h3></div><div class="card-b" style="overflow-x:auto">
         <table class="t"><tr><th>ID</th><th>Scenario</th><th>Category (expected / got)</th><th>Action (expected / got)</th><th>Result</th><th>Why</th></tr>
         ${results.map(x => `<tr><td><b>${x.id}</b></td><td>${esc(x.scenario)}</td>
-          <td>${esc(x.expected_category ?? "—")} / ${esc(x.predicted_category ?? "—")}</td>
+          <td>${esc(x.expected_category ?? "-")} / ${esc(x.predicted_category ?? "-")}</td>
           <td>${esc(x.expected_action)} / ${esc(x.predicted_action)}</td>
           <td class="${x.passed ? "pass" : "fail"}">${x.passed ? "Pass" : "Fail"}</td><td class="small muted">${esc(x.reason)}</td></tr>`).join("")}
         </table></div></div>`;

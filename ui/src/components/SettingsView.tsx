@@ -75,7 +75,7 @@ export function SettingsView({
       name: cat?.name || DEFAULT_CATEGORY_NAMES[id] || `Category ${id}`,
       pattern: cat?.pattern || (i < 2 ? 'agent' : i === 2 ? 'approval' : 'route'),
       mode: cat?.mode || 'draft',
-      owner: cat?.owner || '—',
+      owner: cat?.owner || '-',
       sla_minutes: cat?.sla_minutes ?? 60,
     };
   });
@@ -163,8 +163,8 @@ export function SettingsView({
               { kill_switch: !killSwitchOn },
               'kill_switch',
               !killSwitchOn
-                ? 'Kill switch enabled — agent paused'
-                : 'Kill switch disabled — agent resumed',
+                ? 'Kill switch enabled: agent paused'
+                : 'Kill switch disabled: agent resumed',
             )
           }
           className={`relative inline-flex h-10 w-[72px] shrink-0 items-center rounded-full p-1 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#018752] disabled:opacity-60 ${

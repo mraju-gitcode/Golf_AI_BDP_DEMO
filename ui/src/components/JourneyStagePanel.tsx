@@ -214,7 +214,7 @@ function EvaluationRun({ actions }: { actions: JourneyActions }) {
   };
 
   const s = res?.summary;
-  const pct = (x?: number) => (x == null ? '—' : `${Math.round(x * 100)}%`);
+  const pct = (x?: number) => (x == null ? '-' : `${Math.round(x * 100)}%`);
   return (
     <div className="space-y-3">
       {!running && !res && (

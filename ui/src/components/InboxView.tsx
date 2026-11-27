@@ -669,7 +669,7 @@ export function InboxView({
               Select a scenario to see GolfPM Assist in action
             </h2>
             <p className="text-sm text-[#6F7F77] dark:text-[#96A89E] max-w-md mx-auto mt-1.5 leading-relaxed">
-              Click any incoming email scenario on the left—or compose a custom message—to watch the
+              Click any incoming email scenario on the left, or compose a custom message, to watch the
               triage, guardrails, and delivery trace step by step.
             </p>
           </div>
@@ -808,7 +808,7 @@ export function InboxView({
                     Case ID
                   </div>
                   <div className="font-mono font-semibold text-xs text-[#1D2A24] dark:text-[#EAF1ED] mt-1.5 truncate">
-                    {selectedEmail.case_id || '—'}
+                    {selectedEmail.case_id || '-'}
                   </div>
                 </div>
               </div>

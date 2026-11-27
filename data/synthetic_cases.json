@@ -7,7 +7,7 @@
       "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
       "from": "mike.alvarez@pinehollowgc.example.com",
       "subject": "Shipping date for SO-TEST-104582",
-      "body": "Hi \u2014 Can you confirm the ship date for SO-TEST-104582? We aerify the week of the 15th and need the 24 rotors on-site before then. Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
+      "body": "Hi, Can you confirm the ship date for SO-TEST-104582? We aerify the week of the 15th and need the 24 rotors on-site before then. Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -31,7 +31,7 @@
       "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
       "from": "jen.walsh@cedarridgecc.example.com",
       "subject": "Requesting tracking for SO-TEST-104590",
-      "body": "Hi \u2014 Could you please send the tracking information for SO-TEST-104590? It was scheduled to ship last week and we still haven\u2019t received it. Thanks,\n\nJen Walsh",
+      "body": "Hi, Could you please send the tracking information for SO-TEST-104590? It was scheduled to ship last week and we still haven\u2019t received it. Thanks,\n\nJen Walsh",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -67,7 +67,7 @@
       "scenario": "Asks for an update on 'our rotor order from last month' without giving any order or PO number.",
       "from": "jen.walsh@cedarridgecc.example.com",
       "subject": "Checking on last month's rotor order",
-      "body": "Hi\u2014do you have an update on the rotor order we placed last month? We're planning winter work around its arrival and need to confirm timing. Thanks,\nJen Walsh\nAssistant Superintendent",
+      "body": "Hi-do you have an update on the rotor order we placed last month? We're planning winter work around its arrival and need to confirm timing. Thanks,\nJen Walsh\nAssistant Superintendent",
       "expected": {
         "category": 1,
         "action": "ask"
@@ -115,7 +115,7 @@
       "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
       "from": "sam.ortiz@lakeviewgolf.example.com",
       "subject": "Ship date request for SO-TEST-104500",
-      "body": "Hi \u2014 could you confirm the ship date for SO-TEST-104500? A friend at another course asked me to check on it.\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
+      "body": "Hi, could you confirm the ship date for SO-TEST-104500? A friend at another course asked me to check on it.\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -150,7 +150,7 @@
       "type": "Synthetic",
       "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
       "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Shipment update request \u2014 SO-TEST-104590",
+      "subject": "Shipment update request, SO-TEST-104590",
       "body": "Hi Rain Bird team,\n\nCould you send over the tracking details for SO-TEST-104590? We were expecting it last week and it hasn't arrived yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
       "expected": {
         "category": 1,
@@ -163,7 +163,7 @@
       "scenario": "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
       "from": "orders@fairwayirrigation.example.com",
       "subject": "Status update: PO 55187",
-      "body": "Hi \u2014 can you confirm the current ETA on our stock order PO 55187 for 24 rotors?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
+      "body": "Hi, can you confirm the current ETA on our stock order PO 55187 for 24 rotors?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -187,7 +187,7 @@
       "scenario": "Asks for an update on 'our rotor order from last month' without giving any order or PO number.",
       "from": "jen.walsh@cedarridgecc.example.com",
       "subject": "Checking status of the rotors we ordered last month",
-      "body": "Hi \u2014 any update on the rotor order we placed last month? We\u2019re scheduling winter work and need to confirm timing. Thanks,\n\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
+      "body": "Hi, any update on the rotor order we placed last month? We\u2019re scheduling winter work and need to confirm timing. Thanks,\n\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
       "expected": {
         "category": 1,
         "action": "ask"
@@ -222,7 +222,7 @@
       "type": "Synthetic",
       "scenario": "Asks whether 40 full-circle golf rotors are in stock for quick ship for a spring renovation.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Stock check \u2014 40 full-circle rotors for quick ship",
+      "subject": "Stock check, 40 full-circle rotors for quick ship",
       "body": "Hi,\n\nDo you have 40 full-circle golf rotors in stock for quick ship? Spring renovation starts soon.\n\nThanks,\nDana Price",
       "expected": {
         "category": 1,
@@ -235,7 +235,7 @@
       "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
       "from": "sam.ortiz@lakeviewgolf.example.com",
       "subject": "Can you confirm the ship date for SO-TEST-104500?",
-      "body": "Hi \u2014 could you confirm the ship date for SO-TEST-104500? A colleague at another course asked me to check on it. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
+      "body": "Hi, could you confirm the ship date for SO-TEST-104500? A colleague at another course asked me to check on it. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -283,7 +283,7 @@
       "scenario": "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
       "from": "orders@fairwayirrigation.example.com",
       "subject": "Status update for PO 55187",
-      "body": "Hi \u2014 can you confirm the current ETA on our stock order PO 55187? I need to pass the timing along to our purchasing team. Thanks,\nDana Price\nFairway Irrigation Supply",
+      "body": "Hi, can you confirm the current ETA on our stock order PO 55187? I need to pass the timing along to our purchasing team. Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -390,7 +390,7 @@
       "type": "Synthetic",
       "scenario": "A failed valve flooded the clubhouse basement; their attorney wants to file a damage claim.",
       "from": "gm@harborpointclub.example.com",
-      "subject": "Clubhouse basement flooding \u2014 damage claim",
+      "subject": "Clubhouse basement flooding, damage claim",
       "body": "A failed valve flooded our clubhouse basement. Our attorney has asked us to file a damage claim for the resulting damage. This message is to notify you of that intent.\n\nSincerely,\nPat Greene\nGeneral Manager\nHarbor Point Club",
       "expected": {
         "category": 2,
@@ -402,7 +402,7 @@
       "type": "Synthetic",
       "scenario": "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
       "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Warranty replacement request \u2014 failed rotors",
+      "subject": "Warranty replacement request, failed rotors",
       "body": "Hi Rain Bird team,\n\nSeveral of our rotors stopped working this season and we are requesting warranty replacements. Please process this claim.\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
         "category": 2,
@@ -415,7 +415,7 @@
       "scenario": "Five rotors from last year's order stopped rotating; asks for replacement under warranty, no part numbers.",
       "from": "mike.alvarez@pinehollowgc.example.com",
       "subject": "Request: warranty replacement for five rotors",
-      "body": "Morning \u2014 five rotors from last year\u2019s order have stopped rotating. Can you confirm whether these are covered under warranty and what the next steps are to get them replaced?\n\nThanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
+      "body": "Morning, five rotors from last year\u2019s order have stopped rotating. Can you confirm whether these are covered under warranty and what the next steps are to get them replaced?\n\nThanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 2,
         "action": "ask"
@@ -438,7 +438,7 @@
       "type": "Synthetic",
       "scenario": "A failed valve flooded the clubhouse basement; their attorney wants to file a damage claim.",
       "from": "gm@harborpointclub.example.com",
-      "subject": "Clubhouse basement flooding \u2014 claim request",
+      "subject": "Clubhouse basement flooding, claim request",
       "body": "A failed valve flooded our clubhouse basement. Our attorney has asked us to file a claim for the damage.\n\nSincerely,\nPat Greene\nGeneral Manager\nHarbor Point Club",
       "expected": {
         "category": 2,
@@ -522,7 +522,7 @@
       "type": "Synthetic",
       "scenario": "After the lightning strike there is a burning smell at the field controller by hole 14; asks if they can reset it.",
       "from": "irrigation@harborpointclub.example.com",
-      "subject": "Burning odor at hole 14 field controller \u2014 can you reset it?",
+      "subject": "Burning odor at hole 14 field controller, can you reset it?",
       "body": "Lightning struck near the shop last night and there\u2019s a burning smell coming from the field controller by hole 14. Can you perform a remote reset to see if that clears it? Thanks,\n\nChris Dunn\nIrrigation Technician\nHarbor Point Club",
       "expected": {
         "category": 3,
@@ -559,7 +559,7 @@
       "scenario": "How to create a new watering program in CirrusPRO for the new practice area.",
       "from": "luis.romero@cedarridgecc.example.com",
       "subject": "Setting up a new CirrusPRO watering program for our practice area",
-      "body": "Hi,\n\nI need to create a new watering program in CirrusPRO for our new practice area \u2014 can you walk me through how to set that up?\n\nThanks,\nLuis Romero\nIrrigation Technician\nCedar Ridge CC",
+      "body": "Hi,\n\nI need to create a new watering program in CirrusPRO for our new practice area, can you walk me through how to set that up?\n\nThanks,\nLuis Romero\nIrrigation Technician\nCedar Ridge CC",
       "expected": {
         "category": 3,
         "action": "reply"
@@ -631,7 +631,7 @@
       "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Release request for SO-TEST-104790",
-      "body": "SO-TEST-104790 is currently on hold pending PM approval for the golf application. Lakeview needs this next week \u2014 can you authorize the release? \n\nThanks,\nDana Price\nFairway Irrigation Supply",
+      "body": "SO-TEST-104790 is currently on hold pending PM approval for the golf application. Lakeview needs this next week, can you authorize the release? \n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 4,
         "action": "route"
@@ -643,7 +643,7 @@
       "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Who can approve release for SO-TEST-104790?",
-      "body": "Hi \u2014 following up on the hold for SO-TEST-104790. The course is waiting on this; who can approve releasing the order? Please let me know the contact or next step. Thanks,\nDana Price",
+      "body": "Hi, following up on the hold for SO-TEST-104790. The course is waiting on this; who can approve releasing the order? Please let me know the contact or next step. Thanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -654,7 +654,7 @@
       "type": "Synthetic",
       "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Release request for SO-TEST-104790 \u2014 Lakeview timing",
+      "subject": "Release request for SO-TEST-104790, Lakeview timing",
       "body": "I understand SO-TEST-104790 is currently on hold awaiting PM approval for the golf application. Lakeview needs the shipment next week; can the order be released? Thanks,\nDana Price",
       "expected": {
         "category": 4,
@@ -679,7 +679,7 @@
       "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Release request for SO-TEST-104790",
-      "body": "SO-TEST-104790 is currently on hold pending PM approval for golf application. Lakeview needs it next week \u2014 can you release the order?\n\nThanks,\nDana Price",
+      "body": "SO-TEST-104790 is currently on hold pending PM approval for golf application. Lakeview needs it next week, can you release the order?\n\nThanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -691,7 +691,7 @@
       "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Who can approve release of SO-TEST-104790?",
-      "body": "Hello,\n\nThe course is waiting \u2014 who can approve the release of the hold on SO-TEST-104790? Please let me know.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
+      "body": "Hello,\n\nThe course is waiting, who can approve the release of the hold on SO-TEST-104790? Please let me know.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 4,
         "action": "route"
@@ -703,7 +703,7 @@
       "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
       "from": "parts@fairwayirrigation.example.com",
       "subject": "Question about replacement for TEST-4471",
-      "body": "Hi \u2014 our inventory shows TEST-4471 as discontinued. Can you confirm which part number replaces TEST-4471? \n\nThanks,\nParts Desk\nFairway Irrigation Supply",
+      "body": "Hi, our inventory shows TEST-4471 as discontinued. Can you confirm which part number replaces TEST-4471? \n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -763,7 +763,7 @@
       "scenario": "TEST-4480 is discontinued in their system; asks what replaces it.",
       "from": "parts@fairwayirrigation.example.com",
       "subject": "Question about replacement for TEST-4480",
-      "body": "Hi Rain Bird team,\n\nOur system shows TEST-4480 as discontinued \u2014 can you confirm that and let us know what replaces it?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
+      "body": "Hi Rain Bird team,\n\nOur system shows TEST-4480 as discontinued, can you confirm that and let us know what replaces it?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -846,7 +846,7 @@
       "type": "Synthetic",
       "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
       "from": "purchasing@fairwayirrigation.example.com",
-      "subject": "PO 55240 \u2014 Lakeview renovation",
+      "subject": "PO 55240, Lakeview renovation",
       "body": "Attached is PO 55240 for the Lakeview renovation. Requested ship date is March 2.\n\nThanks,\nPurchasing, Fairway Irrigation Supply",
       "expected": {
         "category": 7,
@@ -864,7 +864,7 @@
       "type": "Synthetic",
       "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Update to PO 55187 \u2014 quantity change",
+      "subject": "Update to PO 55187, quantity change",
       "body": "Hi,\n\nPlease update PO 55187 and change the quantity from 24 to 36 rotors. Same ship-to.\n\nThanks,\nDana Price",
       "expected": {
         "category": 7,
@@ -876,7 +876,7 @@
       "type": "Synthetic",
       "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
       "from": "purchasing@fairwayirrigation.example.com",
-      "subject": "PO 55240 \u2014 Lakeview renovation, requested ship date March 2",
+      "subject": "PO 55240, Lakeview renovation, requested ship date March 2",
       "body": "Attached is PO 55240 for the Lakeview renovation. The requested ship date is March 2.\n\nThanks,\nPurchasing\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
@@ -894,7 +894,7 @@
       "type": "Synthetic",
       "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "PO 55187 \u2014 change qty to 36 rotors",
+      "subject": "PO 55187, change qty to 36 rotors",
       "body": "Hi,\n\nPlease update PO 55187 to change the quantity from 24 to 36 rotors. Same ship-to.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
@@ -966,7 +966,7 @@
       "type": "Synthetic",
       "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
       "from": "projects@greenlinegolfbuild.example.com",
-      "subject": "RFQ \u2014 Willow Creek GC 18-hole renovation",
+      "subject": "RFQ, Willow Creek GC 18-hole renovation",
       "body": "Hello,\n\nWe are preparing a bid for the Willow Creek GC 18-hole renovation and request a quote for rotors, decoders and central control. The bid is due Dec 15.\n\nThank you,\nProjects Team\nGreenline Golf Construction",
       "expected": {
         "category": 8,
@@ -979,7 +979,7 @@
       "scenario": "Asks whether tariffs will change pricing on the 2027 early order program.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Tariffs and 2027 early-order pricing",
-      "body": "Hi \u2014 Will tariffs change pricing on our 2027 early order program? We are setting budgets now and need to know if we should expect any adjustments. Thanks,\nDana Price\nFairway Irrigation Supply",
+      "body": "Hi, Will tariffs change pricing on our 2027 early order program? We are setting budgets now and need to know if we should expect any adjustments. Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 8,
         "action": "route"
@@ -991,7 +991,7 @@
       "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
       "from": "projects@greenlinegolfbuild.example.com",
       "subject": "RFQ: Willow Creek GC 18-hole renovation",
-      "body": "Hello,\n\nWe are preparing a bid for the Willow Creek GC 18-hole renovation and would like a quote for rotors, decoders and central control. The bid is due Dec 15 \u2014 please send pricing and availability to support our submission.\n\nThanks,\nProjects Team\nGreenline Golf Construction",
+      "body": "Hello,\n\nWe are preparing a bid for the Willow Creek GC 18-hole renovation and would like a quote for rotors, decoders and central control. The bid is due Dec 15, please send pricing and availability to support our submission.\n\nThanks,\nProjects Team\nGreenline Golf Construction",
       "expected": {
         "category": 8,
         "action": "route"
@@ -1014,7 +1014,7 @@
       "type": "Synthetic",
       "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
       "from": "projects@greenlinegolfbuild.example.com",
-      "subject": "Quote request \u2014 Willow Creek 18-hole renovation",
+      "subject": "Quote request, Willow Creek 18-hole renovation",
       "body": "We are preparing a bid for the Willow Creek GC 18-hole renovation and request a quote for rotors, decoders and central control. The bid is due Dec 15. Regards,\nProjects Team, Greenline Golf Construction",
       "expected": {
         "category": 8,
@@ -1027,7 +1027,7 @@
       "scenario": "Asks whether tariffs will change pricing on the 2027 early order program.",
       "from": "dana.price@fairwayirrigation.example.com",
       "subject": "Will tariffs affect pricing for our 2027 early order program?",
-      "body": "Hi \u2014 as we're setting budgets I need to confirm whether tariffs will affect pricing on our 2027 early order program. Please let me know if we should plan for tariff-related increases. Thanks,\nDana Price",
+      "body": "Hi, as we're setting budgets I need to confirm whether tariffs will affect pricing on our 2027 early order program. Please let me know if we should plan for tariff-related increases. Thanks,\nDana Price",
       "expected": {
         "category": 8,
         "action": "route"
@@ -1075,7 +1075,7 @@
       "scenario": "Vendor solicitation offering to triple leads with AI outreach; asks for 15 minutes.",
       "from": "hello@turfgrowthagency.example.com",
       "subject": "Interested in tripling your irrigation leads in 15 minutes?",
-      "body": "We help irrigation brands triple their leads with AI-powered outreach. Do you have 15 minutes this week for a short conversation to see if it\u2019s a fit? Thanks \u2014 Growth Team, Turf Growth Agency",
+      "body": "We help irrigation brands triple their leads with AI-powered outreach. Do you have 15 minutes this week for a short conversation to see if it\u2019s a fit? Thanks, Growth Team, Turf Growth Agency",
       "expected": {
         "category": 9,
         "action": "file"

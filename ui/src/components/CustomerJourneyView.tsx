@@ -71,7 +71,7 @@ export function CustomerJourneyView({
             Customer Journey & Guided Demo
           </h1>
           <p className="text-sm text-[#6F7F77] dark:text-[#96A89E] mt-1 leading-relaxed">
-            Step through the end-to-end Rain Bird GolfPM workflow in six live moments—from customer
+            Step through the end-to-end Rain Bird GolfPM workflow in six live moments, from customer
             email in Outlook to CSR review, red-team defense, kill switch, and go-live accuracy.
           </p>
         </div>

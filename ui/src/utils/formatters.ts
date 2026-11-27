@@ -233,7 +233,7 @@ export function formatCategoryLabel(
 }
 
 export function formatSlaDuration(minutes?: number | null): string {
-  if (minutes === undefined || minutes === null || Number.isNaN(minutes)) return '—';
+  if (minutes === undefined || minutes === null || Number.isNaN(minutes)) return '-';
   const rounded = Math.round(minutes);
   if (rounded < 60) return `${rounded}m`;
   const hours = Math.floor(rounded / 60);
@@ -330,9 +330,9 @@ export function normalizeEvalRow(row: EvaluationCaseResult): NormalizedEvalRow {
   const expCat = row.expected_category ?? row.expected?.category;
   const predCat =
     row.predicted_category ?? row.actual_category ?? row.predicted?.category;
-  const expAct = row.expected_action ?? row.expected?.action ?? '—';
+  const expAct = row.expected_action ?? row.expected?.action ?? '-';
   const predAct =
-    row.predicted_action ?? row.actual_action ?? row.predicted?.action ?? '—';
+    row.predicted_action ?? row.actual_action ?? row.predicted?.action ?? '-';
   const passed =
     typeof row.passed === 'boolean'
       ? row.passed
@@ -342,14 +342,14 @@ export function normalizeEvalRow(row: EvaluationCaseResult): NormalizedEvalRow {
 
   return {
     id: row.id,
-    scenario: row.scenario ?? '—',
+    scenario: row.scenario ?? '-',
     expectedCategory:
-      expCat !== undefined && expCat !== null && expCat !== '' ? String(expCat) : '—',
+      expCat !== undefined && expCat !== null && expCat !== '' ? String(expCat) : '-',
     predictedCategory:
-      predCat !== undefined && predCat !== null && predCat !== '' ? String(predCat) : '—',
+      predCat !== undefined && predCat !== null && predCat !== '' ? String(predCat) : '-',
     expectedAction: expAct,
     predictedAction: predAct,
     passed,
-    reason: row.reason ?? '—',
+    reason: row.reason ?? '-',
   };
 }

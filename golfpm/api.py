@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import evaluation, knowledge, store, synthetic
+from . import documents, evaluation, knowledge, store, synthetic
 from .config import ROOT, get_config, llm_enabled, reset_config, update_config
 from .llm import mode_label
 from .pipeline import PIPELINE_LOCK, process_email
@@ -261,6 +261,25 @@ def generate_synthetic(per_category: int = 10, total: int | None = None, use_llm
 @app.get("/api/kb/search")
 def kb_search(q: str):
     return knowledge.search(q, k=5)
+
+
+@app.get("/api/documents")
+def list_documents():
+    """Synthetic document library (the files the client referenced), with how the agent may use each."""
+    docs = documents.load_manifest() or documents.build()
+    return {"documents": docs,
+            "stats": {"total": len(docs), "indexed": sum(d["indexed"] for d in docs),
+                      "public": sum(d["audience"] == "public" for d in docs),
+                      "internal": sum(d["audience"] == "internal" for d in docs)}}
+
+
+@app.get("/api/documents/file/{path:path}")
+def document_file(path: str):
+    base = documents.OUT.resolve()
+    target = (base / path).resolve()
+    if base not in target.parents or not target.is_file():
+        raise HTTPException(404, "document not found")
+    return FileResponse(target, filename=target.name)
 
 
 web = ROOT / "web"            # classic console (no build step)

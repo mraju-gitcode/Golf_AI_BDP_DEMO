@@ -43,13 +43,14 @@ def _parse(path) -> list[dict]:
         heading, _, text = block.partition("\n")
         sections.append({"doc_id": meta.get("id"), "title": meta.get("title"),
                          "source_url": meta.get("source_url"), "audience": meta.get("audience", "internal"),
+                         "index": meta.get("index", "true") != "false",
                          "heading": heading.strip(), "text": text.strip()})
     return sections
 
 
 @lru_cache(maxsize=1)
 def _index():
-    sections = [s for p in sorted(KB_DIR.glob("*.md")) for s in _parse(p)]
+    sections = [s for p in sorted(KB_DIR.glob("*.md")) for s in _parse(p) if s["index"]]
     docs = [Counter(_tokens(s["heading"] + " " + s["heading"] + " " + s["text"])) for s in sections]
     df = Counter(t for d in docs for t in d)
     n = len(docs)

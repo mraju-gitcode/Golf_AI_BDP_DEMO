@@ -41,7 +41,7 @@
      "body": "Hello,\n\nAttached is the completed warranty form for 8 rotors that failed after one season on holes 3 and 4. Part numbers and install dates are on the form. Course contact is me.\n\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
      "attachments": [
        {"name": "warranty_form.pdf", "type": "application/pdf", "form": "warranty_information_form",
-        "extracted_fields": {"course_name": "Lakeview Golf Club", "contact_name": "Sam Ortiz", "contact_phone": "555-0177", "part_numbers": "TEST-7710 x 8", "install_date": "2025-04-10", "failure_description": "Rotors stopped rotating after one season, holes 3 and 4", "product_type": "rotor"}},
+        "extracted_fields": {"course_name": "Lakeview Golf Club", "contact_name": "Sam Ortiz", "contact_phone": "555-0177", "part_numbers": "TEST-7710 x 8", "install_date": "2025-04-10", "date_code": "TEST-2291", "failure_description": "Rotors stopped rotating after one season, holes 3 and 4", "product_type": "rotor"}},
        {"name": "photo1.jpg", "type": "image/jpeg"},
        {"name": "photo2.jpg", "type": "image/jpeg"}
      ],

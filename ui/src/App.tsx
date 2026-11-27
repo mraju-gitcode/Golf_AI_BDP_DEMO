@@ -5,6 +5,7 @@ import { CustomerJourneyView } from './components/CustomerJourneyView';
 import { DashboardView } from './components/DashboardView';
 import { Header } from './components/Header';
 import { InboxView } from './components/InboxView';
+import { KnowledgeView } from './components/KnowledgeView';
 import { QualityTestingView } from './components/QualityTestingView';
 import { SettingsView } from './components/SettingsView';
 import { Sidebar } from './components/Sidebar';
@@ -25,6 +26,17 @@ import {
   computeCompletedDemoStages,
   type DemoStageDefinition,
 } from './utils/journey';
+
+// Rebuild "already sent" scenarios from the mailbox, so a page refresh reopens results
+// instead of re-sending (which the duplicate guard would ignore).
+function sentMapFromEmails(emails: ProcessedEmail[]): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const e of [...emails].reverse()) {
+    const id = e.test_id ?? e.test_case_id;
+    if (id) map[id] = e.id;
+  }
+  return map;
+}
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('journey');
@@ -153,6 +165,7 @@ export default function App() {
         ]);
         setTestCases(cases);
         setProcessedEmails(emails);
+        setSentTestCaseMap((prev) => ({ ...sentMapFromEmails(emails), ...prev }));
       } catch (err) {
         handleApiError(err, 'Failed to load GolfPM inbox', silent);
       } finally {
@@ -248,6 +261,7 @@ export default function App() {
         golfpmApi.getReviewQueue(),
       ]);
       setProcessedEmails(emails);
+      setSentTestCaseMap((prev) => ({ ...sentMapFromEmails(emails), ...prev }));
       setReviewQueue(queue);
     } catch {
       // Non-blocking refresh
@@ -570,6 +584,8 @@ export default function App() {
               onRefresh={() => void loadReviewQueue(false)}
             />
           )}
+
+          {activeSection === 'knowledge' && <KnowledgeView onError={handleApiError} />}
 
           {activeSection === 'dashboard' && (
             <DashboardView

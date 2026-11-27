@@ -1,10 +1,14 @@
 ---
 id: KB-WARRANTY
-title: Golf Warranty Policy Summary (SYNTHETIC DEMO COPY)
 source_url: https://www.rainbird.com/corporate/professional-customer-satisfaction-policy
 audience: internal
+title: Golf Warranty Policy Summary
+format: pdf
+doc_type: Policy
+owner: Golf Product Management
+location: rainbird.com professional customer satisfaction policy
+updated: 2026-08-01
 ---
-SYNTHETIC placeholder terms for the local demo. The real determination uses the Rain Bird policy page, golf catalog warranty page and warranty change notices.
 
 ## Section 2.1 Golf rotors
 Rotors are covered against defects in materials and workmanship for 3 years from the installation date when installed and maintained per published instructions.

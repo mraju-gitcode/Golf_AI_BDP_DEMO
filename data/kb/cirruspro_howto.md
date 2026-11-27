@@ -1,10 +1,14 @@
 ---
 id: KB-CIRRUSPRO-HOWTO
-title: CirrusPRO How-To Videos: Programs (SYNTHETIC DEMO COPY)
 source_url: https://www.rainbird.com/golf/support
 audience: public
+title: CirrusPRO How-To Video Index
+format: docx
+doc_type: Video index
+owner: Altan (GolfPM)
+location: Box: Golf / CirrusPRO How-To Videos
+updated: 2026-10-02
 ---
-SYNTHETIC placeholder content for the local demo. Replace with the approved CirrusPRO how-to video list before any real use.
 
 ## Create a new watering program
 Video: "Creating a program in CirrusPRO".

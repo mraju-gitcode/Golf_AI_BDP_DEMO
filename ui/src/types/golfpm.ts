@@ -1,4 +1,24 @@
-export type NavSection = 'journey' | 'inbox' | 'review' | 'dashboard' | 'settings' | 'testing';
+export type NavSection = 'journey' | 'inbox' | 'review' | 'knowledge' | 'dashboard' | 'settings' | 'testing';
+
+export interface KnowledgeDocument {
+  id: string;
+  title: string;
+  file: string;
+  format: string;
+  doc_type: string;
+  owner: string;
+  location: string;
+  updated: string;
+  audience: 'public' | 'internal' | 'customer';
+  indexed: boolean;
+  sections: string[];
+  usage: string;
+}
+
+export interface KnowledgeResponse {
+  documents: KnowledgeDocument[];
+  stats: { total: number; indexed: number; public: number; internal: number };
+}
 
 export type BackendStatus = 'checking' | 'connected_llm' | 'connected_rules' | 'unreachable';
 
@@ -74,6 +94,7 @@ export interface ProcessedEmail {
   trace?: TraceStep[];
   outbox?: OutboxMessage[];
   test_case_id?: string;
+  test_id?: string | null;
   taken_over?: boolean;
 }
 

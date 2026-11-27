@@ -1,5 +1,6 @@
 import type {
   AgentConfig,
+  KnowledgeResponse,
   EvaluationRunResponse,
   HealthResponse,
   MetricsResponse,
@@ -130,6 +131,10 @@ export const golfpmApi = {
       method: 'POST',
       body: JSON.stringify(payload),
     });
+  },
+
+  getDocuments(): Promise<KnowledgeResponse> {
+    return request<KnowledgeResponse>('/api/documents');
   },
 
   getMetrics(): Promise<MetricsResponse> {

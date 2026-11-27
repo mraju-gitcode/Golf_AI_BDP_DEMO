@@ -6,6 +6,7 @@ the agent never approves a claim, issues an RGA or promises a credit.
 """
 from __future__ import annotations
 
+import json
 import re
 
 from ..config import get_config
@@ -74,11 +75,24 @@ def handle(email: dict, intake: dict, triage: dict, case: dict) -> dict:
 
     product = fields.get("product_type", "rotor")
     section = knowledge.get_section("KB-WARRANTY", "Section 2.1" if product == "rotor" else "Section 2.2")
+    sources = [section]
+    notes = []
+    # Internal sources inform the CSR summary only; they are never quoted to the customer (T-A2).
+    wcn = knowledge.get_section("KB-WCN-2026-03", "Lot TEST-2291")
+    if wcn and "TEST-2291" in json.dumps(fields):
+        notes.append(f"Known issue: date code {fields.get('date_code')} is lot TEST-2291 (RGA-2026-114). {wcn['text']}")
+        sources += [wcn, knowledge.get_section("KB-RGA-2026-114", "Summary")]
+    if not fields.get("date_code"):
+        notes.append("Date code missing: WCN-2026-03 requires it before a determination.")
+    checklist = knowledge.get_section("KB-WARRANTY-QS", "Questions to confirm")
+    sources.append(checklist)
     summary = (f"Course: {fields.get('course_name', intake['sender']['account_name'])}\n"
                f"Contact: {fields.get('contact')}\nParts: {fields.get('part_numbers')}\n"
-               f"Install date: {fields.get('install_date', 'not given')}\n"
+               f"Install date: {fields.get('install_date', 'not given')}  |  Date code: {fields.get('date_code', 'not given')}\n"
                f"Failure: {fields.get('failure_description', summarize(email, text, 160))}\n\n"
-               f"Policy reference: {section['title']} / {section['heading']}: {section['text']}\n\n"
+               f"Policy reference: {section['title']} / {section['heading']}: {section['text']}\n"
+               + ("".join(f"\n{n}" for n in notes)) +
+               f"\n\nValidation checklist ({checklist['title']}):\n{checklist['text']}\n\n"
                "Draft determination: within the warranty period based on the install date given; "
                "recommend approval subject to CSR review of photos and date codes.")
     try:
@@ -94,4 +108,5 @@ def handle(email: dict, intake: dict, triage: dict, case: dict) -> dict:
                     approval={"to": owner, "summary": better or summary, "proposed_reply": wrap_reply(email, proposed)},
                     teams={"to": owner, "text": "Warranty determination awaiting approval"},
                     case_status="pending_approval", checks={"no_commitment": True},
-                    sources=[{"title": section["title"], "section": section["heading"], "url": section["source_url"]}])
+                    sources=[{"title": s["title"], "section": s["heading"], "url": s["source_url"], "audience": s["audience"]}
+                             for s in sources if s])

@@ -3,6 +3,7 @@ import {
   ClipboardCheck,
   Compass,
   FlaskConical,
+  Library,
   Inbox,
   SlidersHorizontal,
 } from 'lucide-react';
@@ -38,6 +39,7 @@ export function Sidebar({
       icon: ClipboardCheck,
       badge: reviewCount,
     },
+    { id: 'knowledge', label: 'Knowledge Sources', shortLabel: 'Knowledge', icon: Library },
   ];
 
   const managementItems: NavItem[] = [

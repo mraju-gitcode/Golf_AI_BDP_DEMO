@@ -32,7 +32,7 @@ RULES: dict[int, list[tuple[str, float]]] = {
         (r"\bcompatib", 3), (r"\bfit\b", 2), (r"\bspecs?\b|\bspecification", 1.5), (r"\bsku\b", 2)],
     6: [(r"\bsubscription\b", 3), (r"\bonboarding\b", 3), (r"\brenew(al)?\b", 2.5), (r"\bgsp\b|\bservice plan\b", 3),
         (r"\bpasscode\b", 2), (r"\bset up our account\b|\baccount set ?up\b", 2.5), (r"\bcirruspro plan\b", 2)],
-    7: [(r"\b(new|attached|revised) po\b|\bfind attached po\b", 3), (r"\bpo \d+ for\b", 2), (r"\brequested ship date\b", 2),
+    7: [(r"\b(new|attached|revised) po\b|\bfind attached po\b|\battached (is|are) (our |the )?po\b|\bpo \d+ (is )?attached\b", 3), (r"\bpo \d+ for\b", 2), (r"\brequested ship date\b", 2),
         (r"\bpurchase order\b", 3),
         (r"\bchange the quantity\b|\bquantity change\b|\bchange to po\b", 3.5), (r"\binvoice\b", 2),
         (r"\bpo portal\b|\bconfirm the order\b|\bconfirm the po\b", 2)],

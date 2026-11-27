@@ -97,6 +97,7 @@ Offline rules also pass both sets.
 
 ## Synthetic data and placeholders
 
+- `data/documents/`: **synthetic versions of every document the client referenced** (troubleshooting guides, O&M manual, catalog with warranty page 108, spec sheet, technical bulletin, parts book, CirrusPRO video index, warranty policy, warranty change notice, validation questions, Jen's returns process, RGA report, Technical and Quality Council deck, Altan's tribal-knowledge notes, Adriana's daily backlog report, price list, and the customer attachments from the test cases) as PDF, Word and Excel. They are built from `data/kb/*.md` with `python -m golfpm.documents` and listed on the **Knowledge Sources** page. Customer-facing documents are searched and cited in replies. Internal ones inform CSR summaries and are never quoted. The price list is deliberately not searched.
 - `data/story.md`: the demo story (cast, courses, orders, POs, parts and timeline). The test cases, order feed and synthetic generator all follow it.
 - `data/synthetic_cases.json`: emails generated from the story, weighted like the real mailbox (order status about 28%). Regenerate from Quality & Testing or with `python -m golfpm.synthetic`.
 - `data/test_cases.json`: Chris's 39 test cases (BDP_Rainbird_GolfPM_Sample_Test_Cases.xlsx) with structured expected outcomes, plus red-team cases RT-01 to RT-05.

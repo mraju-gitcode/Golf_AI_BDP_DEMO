@@ -1,0 +1,372 @@
+{
+  "documents": [
+    {
+      "id": "KB-CIRRUSPRO-HOWTO",
+      "title": "CirrusPRO How-To Video Index",
+      "file": "knowledge/cirruspro_howto.docx",
+      "format": "docx",
+      "doc_type": "Video index",
+      "owner": "Altan (GolfPM)",
+      "location": "Box: Golf / CirrusPRO How-To Videos",
+      "updated": "2026-10-02",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Create a new watering program"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-DECODER-TS",
+      "title": "Golf Decoder System Troubleshooting Guide",
+      "file": "knowledge/decoder_troubleshooting.pdf",
+      "format": "pdf",
+      "doc_type": "Troubleshooting guide",
+      "owner": "Golf Technical Services",
+      "location": "rainbird.com/golf/support (public)",
+      "updated": "2026-02-20",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Several stations on one hole do not run from central control",
+        "Single station does not run"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-PUBLIC-LINKS",
+      "title": "Public Golf Literature",
+      "file": "knowledge/general_public.pdf",
+      "format": "pdf",
+      "doc_type": "Literature list",
+      "owner": "Golf Marketing",
+      "location": "rainbird.com/golf/support (public)",
+      "updated": "2026-09-15",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Golf product catalog"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-CATALOG",
+      "title": "Golf Product Catalog 2026-2027 (excerpt)",
+      "file": "knowledge/golf_catalog_excerpt.pdf",
+      "format": "pdf",
+      "doc_type": "Catalog",
+      "owner": "Golf Marketing",
+      "location": "rainbird.com golf catalog (public), Box: Golf / Catalogues",
+      "updated": "2026-08-01",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Golf rotors TEST-7710 and TEST-7712",
+        "Decoders TEST-5520",
+        "Valves TEST-9100",
+        "Warranty (catalog page 108)"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-PARTS-ROTOR",
+      "title": "Golf Rotor Parts Book (exploded views)",
+      "file": "knowledge/parts_book_rotor.pdf",
+      "format": "pdf",
+      "doc_type": "Parts book",
+      "owner": "Golf Technical Services",
+      "location": "Box: Golf / Parts Books",
+      "updated": "2026-05-05",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "TEST-7710 exploded view parts list",
+        "Parts with no direct replacement"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-RETURNS-PROCESS",
+      "title": "Golf Returns Process (Jen)",
+      "file": "knowledge/returns_process.docx",
+      "format": "docx",
+      "doc_type": "Process document",
+      "owner": "Jen (Golf Customer Service)",
+      "location": "Box: Golf / Customer Service / Processes",
+      "updated": "2026-07-15",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Warranty returns",
+        "Non-warranty returns"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-RGA-2026-114",
+      "title": "RGA Report RGA-2026-114 TEST-7710 Drive Failures",
+      "file": "knowledge/rga_report_2026_114.pdf",
+      "format": "pdf",
+      "doc_type": "RGA report",
+      "owner": "Sustaining Engineering",
+      "location": "Box: Golf / Engineering / RGA Reports",
+      "updated": "2026-10-08",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Summary",
+        "Affected courses in the field sample",
+        "Corrective action"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-ROTOR-OM",
+      "title": "Golf Rotor Operations and Maintenance Manual",
+      "file": "knowledge/rotor_om_manual.pdf",
+      "format": "pdf",
+      "doc_type": "Operations and maintenance manual",
+      "owner": "Golf Technical Services",
+      "location": "rainbird.com/golf/support (public)",
+      "updated": "2026-03-10",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Seasonal maintenance schedule",
+        "Winterization and spring start-up",
+        "Replacing the drive assembly"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-SPEC-7710",
+      "title": "TEST-7710 / TEST-7712 Rotor Specification Sheet",
+      "file": "knowledge/rotor_spec_sheet.pdf",
+      "format": "pdf",
+      "doc_type": "Specification sheet",
+      "owner": "Golf Product Management",
+      "location": "rainbird.com/golf/support (public)",
+      "updated": "2026-01-12",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Operating range",
+        "Dimensions and inlet",
+        "Compatibility"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-ROTOR-TS",
+      "title": "Golf Rotor Troubleshooting Guide",
+      "file": "knowledge/rotor_troubleshooting.pdf",
+      "format": "pdf",
+      "doc_type": "Troubleshooting guide",
+      "owner": "Golf Technical Services",
+      "location": "rainbird.com/golf/support (public)",
+      "updated": "2026-08-14",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Rotor pops up but does not rotate",
+        "Rotor does not pop up fully",
+        "Adjusting the arc on part-circle rotors"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-TB-2026-07",
+      "title": "Technical Bulletin TB-2026-07 Nozzle Part Changes",
+      "file": "knowledge/tech_bulletin_tb_2026_07.pdf",
+      "format": "pdf",
+      "doc_type": "Technical bulletin",
+      "owner": "Golf Product Management",
+      "location": "rainbird.com golf specifier section (gated)",
+      "updated": "2026-07-21",
+      "audience": "public",
+      "indexed": true,
+      "sections": [
+        "Discontinued nozzle parts",
+        "Effective date"
+      ],
+      "usage": "Searched by the agents and cited in customer replies with a link."
+    },
+    {
+      "id": "KB-TQC-Q3",
+      "title": "Technical and Quality Council Q3 2026",
+      "file": "knowledge/tqc_presentation_q3.pdf",
+      "format": "pdf",
+      "doc_type": "Presentation",
+      "owner": "Technical and Quality Council",
+      "location": "Box: Golf / Technical and Quality Council",
+      "updated": "2026-10-15",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Top field issues",
+        "Actions"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-TRIBAL",
+      "title": "GolfPM Tribal Knowledge Notes (Altan)",
+      "file": "knowledge/tribal_knowledge_altan.docx",
+      "format": "docx",
+      "doc_type": "Notes",
+      "owner": "Altan (GolfPM)",
+      "location": "Box: Golf / Marketing / Tribal Knowledge",
+      "updated": "2026-11-10",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Rotors that stop rotating",
+        "Stations down after storms",
+        "Distributors asking for ETAs"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-WCN-2026-03",
+      "title": "Warranty Change Notice WCN-2026-03",
+      "file": "knowledge/warranty_change_notice.pdf",
+      "format": "pdf",
+      "doc_type": "Warranty change notice",
+      "owner": "Golf Product Management",
+      "location": "Box: Golf / Warranty / Change Notices",
+      "updated": "2026-09-02",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Change",
+        "Lot TEST-2291"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-WARRANTY-FORM",
+      "title": "Golf Warranty Information Form",
+      "file": "knowledge/warranty_information_form.docx",
+      "format": "docx",
+      "doc_type": "Customer form",
+      "owner": "Golf Customer Service",
+      "location": "Box: Golf / Warranty / Forms",
+      "updated": "2026-06-30",
+      "audience": "public",
+      "indexed": false,
+      "sections": [
+        "Course and contact",
+        "Products affected",
+        "Failure description",
+        "Submit"
+      ],
+      "usage": "Sent to customers on request; not searched by the agent."
+    },
+    {
+      "id": "KB-WARRANTY",
+      "title": "Golf Warranty Policy Summary",
+      "file": "knowledge/warranty_policy.pdf",
+      "format": "pdf",
+      "doc_type": "Policy",
+      "owner": "Golf Product Management",
+      "location": "rainbird.com professional customer satisfaction policy",
+      "updated": "2026-08-01",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Section 2.1 Golf rotors",
+        "Section 2.2 Decoders and field controllers",
+        "Section 3 Required information",
+        "Section 4 Exclusions"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "KB-WARRANTY-QS",
+      "title": "Warranty Validation Questions (Altan and Javier)",
+      "file": "knowledge/warranty_validation_questions.docx",
+      "format": "docx",
+      "doc_type": "Checklist",
+      "owner": "Altan, Javier (GolfPM)",
+      "location": "Box: Golf / Warranty / Validation Questions",
+      "updated": "2026-10-20",
+      "audience": "internal",
+      "indexed": true,
+      "sections": [
+        "Questions to confirm before a determination",
+        "When to escalate"
+      ],
+      "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
+    },
+    {
+      "id": "EXP-BACKLOG",
+      "title": "Daily Backlog and Backorder Report (Adriana)",
+      "file": "exports/daily_backlog_report.xlsx",
+      "format": "xlsx",
+      "doc_type": "Data export",
+      "owner": "Adriana Romero (Operations)",
+      "location": "PeopleSoft query RBMG_ORDERS_BY_DATE, emailed daily",
+      "updated": "2026-11-27",
+      "audience": "internal",
+      "indexed": false,
+      "sections": [],
+      "usage": "Order status agent looks up orders read-only. Internal notes never leave the building."
+    },
+    {
+      "id": "EXP-PRICES",
+      "title": "Published Golf Price List 2026",
+      "file": "exports/price_list_2026.xlsx",
+      "format": "xlsx",
+      "doc_type": "Price list",
+      "owner": "Golf Sales Operations",
+      "location": "Box: Golf / Price Lists",
+      "updated": "2026-01-05",
+      "audience": "internal",
+      "indexed": false,
+      "sections": [],
+      "usage": "Excluded from the agent by policy. Pricing questions are routed to Sales."
+    },
+    {
+      "id": "ATT-TC-08",
+      "title": "Completed warranty form (Lakeview)",
+      "file": "attachments/warranty_form_lakeview.pdf",
+      "format": "pdf",
+      "doc_type": "Customer attachment",
+      "owner": "Customer",
+      "location": "Email attachment on TC-08",
+      "updated": "2026-11-27",
+      "audience": "customer",
+      "indexed": false,
+      "sections": [],
+      "usage": "Never opened by the agent. Known form types are read by the sandboxed extractor; others are forwarded unchanged."
+    },
+    {
+      "id": "ATT-TC-27",
+      "title": "Purchase order 55240 (Fairway)",
+      "file": "attachments/PO_55240.pdf",
+      "format": "pdf",
+      "doc_type": "Customer attachment",
+      "owner": "Customer",
+      "location": "Email attachment on TC-27",
+      "updated": "2026-11-27",
+      "audience": "customer",
+      "indexed": false,
+      "sections": [],
+      "usage": "Never opened by the agent. Known form types are read by the sandboxed extractor; others are forwarded unchanged."
+    },
+    {
+      "id": "ATT-TC-29",
+      "title": "Equipment schedule (Willow Creek RFQ)",
+      "file": "attachments/equipment_schedule_willow_creek.xlsx",
+      "format": "xlsx",
+      "doc_type": "Customer attachment",
+      "owner": "Customer",
+      "location": "Email attachment on TC-29",
+      "updated": "2026-11-27",
+      "audience": "customer",
+      "indexed": false,
+      "sections": [],
+      "usage": "Never opened by the agent. Known form types are read by the sandboxed extractor; others are forwarded unchanged."
+    }
+  ]
+}

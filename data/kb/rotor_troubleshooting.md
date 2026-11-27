@@ -1,10 +1,14 @@
 ---
 id: KB-ROTOR-TS
-title: Golf Rotor Troubleshooting Guide (SYNTHETIC DEMO COPY)
 source_url: https://www.rainbird.com/golf/support
 audience: public
+title: Golf Rotor Troubleshooting Guide
+format: pdf
+doc_type: Troubleshooting guide
+owner: Golf Technical Services
+location: rainbird.com/golf/support (public)
+updated: 2026-08-14
 ---
-SYNTHETIC placeholder content for the local demo. Replace with the approved Rain Bird guide before any real use.
 
 ## Rotor pops up but does not rotate
 Symptoms: the rotor rises and waters, but stays pointed in one direction.

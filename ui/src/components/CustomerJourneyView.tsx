@@ -36,32 +36,6 @@ interface CustomerJourneyViewProps extends JourneyActions {
   onNavigate: (section: NavSection) => void;
 }
 
-const PERSONAS = [
-  {
-    title: 'Customer (Golf Course / Distributor)',
-    surface: 'Outlook, unchanged',
-    description:
-      'Sends a normal email to the GolfPM mailbox and receives a verified answer or follow-up right inside the same thread.',
-    icon: Mail,
-    accent: 'text-[#018752] dark:text-[#2FB06A] bg-[#E6F3ED] dark:bg-[#173326]',
-  },
-  {
-    title: 'CSR (GolfPM Support Team)',
-    surface: 'Outlook Drafts & Microsoft Teams',
-    description:
-      'Reviews AI-drafted replies with output checks, approves or edits warranty determinations, and can take over any thread in one click.',
-    icon: ClipboardCheck,
-    accent: 'text-[#0072BC] dark:text-[#5FB2EC] bg-[#E6F1FA] dark:bg-[#142B3E]',
-  },
-  {
-    title: 'Admin / GolfPM Owner',
-    surface: 'Power BI & Admin Console',
-    description:
-      'Monitors volume, SLA adherence, and 95% accuracy benchmarks; controls draft vs. auto-send per category and the instant kill switch.',
-    icon: UserCog,
-    accent: 'text-[#946200] dark:text-[#F8C84A] bg-[#FEF6E0] dark:bg-[#33270B]',
-  },
-];
 
 export function CustomerJourneyView({
   testCases,
@@ -126,52 +100,6 @@ export function CustomerJourneyView({
           </button>
         </div>
       </div>
-
-      {/* Three Personas Strip */}
-      <section aria-label="Who GolfPM Assist serves" className="rb-card p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-[#EEF2F0] dark:border-[#24342C]">
-          <div className="flex items-center gap-2">
-            <Building2 className="w-4 h-4 text-[#018752] dark:text-[#2FB06A]" />
-            <h2 className="font-display font-bold text-[15px] text-[#1D2A24] dark:text-[#EAF1ED]">
-              How GolfPM Assist fits Rain Bird in production
-            </h2>
-          </div>
-          <span className="text-xs text-[#6F7F77] dark:text-[#8DA196]">
-            Zero new portals for customers · Full CSR & admin governance
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {PERSONAS.map((persona) => {
-            const Icon = persona.icon;
-            return (
-              <div
-                key={persona.title}
-                className="rounded-lg bg-[#F7FAF8] dark:bg-[#101814] border border-[#E4EAE6] dark:border-[#24342C] p-4 space-y-2"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${persona.accent}`}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="font-display font-bold text-[13.5px] text-[#1D2A24] dark:text-[#EAF1ED] leading-tight">
-                      {persona.title}
-                    </div>
-                    <div className="text-[11px] font-semibold text-[#6F7F77] dark:text-[#8DA196]">
-                      Lives in: {persona.surface}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-xs text-[#4C5C54] dark:text-[#B3C2BA] leading-relaxed">
-                  {persona.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
 
       {/* Demo Progress Strip */}
       <section aria-label="Demo walkthrough progress" className="rb-card p-5 space-y-4">

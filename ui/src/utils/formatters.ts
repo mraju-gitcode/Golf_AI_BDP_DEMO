@@ -13,15 +13,15 @@ export interface ActionDisplay {
 }
 
 export const DEFAULT_CATEGORY_NAMES: Record<string, string> = {
-  '1': 'Order status & tracking',
-  '2': 'Technical support',
-  '3': 'Warranty & returns',
-  '4': 'Order holds & releases',
-  '5': 'Pricing & quotes',
-  '6': 'Product availability',
-  '7': 'Billing & credits',
-  '8': 'Distributor & account',
-  '9': 'General & other',
+  '1': 'Order status',
+  '2': 'Returns & warranty',
+  '3': 'Tech support',
+  '4': 'PM order holds',
+  '5': 'Product & SKU',
+  '6': 'CirrusPRO / GSP',
+  '7': 'Purchase orders',
+  '8': 'Quotes & pricing',
+  '9': 'Other',
 };
 
 const ACTION_MAP: Record<string, ActionDisplay> = {

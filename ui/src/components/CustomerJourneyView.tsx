@@ -23,17 +23,16 @@ import {
   type DemoStageDefinition,
   pickScenarioForStage,
 } from '../utils/journey';
+import { JourneyStagePanel, type JourneyActions } from './JourneyStagePanel';
 import { ToneBadge } from './ToneBadge';
 
-interface CustomerJourneyViewProps {
+interface CustomerJourneyViewProps extends JourneyActions {
   testCases: TestCaseItem[];
   completedStages: Record<DemoStageDefinition['id'], boolean>;
   reviewCount: number;
   config: AgentConfig | null;
   evaluation: EvaluationRunResponse | null;
-  runningStageId: DemoStageDefinition['id'] | null;
   backendReachable: boolean;
-  onRunStage: (stageId: DemoStageDefinition['id'], scenario: TestCaseItem | null) => void;
   onNavigate: (section: NavSection) => void;
 }
 
@@ -70,12 +69,14 @@ export function CustomerJourneyView({
   reviewCount,
   config,
   evaluation,
-  runningStageId,
   backendReachable,
-  onRunStage,
   onNavigate,
+  ...actions
 }: CustomerJourneyViewProps) {
   const [showPresenterNotes, setShowPresenterNotes] = useState(true);
+  const [openStages, setOpenStages] = useState<Partial<Record<DemoStageDefinition['id'], boolean>>>({});
+  const toggleStage = (id: DemoStageDefinition['id'], open: boolean) =>
+    setOpenStages((prev) => ({ ...prev, [id]: open }));
 
   const completedCount = DEMO_STAGES.filter((s) => completedStages[s.id]).length;
   const progressPct = Math.round((completedCount / DEMO_STAGES.length) * 100);
@@ -180,8 +181,8 @@ export function CustomerJourneyView({
               6-step live walkthrough
             </h2>
             <p className="text-xs text-[#6F7F77] dark:text-[#96A89E] mt-0.5">
-              Click any step below to trigger a real scenario against your local backend and land
-              directly on the proof screen.
+              Open any step to see the real customer email, run the GolfPM agent on it, and watch
+              each stage happen right here in the card.
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
@@ -202,21 +203,19 @@ export function CustomerJourneyView({
           {DEMO_STAGES.map((stage) => {
             const matchedScenario = pickScenarioForStage(stage.id, testCases);
             const isCompleted = completedStages[stage.id];
-            const isRunning = runningStageId === stage.id;
+            const isOpen = Boolean(openStages[stage.id]);
             const needsScenario =
               stage.id === 'instant_reply' ||
               stage.id === 'smart_routing' ||
               stage.id === 'human_review' ||
               stage.id === 'security_redteam';
 
-            const disableRun =
-              Boolean(runningStageId) ||
-              (needsScenario && (!backendReachable || !matchedScenario));
+            const disableRun = needsScenario && (!backendReachable || !matchedScenario);
 
             return (
               <article
                 key={stage.id}
-                className={`rounded-[10px] border p-4 flex flex-col justify-between gap-3.5 transition-colors ${
+                className={`rounded-[10px] border p-4 flex flex-col justify-between gap-3.5 transition-colors ${isOpen ? 'xl:col-span-2' : ''} ${
                   isCompleted
                     ? 'bg-[#F6FBF8] dark:bg-[#13221B] border-[#BFE0D0] dark:border-[#245039]'
                     : 'bg-white dark:bg-[#131C18] border-[#DDE4E0] dark:border-[#24342C]'
@@ -299,46 +298,48 @@ export function CustomerJourneyView({
                   )}
                 </div>
 
+                {isOpen && (
+                  <JourneyStagePanel
+                    stage={stage}
+                    scenario={matchedScenario}
+                    config={config}
+                    backendReachable={backendReachable}
+                    actions={actions}
+                    onClose={() => toggleStage(stage.id, false)}
+                  />
+                )}
+
                 {/* Action Footer */}
-                <div className="flex flex-wrap items-center gap-2 pt-1">
-                  <button
-                    type="button"
-                    disabled={disableRun}
-                    onClick={() => onRunStage(stage.id, matchedScenario)}
-                    className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-[#018752] hover:bg-[#006A40] text-white text-xs font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-50"
-                  >
-                    {stage.id === 'kill_switch' ? (
-                      <SlidersHorizontal className="w-3.5 h-3.5" />
-                    ) : stage.id === 'security_redteam' ? (
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                    ) : (
-                      <Play className="w-3.5 h-3.5" />
+                {!isOpen && (
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    <button
+                      type="button"
+                      disabled={disableRun}
+                      onClick={() => toggleStage(stage.id, true)}
+                      className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-[#018752] hover:bg-[#006A40] text-white text-xs font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-50"
+                    >
+                      {stage.id === 'kill_switch' ? (
+                        <SlidersHorizontal className="w-3.5 h-3.5" />
+                      ) : stage.id === 'security_redteam' ? (
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                      ) : (
+                        <Play className="w-3.5 h-3.5" />
+                      )}
+                      <span>{stage.ctaLabel}</span>
+                    </button>
+
+                    {stage.id === 'human_review' && (
+                      <button
+                        type="button"
+                        onClick={() => onNavigate('review')}
+                        className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-[#DDE4E0] dark:border-[#2B3D34] bg-white dark:bg-[#16201B] hover:bg-[#F4F6F5] dark:hover:bg-[#1D2A24] text-xs font-semibold text-[#1D2A24] dark:text-[#EAF1ED] transition-colors whitespace-nowrap cursor-pointer"
+                      >
+                        <span>Open CSR Review ({reviewCount})</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
                     )}
-                    <span>{isRunning ? 'Running…' : stage.ctaLabel}</span>
-                  </button>
-
-                  {stage.id === 'human_review' && (
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('review')}
-                      className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-[#DDE4E0] dark:border-[#2B3D34] bg-white dark:bg-[#16201B] hover:bg-[#F4F6F5] dark:hover:bg-[#1D2A24] text-xs font-semibold text-[#1D2A24] dark:text-[#EAF1ED] transition-colors whitespace-nowrap cursor-pointer"
-                    >
-                      <span>Open CSR Review ({reviewCount})</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-
-                  {stage.id === 'go_live_proof' && (
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('dashboard')}
-                      className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-[#DDE4E0] dark:border-[#2B3D34] bg-white dark:bg-[#16201B] hover:bg-[#F4F6F5] dark:hover:bg-[#1D2A24] text-xs font-semibold text-[#1D2A24] dark:text-[#EAF1ED] transition-colors whitespace-nowrap cursor-pointer"
-                    >
-                      <span>View Dashboard</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
+                  </div>
+                )}
               </article>
             );
           })}

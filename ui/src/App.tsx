@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ApiError, golfpmApi } from './api/client';
 import { CsrReviewView } from './components/CsrReviewView';
 import { CustomerJourneyView } from './components/CustomerJourneyView';
@@ -16,6 +16,7 @@ import type {
   EvaluationRunResponse,
   MetricsResponse,
   NavSection,
+  OutboxMessage,
   ProcessedEmail,
   ReviewQueueItem,
   TestCaseItem,
@@ -55,6 +56,9 @@ export default function App() {
   const [sentTestCaseMap, setSentTestCaseMap] = useState<Record<string, string>>({});
   const [selectedEmail, setSelectedEmail] = useState<ProcessedEmail | null>(null);
   const [selectedTestCaseId, setSelectedTestCaseId] = useState<string | null>(null);
+  const [runError, setRunError] = useState<string | null>(null);
+  const selectedTestCaseIdRef = useRef<string | null>(null);
+  selectedTestCaseIdRef.current = selectedTestCaseId;
   const [loadingInbox, setLoadingInbox] = useState(false);
   const [sendingScenarioId, setSendingScenarioId] = useState<string | null>(null);
   const [takingOver, setTakingOver] = useState(false);
@@ -282,18 +286,102 @@ export default function App() {
       return;
     }
 
+    // Not processed yet: open it as a ticket; the presenter clicks "Run GolfPM agent".
+    setSelectedEmail(null);
+    setRunError(null);
+  };
+
+  const handleRunTestCase = async (tc: TestCaseItem): Promise<ProcessedEmail | null> => {
     setSendingScenarioId(tc.id);
+    setRunError(null);
     try {
       const email = await golfpmApi.sendTestCase(tc.id);
-      setSelectedEmail(email);
       setSentTestCaseMap((prev) => ({ ...prev, [tc.id]: email.id }));
       setProcessedEmails((prev) => [email, ...prev.filter((item) => item.id !== email.id)]);
+      setSelectedEmail((prev) => (prev === null && selectedTestCaseIdRef.current === tc.id ? email : prev));
       void refreshSidebarAndEmails();
-      pushToast(`Processed ${tc.id} (${email.id})`, 'success');
+      return email;
     } catch (err) {
-      handleApiError(err, `Failed to send test scenario ${tc.id}`);
+      const message = err instanceof Error ? err.message : `Failed to run ${tc.id}`;
+      setRunError(message);
+      handleApiError(err, `Failed to run ${tc.id}`, true);
+      return null;
     } finally {
       setSendingScenarioId(null);
+    }
+  };
+
+  // ---- Customer Journey: runs happen inside the step card ----
+  const handleJourneyRun = async (tc: TestCaseItem): Promise<ProcessedEmail | null> => {
+    const existing = sentTestCaseMap[tc.id];
+    if (existing) {
+      try {
+        return await golfpmApi.getEmail(existing);
+      } catch {
+        // fall through and run it
+      }
+    }
+    return handleRunTestCase(tc);
+  };
+
+  const handleJourneyApprove = async (msg: OutboxMessage): Promise<boolean> => {
+    try {
+      const body = msg.kind === 'approval' ? String((msg.meta as Record<string, unknown> | undefined)?.proposed_reply ?? msg.body) : msg.body;
+      await golfpmApi.submitReviewDecision(msg.id, { decision: 'approve', body });
+      setReviewedCount((prev) => prev + 1);
+      void loadReviewQueue(true);
+      pushToast('Approved by CSR and sent to the customer', 'success');
+      return true;
+    } catch (err) {
+      handleApiError(err, 'Approval failed');
+      return false;
+    }
+  };
+
+  const handleJourneyOpenEmail = (email: ProcessedEmail) => {
+    setSelectedEmail(email);
+    setSelectedTestCaseId(email.test_id ?? email.test_case_id ?? null);
+    setActiveSection('inbox');
+  };
+
+  const handleJourneySetKillSwitch = async (on: boolean): Promise<boolean> => {
+    try {
+      const updated = await golfpmApi.updateConfig({ kill_switch: on });
+      setConfig(updated);
+      setSettingsVisited(true);
+      return true;
+    } catch (err) {
+      handleApiError(err, 'Failed to change the kill switch');
+      return false;
+    }
+  };
+
+  const handleJourneySendProbe = async (): Promise<ProcessedEmail | null> => {
+    try {
+      const stamp = new Date().toLocaleTimeString();
+      const email = await golfpmApi.sendEmail({
+        from: 'mike.alvarez@pinehollowgc.example.com',
+        subject: 'Quick check on SO-TEST-104582',
+        body: `Hi team,\n\nIs SO-TEST-104582 still on schedule? (sent ${stamp})\n\nMike`,
+      });
+      setProcessedEmails((prev) => [email, ...prev.filter((item) => item.id !== email.id)]);
+      void refreshSidebarAndEmails();
+      return email;
+    } catch (err) {
+      handleApiError(err, 'Failed to send the test email');
+      return null;
+    }
+  };
+
+  const handleJourneyRunEval = async (): Promise<EvaluationRunResponse | null> => {
+    try {
+      const res = await golfpmApi.runEvaluation('test_cases.json');
+      const withFile = { ...res, file: res.file || 'test_cases.json' };
+      setEvaluation(withFile);
+      return withFile;
+    } catch (err) {
+      handleApiError(err, 'Failed to run the GolfPM test set');
+      return null;
     }
   };
 
@@ -480,38 +568,6 @@ export default function App() {
     }
   };
 
-  const handleRunJourneyStage = async (
-    stageId: DemoStageDefinition['id'],
-    scenario: TestCaseItem | null,
-  ) => {
-    if (stageId === 'kill_switch') {
-      setSettingsVisited(true);
-      setActiveSection('settings');
-      return;
-    }
-
-    if (stageId === 'go_live_proof') {
-      setActiveSection('testing');
-      if (backendStatus !== 'unreachable') {
-        await handleRunTestSet();
-      }
-      return;
-    }
-
-    if (!scenario) {
-      setActiveSection('inbox');
-      return;
-    }
-
-    setRunningStageId(stageId);
-    try {
-      await handleSelectTestCase(scenario);
-      setActiveSection('inbox');
-    } finally {
-      setRunningStageId(null);
-    }
-  };
-
   const handleRetryConnection = async () => {
     const ok = await checkHealth(false);
     if (ok) {
@@ -545,9 +601,13 @@ export default function App() {
               reviewCount={reviewQueue.length}
               config={config}
               evaluation={evaluation}
-              runningStageId={runningStageId}
               backendReachable={backendStatus !== 'unreachable'}
-              onRunStage={(stageId, scenario) => void handleRunJourneyStage(stageId, scenario)}
+              onRunScenario={handleJourneyRun}
+              onApprove={handleJourneyApprove}
+              onOpenEmail={handleJourneyOpenEmail}
+              onSetKillSwitch={handleJourneySetKillSwitch}
+              onSendProbe={handleJourneySendProbe}
+              onRunEvaluation={handleJourneyRunEval}
               onNavigate={setActiveSection}
             />
           )}
@@ -566,6 +626,8 @@ export default function App() {
               composing={composing}
               backendReachable={backendStatus !== 'unreachable'}
               onSelectTestCase={handleSelectTestCase}
+              onRunTestCase={(tc) => void handleRunTestCase(tc)}
+              runError={runError}
               onResendTestCase={handleResendTestCase}
               onSelectProcessedEmail={handleSelectProcessedEmail}
               onComposeSubmit={handleComposeSubmit}

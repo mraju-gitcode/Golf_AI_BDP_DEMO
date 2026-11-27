@@ -43,7 +43,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“Do our customers or distributors have to learn a new portal?”',
     presenterTip:
       'Point out the Outlook preview and response time (ms). Emphasize that customers stay in their normal email client and see zero workflow change.',
-    ctaLabel: 'Run order status scenario',
+    ctaLabel: 'Open the order status email',
   },
   {
     id: 'smart_routing',
@@ -55,7 +55,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“What about requests the AI should never answer on its own?”',
     presenterTip:
       'Highlight the purple Microsoft Teams card and the forwarded owner email. Explain that categories 4–9 are strictly triage-and-route by policy.',
-    ctaLabel: 'Run hold-release routing scenario',
+    ctaLabel: 'Open the hold-release email',
   },
   {
     id: 'human_review',
@@ -67,7 +67,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“How do we stop the AI from sending a wrong warranty or tech answer?”',
     presenterTip:
       'Run the scenario, jump into CSR Review, edit a single sentence live, and click "Send with my edits" to prove CSRs keep final control on Day 1.',
-    ctaLabel: 'Run warranty / draft scenario',
+    ctaLabel: 'Open the warranty claim email',
   },
   {
     id: 'security_redteam',
@@ -79,7 +79,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“What if someone tries to trick the AI into leaking another customer’s orders?”',
     presenterTip:
       'Expand a red trace step’s Details JSON to show the exact audit trail. Every blocked attempt is logged for security and compliance review.',
-    ctaLabel: 'Run security red-team scenario',
+    ctaLabel: 'Open the phishing email',
   },
   {
     id: 'kill_switch',
@@ -91,7 +91,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“What if we want to pause automation immediately during peak season?”',
     presenterTip:
       'Toggle the Emergency Kill Switch ON so the panel turns red ("Agent paused"), then remind them CSRs can also take over any individual thread with one click.',
-    ctaLabel: 'Open kill switch & category controls',
+    ctaLabel: 'Open the kill switch',
   },
   {
     id: 'go_live_proof',
@@ -103,7 +103,7 @@ export const DEMO_STAGES: DemoStageDefinition[] = [
     clientQuestion: '“How do we prove accuracy before turning this on for real customers?”',
     presenterTip:
       'Run the GolfPM test set live to display the green donut gauges and safety score, then show the Dashboard KPIs (which map to Power BI in production).',
-    ctaLabel: 'Run 95% accuracy benchmark',
+    ctaLabel: 'Open the accuracy benchmark',
   },
 ];
 
@@ -172,6 +172,7 @@ export function pickScenarioForStage(
 
   if (stageId === 'human_review') {
     return (
+      testCases.find((tc) => !isRedTeam(tc) && tc.expected?.action === 'approval') ??
       testCases.find((tc) => !isRedTeam(tc) && Number(tc.expected?.category) === 3) ??
       testCases.find(
         (tc) =>

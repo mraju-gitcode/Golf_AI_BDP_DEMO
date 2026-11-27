@@ -38,6 +38,7 @@ import {
   type LifecycleNode,
   type ScenarioFilter,
 } from '../utils/journey';
+import { ScenarioRunner } from './ScenarioRunner';
 import { ToneBadge } from './ToneBadge';
 
 interface InboxViewProps {
@@ -53,6 +54,8 @@ interface InboxViewProps {
   composing: boolean;
   backendReachable: boolean;
   onSelectTestCase: (tc: TestCaseItem) => void;
+  onRunTestCase: (tc: TestCaseItem) => void;
+  runError?: string | null;
   onResendTestCase: (tcId: string) => void;
   onSelectProcessedEmail: (emailId: string) => void;
   onComposeSubmit: (payload: { from: string; subject: string; body: string }) => Promise<boolean>;
@@ -217,6 +220,8 @@ export function InboxView({
   composing,
   backendReachable,
   onSelectTestCase,
+  onRunTestCase,
+  runError,
   onResendTestCase,
   onSelectProcessedEmail,
   onComposeSubmit,
@@ -224,6 +229,10 @@ export function InboxView({
   onOpenCsrReview,
   onRetryLoad,
 }: InboxViewProps) {
+  const openScenario =
+    selectedTestCaseId && !sentTestCaseMap[selectedTestCaseId]
+      ? testCases.find((tc) => tc.id === selectedTestCaseId) ?? null
+      : null;
   const [listMode, setListMode] = useState<'scenarios' | 'processed'>('scenarios');
   const [scenarioFilter, setScenarioFilter] = useState<ScenarioFilter>('all');
   const [scenarioQuery, setScenarioQuery] = useState('');
@@ -635,7 +644,23 @@ export function InboxView({
 
       {/* Right Column: Email Detail Card + Trace & Outbox */}
       <section aria-label="Email details and agent trace" className="lg:col-span-8 xl:col-span-8 space-y-5">
-        {!selectedEmail ? (
+        {!selectedEmail && openScenario ? (
+          <div className="rb-card p-5 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h2 className="font-display font-bold text-[15px] text-[#1D2A24] dark:text-[#EAF1ED]">
+                New email in the GolfPM mailbox
+              </h2>
+              <span className="text-xs text-[#6F7F77] dark:text-[#96A89E]">{openScenario.scenario}</span>
+            </div>
+            <ScenarioRunner
+              scenario={openScenario}
+              running={sendingId === openScenario.id}
+              error={runError}
+              backendReachable={backendReachable}
+              onRun={() => onRunTestCase(openScenario)}
+            />
+          </div>
+        ) : !selectedEmail ? (
           <div className="rb-card p-10 text-center">
             <div className="w-12 h-12 rounded-full bg-[#E6F3ED] dark:bg-[#173326] text-[#018752] dark:text-[#2FB06A] flex items-center justify-center mx-auto mb-3.5">
               <Mail className="w-6 h-6" />

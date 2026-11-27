@@ -36,6 +36,8 @@ export interface TestCaseItem {
   from: string;
   subject: string;
   body?: string;
+  cc?: string[];
+  attachments?: { name: string; type?: string }[];
   category_name?: string;
   expected?: {
     category?: number | string | null;

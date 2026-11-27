@@ -290,11 +290,20 @@ export default function App() {
         const [feed, emails] = await Promise.all([golfpmApi.getActivity(60), golfpmApi.getEmails()]);
         if (!alive) return;
         setActivity(feed);
-        setProcessedEmails(emails);
+        setProcessedEmails(emails.filter((e) => e.result));
+        // An email counts as arrived only once the agent has finished with it (it has a result).
+        const done = emails.filter((e) => e.result);
         const known = knownEmailIds.current;
-        knownEmailIds.current = new Set(emails.map((e) => e.id));
+        knownEmailIds.current = new Set(done.map((e) => e.id));
+        // A case opened while still processing: refresh it once the result is in.
+        setSelectedEmail((prev) => {
+          if (prev && !prev.result && done.some((e) => e.id === prev.id)) {
+            void golfpmApi.getEmail(prev.id).then((full) => alive && setSelectedEmail(full)).catch(() => undefined);
+          }
+          return prev;
+        });
         if (known) {
-          const fresh = emails.filter((e) => !known.has(e.id) && !(e.test_id ?? e.test_case_id));
+          const fresh = done.filter((e) => !known.has(e.id) && !(e.test_id ?? e.test_case_id));
           if (fresh.length) {
             const newest = fresh[0];
             pushToast(`New email from ${newest.from_addr}: ${newest.subject}`, 'success');

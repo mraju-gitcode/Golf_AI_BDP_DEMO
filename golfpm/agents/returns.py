@@ -18,6 +18,8 @@ NON_WARRANTY_RE = re.compile(r"\b(over-?ordered|overstock|excess|surplus|unused|
 FAILURE_RE = re.compile(r"\b(fail|stopp|broke|defect|crack|leak|not (work|rotat|pop)|won'?t|doesn'?t|warranty)\w*", re.I)
 RETURN_FOR_CREDIT_RE = re.compile(r"\b(return|send back)\b.*\bcredit\b|\bcredit\b.*\breturn", re.I | re.S)
 REQUIRED = ["contact", "part_numbers"]
+INSTALL_RE = re.compile(r"install(?:ed|ation)?(?:\s+(?:on|date))?\D{0,12}(\d{4}-\d{2}-\d{2})", re.I)
+DATECODE_RE = re.compile(r"\bdate code\s*(?:is|:)?\s*([A-Z0-9][A-Z0-9-]{2,})", re.I)
 FORM_NOTE = ("Warranty information form (synthetic demo form): course name, course contact name and phone, affected part "
              "numbers and quantities, installation date, and a short description of the failure. Photos are helpful.")
 
@@ -34,6 +36,12 @@ def collect(case: dict, email: dict, intake: dict) -> dict:
     parts = parts_in(text)
     if parts:
         fields["part_numbers"] = ", ".join(parts)
+    install = INSTALL_RE.search(text)
+    if install and not fields.get("install_date"):
+        fields["install_date"] = install.group(1)
+    code = DATECODE_RE.search(text)
+    if code and not fields.get("date_code"):
+        fields["date_code"] = code.group(1)
     phone = PHONE_RE.search(text)
     if phone and "contact" not in fields:
         fields["contact"] = phone.group(0)
@@ -97,7 +105,8 @@ def handle(email: dict, intake: dict, triage: dict, case: dict) -> dict:
                "recommend approval subject to CSR review of photos and date codes.")
     try:
         better = llm.write("Write a short warranty case summary for a CSR: facts, the policy section that applies, "
-                           "and a recommended determination. Do not decide; recommend.", summary)
+                           "and a recommended determination. Do not decide; recommend. The facts listed were extracted "
+                           "and checked by the workflow: state them exactly as given, never as missing or unverified.", summary)
     except Exception:
         better = None
     proposed = ("Your warranty claim has been reviewed and approved for replacement. Our returns team will send the "

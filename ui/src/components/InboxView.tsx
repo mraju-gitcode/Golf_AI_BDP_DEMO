@@ -510,7 +510,7 @@ export function InboxView({
             )
           ) : processedEmails.length === 0 ? (
             <div className="p-6 text-center text-sm text-[#6F7F77] dark:text-[#96A89E]">
-              No processed emails yet. Click a test scenario or compose a message to run the agent.
+              {live ? `Waiting for new email to ${live.address}.` : 'No processed emails yet. Click a test scenario or compose a message to run the agent.'}
             </div>
           ) : (
             processedEmails.map((item) => {
@@ -677,11 +677,12 @@ export function InboxView({
               <Mail className="w-6 h-6" />
             </div>
             <h2 className="font-display font-bold text-lg text-[#1D2A24] dark:text-[#EAF1ED]">
-              Select a scenario to see GolfPM Assist in action
+              {live ? 'Waiting for the next email' : 'Select a scenario to see GolfPM Assist in action'}
             </h2>
             <p className="text-sm text-[#6F7F77] dark:text-[#96A89E] max-w-md mx-auto mt-1.5 leading-relaxed">
-              Click any incoming email scenario on the left, or compose a custom message, to watch the
-              triage, guardrails, and delivery trace step by step.
+              {live
+                ? `Send an email to ${live.address}. It appears here within ${live.poll_seconds ?? 10} seconds, and you can follow every step in Live activity.`
+                : 'Click any incoming email scenario on the left, or compose a custom message, to watch the triage, guardrails, and delivery trace step by step.'}
             </p>
           </div>
         ) : (

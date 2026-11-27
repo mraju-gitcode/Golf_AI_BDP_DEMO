@@ -59,8 +59,11 @@ def summarize(email: dict, text: str, limit: int = 280) -> str:
 
 
 def parts_in(text: str) -> list[str]:
-    out = []
+    """Part numbers with quantities; a bare mention is dropped when the same part also has a quantity."""
+    found: dict[str, str | None] = {}
     for m in PART_RE.finditer(text):
+        part = m.group(0).split()[0].upper()
         qty = m.group(1) or m.group(2)
-        out.append(f"{m.group(0).split()[0].upper()}" + (f" x {qty}" if qty else ""))
-    return out
+        if qty or part not in found:
+            found[part] = qty or found.get(part)
+    return [p + (f" x {q}" if q else "") for p, q in found.items()]

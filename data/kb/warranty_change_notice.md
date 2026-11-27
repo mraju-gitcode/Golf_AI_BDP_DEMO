@@ -12,5 +12,5 @@ updated: 2026-09-02
 ## Change
 Effective 1 October 2026, golf rotor claims must include the date code from the case. Claims without a date code are held until the customer provides it.
 
-## Lot TEST-2291
-Rotors from lot TEST-2291 with drive assembly failures inside the warranty period are approved for replacement of the internal assembly without returning the case, pending CSR review of photos.
+## Lot 2291
+Rotors from lot 2291 with drive assembly failures inside the warranty period are approved for replacement of the internal assembly without returning the case, pending CSR review of photos.

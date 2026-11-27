@@ -9,7 +9,7 @@ owner: Golf Technical Services
 location: Box: Golf / Parts Books
 updated: 2026-05-05
 ---
-## TEST-7710 exploded view parts list
+## RB-7710 exploded view parts list
 1. Case and lid assembly
 2. Snap ring
 3. Internal assembly with drive (replacement drive assembly kit)

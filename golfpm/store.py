@@ -17,6 +17,7 @@ from .config import RUNTIME
 _lock = threading.RLock()
 _conn: sqlite3.Connection | None = None
 _db_name = "golfpm_demo.db"
+SENT_HOOKS: list = []  # callables(item) run when an outbox item becomes "sent" (live mailbox)
 
 
 def set_db(name: str) -> str:
@@ -48,6 +49,9 @@ CREATE TABLE IF NOT EXISTS outbox (
   id TEXT PRIMARY KEY, ts REAL, case_id TEXT, email_id TEXT, kind TEXT,
   recipient TEXT, subject TEXT, body TEXT, status TEXT, meta TEXT
 );
+CREATE TABLE IF NOT EXISTS mail_map (
+  message_id TEXT PRIMARY KEY, email_id TEXT, thread_id TEXT, direction TEXT, refs TEXT
+);
 CREATE TABLE IF NOT EXISTS feedback (
   id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL, outbox_id TEXT, rating TEXT, note TEXT
 );
@@ -78,7 +82,7 @@ def tx():
 
 def reset() -> None:
     with tx() as c:
-        for table in ("emails", "cases", "events", "outbox", "feedback"):
+        for table in ("emails", "cases", "events", "outbox", "feedback", "mail_map"):
             c.execute(f"DELETE FROM {table}")
 
 
@@ -198,18 +202,31 @@ def add_outbox(case_id, email_id, kind, recipient, subject, body, status, meta=N
         c.execute("INSERT INTO outbox VALUES (?,?,?,?,?,?,?,?,?,?)",
                   (item["id"], item["ts"], case_id, email_id, kind, recipient, subject, body,
                    status, json.dumps(item["meta"])))
+    if status == "sent":
+        _fire_sent(item)
     return item
+
+
+def _fire_sent(item: dict) -> None:
+    for hook in list(SENT_HOOKS):
+        try:
+            hook(item)
+        except Exception:
+            pass
 
 
 def update_outbox(item_id: str, **fields) -> dict | None:
     item = get_outbox(item_id)
     if not item:
         return None
+    was_sent = item["status"] == "sent"
     item.update(fields)
     with tx() as c:
         c.execute("UPDATE outbox SET body=?, status=?, meta=?, recipient=?, subject=? WHERE id=?",
                   (item["body"], item["status"], json.dumps(item["meta"]), item["recipient"],
                    item["subject"], item_id))
+    if item["status"] == "sent" and not was_sent:
+        _fire_sent(item)
     return item
 
 
@@ -242,3 +259,48 @@ def add_feedback(outbox_id: str, rating: str, note: str = "") -> None:
 def list_feedback() -> list[dict]:
     with tx() as c:
         return [_row(r) for r in c.execute("SELECT * FROM feedback ORDER BY ts DESC").fetchall()]
+
+
+# ---------- live mailbox: Message-ID map ----------
+def mail_register(message_id: str, email_id: str, thread_id: str | None, direction: str, refs: list[str]) -> None:
+    with tx() as c:
+        c.execute("INSERT OR REPLACE INTO mail_map VALUES (?,?,?,?,?)",
+                  (message_id, email_id, thread_id, direction, json.dumps(refs)))
+
+
+def mail_set_thread(email_id: str, thread_id: str | None) -> None:
+    with tx() as c:
+        c.execute("UPDATE mail_map SET thread_id=? WHERE email_id=? AND direction='in'", (thread_id, email_id))
+
+
+def mail_lookup(message_ids: list[str]) -> dict | None:
+    """The newest known message among these Message-IDs (used to thread replies)."""
+    if not message_ids:
+        return None
+    with tx() as c:
+        q = ",".join("?" * len(message_ids))
+        r = c.execute(f"SELECT * FROM mail_map WHERE message_id IN ({q}) AND thread_id IS NOT NULL", message_ids).fetchall()
+        if not r:
+            r = c.execute(f"SELECT * FROM mail_map WHERE message_id IN ({q})", message_ids).fetchall()
+    return dict(r[-1]) if r else None
+
+
+def mail_for_email(email_id: str | None) -> dict | None:
+    """The inbound live message behind an email, or None for test/simulated mail."""
+    if not email_id:
+        return None
+    with tx() as c:
+        r = c.execute("SELECT * FROM mail_map WHERE email_id=? AND direction='in'", (email_id,)).fetchone()
+    if not r:
+        return None
+    d = dict(r)
+    d["references"] = json.loads(d.pop("refs") or "[]")
+    return d
+
+
+def recent_activity(limit: int = 60) -> list[dict]:
+    with tx() as c:
+        rows = c.execute(
+            "SELECT e.id, e.ts, e.step, e.title, e.email_id, e.case_id, m.from_addr, m.subject "
+            "FROM events e LEFT JOIN emails m ON m.id = e.email_id ORDER BY e.id DESC LIMIT ?", (limit,)).fetchall()
+    return [dict(r) for r in rows]

@@ -50,7 +50,7 @@ A finished Rain Bird-themed UI already ships with the backend at `http://localho
 ```json
 {
   "id": "EML-D515A08E", "from_addr": "dana.price@fairwayirrigation.example.com",
-  "subject": "Release hold on SO-TEST-104790", "body": "...", "case_id": "CASE-17BCD7FB", "thread_id": "THR-...",
+  "subject": "Release hold on SO-104790", "body": "...", "case_id": "CASE-17BCD7FB", "thread_id": "THR-...",
   "attachments": [{"name": "warranty_form.pdf", "type": "application/pdf"}], "cc": [],
   "result": {"action": "route", "reason": "Category 4 is triage-and-route; forwarded to ...",
              "category": 4, "confidence": 0.97, "method": "rules|llm|thread", "mode": "send|draft",

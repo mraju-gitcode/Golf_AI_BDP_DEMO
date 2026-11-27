@@ -49,12 +49,12 @@ P = {
 # (category, expected action, person, brief for the model, template subject, template body)
 SCENARIOS = [
     # 1. Order status - most common
-    (1, "reply", "mike", "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
-     "SO-TEST-104582 ship date", "Can you confirm when SO-TEST-104582 ships? We aerify the week of the 15th and need the rotors here first."),
-    (1, "reply", "mike", "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
-     "Rotor order SO-TEST-104582", "Is SO-TEST-104582 still on schedule? I have the crew lined up for install and want to confirm the date."),
-    (1, "reply", "jen", "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
-     "Tracking for SO-TEST-104590", "Could you send the tracking details for SO-TEST-104590? We have not seen it arrive yet."),
+    (1, "reply", "mike", "Asks when the 24 rotors on SO-104582 will ship; aerifying the week of the 15th.",
+     "SO-104582 ship date", "Can you confirm when SO-104582 ships? We aerify the week of the 15th and need the rotors here first."),
+    (1, "reply", "mike", "Checks whether SO-104582 is still on schedule; crew is lined up for install.",
+     "Rotor order SO-104582", "Is SO-104582 still on schedule? I have the crew lined up for install and want to confirm the date."),
+    (1, "reply", "jen", "Asks for tracking on SO-104590, the rotor order that shipped last week.",
+     "Tracking for SO-104590", "Could you send the tracking details for SO-104590? We have not seen it arrive yet."),
     (1, "reply", "orders", "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
      "ETA PO 55187", "What is the current ETA on our stock order, PO 55187?"),
     (1, "reply", "dana", "Lakeview is asking about PO 55120; asks whether it has shipped and for tracking.",
@@ -63,12 +63,12 @@ SCENARIOS = [
      "Rotor order update", "Any update on the rotor order we placed last month? We are planning winter work around it."),
     (1, "ask", "sam", "Asks when 'our order' will arrive, no order number given, renovation underway.",
      "When will our order arrive?", "We are mid-renovation. When will our order arrive?"),
-    (1, "route", "mike", "SO-TEST-104611 decoders still show backordered; asks for an ETA.",
-     "SO-TEST-104611 still backordered", "SO-TEST-104611 has shown backordered for weeks now. When can we expect the decoders?"),
+    (1, "route", "mike", "SO-104611 decoders still show backordered; asks for an ETA.",
+     "SO-104611 still backordered", "SO-104611 has shown backordered for weeks now. When can we expect the decoders?"),
     (1, "route", "dana", "Asks whether 40 full-circle golf rotors are in stock for quick ship for a spring renovation.",
      "Stock check - 40 rotors", "Do you have 40 full-circle golf rotors in stock for quick ship? Spring renovation starts soon."),
-    (1, "route", "sam", "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
-     "Ship date SO-TEST-104500", "When does SO-TEST-104500 ship? A friend at another course asked me to check."),
+    (1, "route", "sam", "Asks for the ship date of SO-104500, which belongs to another course (Riverbend).",
+     "Ship date SO-104500", "When does SO-104500 ship? A friend at another course asked me to check."),
     # 2. Returns and warranty
     (2, "ask", "sam", "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
      "Warranty - failed rotors", "A number of our rotors stopped working this season. We need warranty replacements."),
@@ -92,17 +92,17 @@ SCENARIOS = [
     (3, "escalate", "chris", "After the lightning strike there is a burning smell at the field controller by hole 14; asks if they can reset it.",
      "Burning smell at controller", "Lightning hit near the shop last night and there's a burning smell at the field controller by hole 14. Can we just reset it?"),
     # 4. PM order holds
-    (4, "route", "dana", "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
-     "Release SO-TEST-104790", "SO-TEST-104790 is on hold pending PM approval for golf application. Lakeview needs it next week. Can it be released?"),
-    (4, "route", "dana", "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
-     "Hold on SO-TEST-104790", "Who can approve the release of the hold on SO-TEST-104790? The course is waiting."),
+    (4, "route", "dana", "SO-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
+     "Release SO-104790", "SO-104790 is on hold pending PM approval for golf application. Lakeview needs it next week. Can it be released?"),
+    (4, "route", "dana", "Follows up on the hold on SO-104790, asks who can approve the release.",
+     "Hold on SO-104790", "Who can approve the release of the hold on SO-104790? The course is waiting."),
     # 5. Product, SKU
-    (5, "route", "parts", "TEST-4471 shows as discontinued; asks for the replacement part number.",
-     "Replacement for TEST-4471", "TEST-4471 shows as discontinued. What is the replacement part number?"),
+    (5, "route", "parts", "RB-4471 shows as discontinued; asks for the replacement part number.",
+     "Replacement for RB-4471", "RB-4471 shows as discontinued. What is the replacement part number?"),
     (5, "route", "sam", "Asks if current nozzles are compatible with the rotor bodies installed ten years ago.",
      "Nozzle compatibility", "Are the current nozzles compatible with the rotor bodies we installed about ten years ago?"),
-    (5, "route", "parts", "TEST-4480 is discontinued in their system; asks what replaces it.",
-     "TEST-4480 discontinued", "Our system shows TEST-4480 as discontinued. What replaces it?"),
+    (5, "route", "parts", "RB-4480 is discontinued in their system; asks what replaces it.",
+     "RB-4480 discontinued", "Our system shows RB-4480 as discontinued. What replaces it?"),
     # 6. CirrusPRO / GSP
     (6, "route", "kelly", "Just installed CirrusPRO; wants to set up an account and subscription.",
      "CirrusPRO subscription", "We just installed CirrusPRO and want to set up our account and subscription. Who should we talk to?"),
@@ -125,7 +125,7 @@ SCENARIOS = [
      "Grow your irrigation business", "We help irrigation brands triple their leads with AI-powered outreach. Do you have 15 minutes this week?"),
 ]
 
-REF_RE = re.compile(r"SO-TEST-\d{6}|PO \d{5}|TEST-\d{4}")
+REF_RE = re.compile(r"SO-\d{6}|PO \d{5}|RB-\d{4}")
 GREETINGS = ["Hi team,", "Hello,", "Good morning,", "Hi GolfPM team,", "Hi,"]
 CLOSINGS = ["Thanks,", "Regards,", "Thank you,", "Best,", "Cheers,"]
 

@@ -1,5 +1,7 @@
 import type {
+  ActivityItem,
   AgentConfig,
+  LiveStatus,
   DocumentPreview,
   KnowledgeResponse,
   EvaluationRunResponse,
@@ -136,6 +138,14 @@ export const golfpmApi = {
 
   getDocumentPreview(id: string): Promise<DocumentPreview> {
     return request<DocumentPreview>(`/api/documents/${encodeURIComponent(id)}/preview`);
+  },
+
+  getLive(): Promise<LiveStatus> {
+    return request<LiveStatus>('/api/live');
+  },
+
+  getActivity(limit = 60): Promise<ActivityItem[]> {
+    return request<ActivityItem[]>(`/api/activity?limit=${limit}`);
   },
 
   getDocuments(): Promise<KnowledgeResponse> {

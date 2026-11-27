@@ -10,7 +10,7 @@ location: Box: Golf / Marketing / Tribal Knowledge
 updated: 2026-11-10
 ---
 ## Rotors that stop rotating
-Nine times out of ten it is debris at the inlet screen. If the course is on lot TEST-2291, suspect the drive and point them to the warranty process.
+Nine times out of ten it is debris at the inlet screen. If the course is on lot 2291, suspect the drive and point them to the warranty process.
 
 ## Stations down after storms
 Check splices and grounding on the two-wire path first. If there is a burning smell, stop: send a technician.

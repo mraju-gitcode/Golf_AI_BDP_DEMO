@@ -20,6 +20,29 @@ export type DocumentPreview =
   | { kind: 'table'; doc: KnowledgeDocument; banner: string; note: string; headers: string[]; rows: string[][] }
   | { kind: 'pdf'; doc: KnowledgeDocument; url: string };
 
+export interface LiveStatus {
+  enabled: boolean;
+  address?: string;
+  poll_seconds?: number;
+  connected?: boolean;
+  last_poll_at?: number | null;
+  last_error?: string | null;
+  received?: number;
+  sent?: number;
+  processing?: { from: string; from_name?: string; subject: string; since: number }[];
+}
+
+export interface ActivityItem {
+  id: number;
+  ts: number;
+  step: string;
+  title: string;
+  email_id?: string | null;
+  case_id?: string | null;
+  from_addr?: string | null;
+  subject?: string | null;
+}
+
 export interface KnowledgeResponse {
   documents: KnowledgeDocument[];
   stats: { total: number; indexed: number; public: number; internal: number };

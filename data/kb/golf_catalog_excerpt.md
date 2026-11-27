@@ -9,13 +9,13 @@ owner: Golf Marketing
 location: rainbird.com golf catalog (public), Box: Golf / Catalogues
 updated: 2026-08-01
 ---
-## Golf rotors TEST-7710 and TEST-7712
-TEST-7710 full-circle golf rotor and TEST-7712 part-circle golf rotor. Valve-in-head design, adjustable arc on part-circle models, interchangeable nozzle sets. See the specification sheet for operating pressure and radius.
+## Golf rotors RB-7710 and RB-7712
+RB-7710 full-circle golf rotor and RB-7712 part-circle golf rotor. Valve-in-head design, adjustable arc on part-circle models, interchangeable nozzle sets. See the specification sheet for operating pressure and radius.
 
-## Decoders TEST-5520
+## Decoders RB-5520
 Single-station two-wire decoder for central control systems. Built-in surge protection; grounding per the decoder installation guide.
 
-## Valves TEST-9100
+## Valves RB-9100
 Golf application valve for lateral and isolation use. Some golf applications require product management approval before release.
 
 ## Warranty (catalog page 108)

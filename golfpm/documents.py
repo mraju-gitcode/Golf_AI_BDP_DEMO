@@ -145,9 +145,9 @@ def build() -> list[dict]:
                      "usage": "Order status agent looks up orders read-only. Internal notes never leave the building."})
 
     # Published price list: deliberately NOT indexed; pricing always goes to Sales
-    prices = [["TEST-7710", "Golf rotor, full circle", 189.00], ["TEST-7712", "Golf rotor, part circle", 196.00],
-              ["TEST-5520", "Decoder, single station", 142.00], ["TEST-9100", "Golf valve", 315.00],
-              ["TEST-4475", "Nozzle retainer (replaces TEST-4471)", 6.50], ["TEST-4485", "Nozzle set with adapter (replaces TEST-4480)", 24.00]]
+    prices = [["RB-7710", "Golf rotor, full circle", 189.00], ["RB-7712", "Golf rotor, part circle", 196.00],
+              ["RB-5520", "Decoder, single station", 142.00], ["RB-9100", "Golf valve", 315.00],
+              ["RB-4475", "Nozzle retainer (replaces RB-4471)", 6.50], ["RB-4485", "Nozzle set with adapter (replaces RB-4480)", 24.00]]
     _xlsx(OUT / "exports" / "price_list_2026.xlsx", "Price list 2026", ["Part", "Description", "List price USD"], prices,
           "Published golf price list 2026 (synthetic). NOT indexed: the agent never quotes prices.")
     manifest.append({"id": "EXP-PRICES", "title": "Published Golf Price List 2026", "file": "exports/price_list_2026.xlsx",
@@ -159,17 +159,17 @@ def build() -> list[dict]:
     render_pdf(OUT / "attachments" / "warranty_form_lakeview.pdf", "Golf Warranty Information Form (completed)",
                "Attached to TC-08 by ops@lakeviewgolf.example.com", [
                    ("Course and contact", "Course: Lakeview Golf Club\nContact: Sam Ortiz, 555-0177, ops@lakeviewgolf.example.com\nDistributor: Fairway Irrigation Supply"),
-                   ("Products affected", "TEST-7710 x 8\nInstallation date: 2025-04-10\nDate code: TEST-2291"),
+                   ("Products affected", "RB-7710 x 8\nInstallation date: 2025-04-10\nDate code: 2291"),
                    ("Failure description", "Rotors stopped rotating after one season on holes 3 and 4. Photos attached to the email.")])
     render_pdf(OUT / "attachments" / "PO_55240.pdf", "Purchase Order 55240", "Attached to TC-27 by purchasing@fairwayirrigation.example.com", [
         ("Buyer", "Fairway Irrigation Supply, Purchasing"),
         ("Ship to", "Lakeview Golf Club, renovation project"),
-        ("Lines", "TEST-7710 golf rotor x 60\nTEST-7712 golf rotor x 24\nTEST-5520 decoder x 84"),
+        ("Lines", "RB-7710 golf rotor x 60\nRB-7712 golf rotor x 24\nRB-5520 decoder x 84"),
         ("Requested ship date", "2 March 2027")])
     _xlsx(OUT / "attachments" / "equipment_schedule_willow_creek.xlsx", "Equipment schedule",
           ["Item", "Description", "Quantity"],
-          [["TEST-7710", "Golf rotor, full circle", 420], ["TEST-7712", "Golf rotor, part circle", 180],
-           ["TEST-5520", "Decoder", 600], ["Central control", "CirrusPRO central control", 1]],
+          [["RB-7710", "Golf rotor, full circle", 420], ["RB-7712", "Golf rotor, part circle", 180],
+           ["RB-5520", "Decoder", 600], ["Central control", "CirrusPRO central control", 1]],
           "Willow Creek GC 18-hole renovation, attached to TC-29 by Greenline Golf Construction (synthetic).")
     for f, title, tc in (("warranty_form_lakeview.pdf", "Completed warranty form (Lakeview)", "TC-08"),
                          ("PO_55240.pdf", "Purchase order 55240 (Fairway)", "TC-27"),

@@ -17,7 +17,7 @@ RULES: dict[int, list[tuple[str, float]]] = {
         (r"\bwhen (will|is) .{0,40}(ship|arrive|deliver)", 2.5), (r"\b(update|status) (on|of|for)\b", 2),
         (r"\bstatus\b", 1), (r"\barrive\b|\bdelivery\b", 1), (r"\btracking\b", 2), (r"\bbackorder", 2),
         (r"\bin stock\b|\bquick ship\b|\bstock check\b|\bavailab", 3), (r"\border\b", 0.5),
-        (r"\bSO-TEST-\d+", 1)],
+        (r"\bSO-\d+", 1)],
     2: [(r"\bwarranty\b", 3), (r"\breturn(s|ed)?\b", 2), (r"\brg[ra]\b|\brma\b", 3), (r"\bcredit\b", 2),
         (r"\breplaced\b|\breplacements?\b(?! part)", 1.5), (r"\bclaim\b", 2), (r"\bdefect", 2),
         (r"\bcracked\b", 1.5), (r"\bover-?ordered\b|\boverstock\b", 2), (r"\bflooded\b|\bdamage\b", 1)],

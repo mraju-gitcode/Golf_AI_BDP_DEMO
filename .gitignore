@@ -4,3 +4,4 @@ __pycache__/
 .env
 data/runtime/
 .pytest_cache/
+demo_config.json

@@ -61,9 +61,9 @@
       "audience": "public",
       "indexed": true,
       "sections": [
-        "Golf rotors TEST-7710 and TEST-7712",
-        "Decoders TEST-5520",
-        "Valves TEST-9100",
+        "Golf rotors RB-7710 and RB-7712",
+        "Decoders RB-5520",
+        "Valves RB-9100",
         "Warranty (catalog page 108)"
       ],
       "usage": "Searched by the agents and cited in customer replies with a link."
@@ -80,7 +80,7 @@
       "audience": "public",
       "indexed": true,
       "sections": [
-        "TEST-7710 exploded view parts list",
+        "RB-7710 exploded view parts list",
         "Parts with no direct replacement"
       ],
       "usage": "Searched by the agents and cited in customer replies with a link."
@@ -104,7 +104,7 @@
     },
     {
       "id": "KB-RGA-2026-114",
-      "title": "RGA Report RGA-2026-114 TEST-7710 Drive Failures",
+      "title": "RGA Report RGA-2026-114 RB-7710 Drive Failures",
       "file": "knowledge/rga_report_2026_114.pdf",
       "format": "pdf",
       "doc_type": "RGA report",
@@ -140,7 +140,7 @@
     },
     {
       "id": "KB-SPEC-7710",
-      "title": "TEST-7710 / TEST-7712 Rotor Specification Sheet",
+      "title": "RB-7710 / RB-7712 Rotor Specification Sheet",
       "file": "knowledge/rotor_spec_sheet.pdf",
       "format": "pdf",
       "doc_type": "Specification sheet",
@@ -239,7 +239,7 @@
       "indexed": true,
       "sections": [
         "Change",
-        "Lot TEST-2291"
+        "Lot 2291"
       ],
       "usage": "Informs CSR case summaries; never quoted or linked to customers (T-A2)."
     },

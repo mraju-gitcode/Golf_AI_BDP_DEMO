@@ -5,14 +5,18 @@ import re
 
 from ..config import get_config
 
-PART_RE = re.compile(r"\bTEST-\d{4}\b(?:\s*\((\d+)\s*pcs?\)|\s*x\s*(\d+))?", re.I)
-SO_RE = re.compile(r"\bSO-TEST-\d{6}\b", re.I)
+PART_RE = re.compile(r"\bRB-\d{4}\b(?:\s*\((\d+)\s*pcs?\)|\s*x\s*(\d+))?", re.I)
+SO_RE = re.compile(r"\bSO-\d{6}\b", re.I)
 PO_RE = re.compile(r"\bPO\s*(?:#|number|no\.?)?\s*(\d{4,6})\b", re.I)
 PHONE_RE = re.compile(r"\b\d{3}[-. ]\d{4}\b|\b\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}\b")
 
 
 def first_name(email: dict) -> str:
-    """Best-effort first name from the sign-off, else the address."""
+    """Best-effort first name: display name, then the sign-off, then the address."""
+    if email.get("from_name"):
+        name = email["from_name"].replace(",", " ").split()
+        if name and name[0].isalpha():
+            return name[0].capitalize()
     lines = [l.strip() for l in email.get("body", "").strip().splitlines() if l.strip()]
     for line in reversed(lines[-4:]):
         m = re.match(r"^([A-Z][a-z]+)(\s+[A-Z][a-z]+)?$", line)

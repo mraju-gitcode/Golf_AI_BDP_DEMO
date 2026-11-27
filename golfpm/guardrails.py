@@ -8,10 +8,10 @@ import re
 from .config import ORDERS
 
 PRICE_RE = re.compile(r"(\$\s?\d|\bUSD\s?\d|\bprice (is|of|per)\b|\bcosts? \d)", re.I)
-SECRET_RE = re.compile(r"\bTEST-PASS-\d+\b|\b(card ending|card number)\s*\d{4}\b", re.I)
+SECRET_RE = re.compile(r"\bGSP-\d+\b|\b(card ending|card number)\s*\d{4}\b", re.I)
 COMMIT_RE = re.compile(r"\b(has been approved|is approved|we (will|can) (credit|replace)|order (is|has been) accepted|we confirm (the|your) (order|po))\b", re.I)
 FILLER_RE = re.compile(r"(hope this (email|message) finds you well|!!|absolutely thrilled|as an ai language model)", re.I)
-SO_RE = re.compile(r"\bSO-TEST-\d{6}\b", re.I)
+SO_RE = re.compile(r"\bSO-\d{6}\b", re.I)
 HOLD_REASON_RE = re.compile(r"\b(pm approval required|quality hold|golf application review|hold reason)\b", re.I)
 
 

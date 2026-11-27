@@ -78,9 +78,9 @@ def handle(email: dict, intake: dict, triage: dict, case: dict) -> dict:
     sources = [section]
     notes = []
     # Internal sources inform the CSR summary only; they are never quoted to the customer (T-A2).
-    wcn = knowledge.get_section("KB-WCN-2026-03", "Lot TEST-2291")
-    if wcn and "TEST-2291" in json.dumps(fields):
-        notes.append(f"Known issue: date code {fields.get('date_code')} is lot TEST-2291 (RGA-2026-114). {wcn['text']}")
+    wcn = knowledge.get_section("KB-WCN-2026-03", "Lot 2291")
+    if wcn and "2291" in json.dumps(fields):
+        notes.append(f"Known issue: date code {fields.get('date_code')} is lot 2291 (RGA-2026-114). {wcn['text']}")
         sources += [wcn, knowledge.get_section("KB-RGA-2026-114", "Summary")]
     if not fields.get("date_code"):
         notes.append("Date code missing: WCN-2026-03 requires it before a determination.")

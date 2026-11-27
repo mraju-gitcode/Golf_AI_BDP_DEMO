@@ -5,6 +5,7 @@ import { CustomerJourneyView } from './components/CustomerJourneyView';
 import { DashboardView } from './components/DashboardView';
 import { Header } from './components/Header';
 import { InboxView } from './components/InboxView';
+import { LiveActivityLog } from './components/LivePanels';
 import { KnowledgeView } from './components/KnowledgeView';
 import { QualityTestingView } from './components/QualityTestingView';
 import { SettingsView } from './components/SettingsView';
@@ -16,6 +17,8 @@ import type {
   EvaluationRunResponse,
   MetricsResponse,
   NavSection,
+  ActivityItem,
+  LiveStatus,
   OutboxMessage,
   ProcessedEmail,
   ReviewQueueItem,
@@ -40,7 +43,7 @@ function sentMapFromEmails(emails: ProcessedEmail[]): Record<string, string> {
 }
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<NavSection>('journey');
+  const [activeSection, setActiveSection] = useState<NavSection>('inbox');
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
     return window.localStorage.getItem('golfpm_theme') === 'dark';
@@ -57,6 +60,9 @@ export default function App() {
   const [selectedEmail, setSelectedEmail] = useState<ProcessedEmail | null>(null);
   const [selectedTestCaseId, setSelectedTestCaseId] = useState<string | null>(null);
   const [runError, setRunError] = useState<string | null>(null);
+  const [live, setLive] = useState<LiveStatus | null>(null);
+  const [activity, setActivity] = useState<ActivityItem[]>([]);
+  const knownEmailIds = useRef<Set<string> | null>(null);
   const selectedTestCaseIdRef = useRef<string | null>(null);
   selectedTestCaseIdRef.current = selectedTestCaseId;
   const [loadingInbox, setLoadingInbox] = useState(false);
@@ -231,7 +237,7 @@ export default function App() {
       void loadMetrics(false);
     } else if (activeSection === 'settings') {
       void loadConfig(false);
-    } else if (activeSection === 'inbox' || activeSection === 'journey') {
+    } else if (activeSection === 'inbox') {
       void loadReviewQueue(true);
     }
   }, [activeSection, backendStatus, loadReviewQueue, loadMetrics, loadConfig]);
@@ -271,6 +277,49 @@ export default function App() {
       // Non-blocking refresh
     }
   }, []);
+
+  useEffect(() => {
+    let alive = true;
+    const tick = async () => {
+      try {
+        const status = await golfpmApi.getLive();
+        if (!alive) return;
+        setLive(status);
+        if (!status.enabled) return;
+        const [feed, emails] = await Promise.all([golfpmApi.getActivity(60), golfpmApi.getEmails()]);
+        if (!alive) return;
+        setActivity(feed);
+        setProcessedEmails(emails);
+        const known = knownEmailIds.current;
+        knownEmailIds.current = new Set(emails.map((e) => e.id));
+        if (known) {
+          const fresh = emails.filter((e) => !known.has(e.id) && !(e.test_id ?? e.test_case_id));
+          if (fresh.length) {
+            const newest = fresh[0];
+            pushToast(`New email from ${newest.from_addr}: ${newest.subject}`, 'success');
+            void loadReviewQueue(true);
+            try {
+              const full = await golfpmApi.getEmail(newest.id);
+              if (alive) {
+                setSelectedTestCaseId(null);
+                setSelectedEmail(full);
+              }
+            } catch {
+              // keep current selection
+            }
+          }
+        }
+      } catch {
+        // backend not reachable: header shows it
+      }
+    };
+    void tick();
+    const t = setInterval(() => void tick(), 3000);
+    return () => {
+      alive = false;
+      clearInterval(t);
+    };
+  }, [pushToast, loadReviewQueue]);
 
   const handleSelectTestCase = async (tc: TestCaseItem) => {
     const existingEmailId = sentTestCaseMap[tc.id];
@@ -361,8 +410,8 @@ export default function App() {
       const stamp = new Date().toLocaleTimeString();
       const email = await golfpmApi.sendEmail({
         from: 'mike.alvarez@pinehollowgc.example.com',
-        subject: 'Quick check on SO-TEST-104582',
-        body: `Hi team,\n\nIs SO-TEST-104582 still on schedule? (sent ${stamp})\n\nMike`,
+        subject: 'Quick check on SO-104582',
+        body: `Hi team,\n\nIs SO-104582 still on schedule? (sent ${stamp})\n\nMike`,
       });
       setProcessedEmails((prev) => [email, ...prev.filter((item) => item.id !== email.id)]);
       void refreshSidebarAndEmails();
@@ -594,26 +643,11 @@ export default function App() {
         />
 
         <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-[1600px] w-full">
-          {activeSection === 'journey' && (
-            <CustomerJourneyView
-              testCases={testCases}
-              completedStages={completedStages}
-              reviewCount={reviewQueue.length}
-              config={config}
-              evaluation={evaluation}
-              backendReachable={backendStatus !== 'unreachable'}
-              onRunScenario={handleJourneyRun}
-              onApprove={handleJourneyApprove}
-              onOpenEmail={handleJourneyOpenEmail}
-              onSetKillSwitch={handleJourneySetKillSwitch}
-              onSendProbe={handleJourneySendProbe}
-              onRunEvaluation={handleJourneyRunEval}
-              onNavigate={setActiveSection}
-            />
-          )}
+          {activeSection === 'inbox' && live?.enabled && <LiveActivityLog live={live} activity={activity} />}
 
           {activeSection === 'inbox' && (
             <InboxView
+              live={live?.enabled ? live : null}
               testCases={testCases}
               processedEmails={processedEmails}
               sentTestCaseMap={sentTestCaseMap}

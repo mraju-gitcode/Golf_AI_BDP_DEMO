@@ -10,7 +10,7 @@ location: rainbird.com golf specifier section (gated)
 updated: 2026-07-21
 ---
 ## Discontinued nozzle parts
-TEST-4471 nozzle retainer is discontinued and replaced by TEST-4475. TEST-4480 nozzle set is discontinued and replaced by TEST-4485, which includes the adapter for bodies made before 2014.
+RB-4471 nozzle retainer is discontinued and replaced by RB-4475. RB-4480 nozzle set is discontinued and replaced by RB-4485, which includes the adapter for bodies made before 2014.
 
 ## Effective date
-Orders for TEST-4471 and TEST-4480 placed after 1 August 2026 ship as the replacement part. Existing stock may be used until depleted.
+Orders for RB-4471 and RB-4480 placed after 1 August 2026 ship as the replacement part. Existing stock may be used until depleted.

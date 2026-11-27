@@ -1,6 +1,6 @@
 ---
 id: KB-SPEC-7710
-title: TEST-7710 / TEST-7712 Rotor Specification Sheet
+title: RB-7710 / RB-7712 Rotor Specification Sheet
 source_url: https://www.rainbird.com/golf/support
 audience: public
 format: pdf
@@ -16,4 +16,4 @@ Operating pressure: 50 to 100 psi at the rotor inlet. Radius: 52 to 85 feet depe
 Pop-up height 3.5 inches. Inlet 1.5 inch. Body height 11.5 inches.
 
 ## Compatibility
-Current nozzle sets fit TEST-7710 and TEST-7712 bodies manufactured from 2014 onward. Older bodies require the TEST-4485 adapter kit.
+Current nozzle sets fit RB-7710 and RB-7712 bodies manufactured from 2014 onward. Older bodies require the RB-4485 adapter kit.

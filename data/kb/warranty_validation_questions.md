@@ -13,7 +13,7 @@ updated: 2026-10-20
 1. Was the product installed by a contractor or the course, and on what date?
 2. What is the date code on the case?
 3. Is the failure in materials or workmanship, or from damage, lightning, freezing or misuse?
-4. Is the product on a known quality issue list (for example lot TEST-2291)?
+4. Is the product on a known quality issue list (for example lot 2291)?
 5. Are photos clear enough to confirm the failure?
 
 ## When to escalate

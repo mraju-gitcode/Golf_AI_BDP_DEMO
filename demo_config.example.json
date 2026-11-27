@@ -1,0 +1,13 @@
+{
+  "_how_to": "Copy to demo_config.json (not committed). 'contacts' maps a real sender address to a demo customer account so 'sender verified' works. 'owners' maps owner names to real inboxes for forwards; '*' catches every owner not listed.",
+  "contacts": {
+    "chris@example.com": "ACC-PINEHOLLOW",
+    "rajeev@example.com": "ACC-FAIRWAY",
+    "mani@example.com": "ACC-LAKEVIEW"
+  },
+  "owners": {
+    "*": "mani@example.com",
+    "Warranty CSR": "mani@example.com",
+    "Product Manager (hold owner)": "mani@example.com"
+  }
+}

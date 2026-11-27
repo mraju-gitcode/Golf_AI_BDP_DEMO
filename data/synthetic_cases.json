@@ -4,10 +4,10 @@
     {
       "id": "SY-001",
       "type": "Synthetic",
-      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
+      "scenario": "Asks when the 24 rotors on SO-104582 will ship; aerifying the week of the 15th.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Shipping date for SO-TEST-104582",
-      "body": "Hi, Can you confirm the ship date for SO-TEST-104582? We aerify the week of the 15th and need the 24 rotors on-site before then. Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
+      "subject": "Shipping date for SO-104582",
+      "body": "Hi, Can you confirm the ship date for SO-104582? We aerify the week of the 15th and need the 24 rotors on-site before then. Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -16,10 +16,10 @@
     {
       "id": "SY-002",
       "type": "Synthetic",
-      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
+      "scenario": "Checks whether SO-104582 is still on schedule; crew is lined up for install.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Status check for SO-TEST-104582 installation",
-      "body": "Hi,\n\nCan you confirm if SO-TEST-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed.\n\nThanks,\nMike Alvarez",
+      "subject": "Status check for SO-104582 installation",
+      "body": "Hi,\n\nCan you confirm if SO-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed.\n\nThanks,\nMike Alvarez",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -28,10 +28,10 @@
     {
       "id": "SY-003",
       "type": "Synthetic",
-      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "scenario": "Asks for tracking on SO-104590, the rotor order that shipped last week.",
       "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Requesting tracking for SO-TEST-104590",
-      "body": "Hi, Could you please send the tracking information for SO-TEST-104590? It was scheduled to ship last week and we still haven\u2019t received it. Thanks,\n\nJen Walsh",
+      "subject": "Requesting tracking for SO-104590",
+      "body": "Hi, Could you please send the tracking information for SO-104590? It was scheduled to ship last week and we still haven\u2019t received it. Thanks,\n\nJen Walsh",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -88,10 +88,10 @@
     {
       "id": "SY-008",
       "type": "Synthetic",
-      "scenario": "SO-TEST-104611 decoders still show backordered; asks for an ETA.",
+      "scenario": "SO-104611 decoders still show backordered; asks for an ETA.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "ETA needed for decoders on SO-TEST-104611",
-      "body": "SO-TEST-104611 has been showing backordered for several weeks. Can you provide an updated estimated arrival date for the decoders? Thanks,\n\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
+      "subject": "ETA needed for decoders on SO-104611",
+      "body": "SO-104611 has been showing backordered for several weeks. Can you provide an updated estimated arrival date for the decoders? Thanks,\n\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -112,10 +112,10 @@
     {
       "id": "SY-010",
       "type": "Synthetic",
-      "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
+      "scenario": "Asks for the ship date of SO-104500, which belongs to another course (Riverbend).",
       "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Ship date request for SO-TEST-104500",
-      "body": "Hi, could you confirm the ship date for SO-TEST-104500? A friend at another course asked me to check on it.\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
+      "subject": "Ship date request for SO-104500",
+      "body": "Hi, could you confirm the ship date for SO-104500? A friend at another course asked me to check on it.\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -124,10 +124,10 @@
     {
       "id": "SY-011",
       "type": "Synthetic",
-      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
+      "scenario": "Asks when the 24 rotors on SO-104582 will ship; aerifying the week of the 15th.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Shipping date for 24 rotors on SO-TEST-104582",
-      "body": "Can you confirm when the 24 rotors on SO-TEST-104582 will ship? We aerify the week of the 15th and need them here before then.\n\nThanks,\nMike Alvarez\nSuperintendent",
+      "subject": "Shipping date for 24 rotors on SO-104582",
+      "body": "Can you confirm when the 24 rotors on SO-104582 will ship? We aerify the week of the 15th and need them here before then.\n\nThanks,\nMike Alvarez\nSuperintendent",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -136,10 +136,10 @@
     {
       "id": "SY-012",
       "type": "Synthetic",
-      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
+      "scenario": "Checks whether SO-104582 is still on schedule; crew is lined up for install.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Status check for SO-TEST-104582",
-      "body": "Can you confirm whether SO-TEST-104582 is still on schedule? I have our crew scheduled for the install and need to confirm the arrival/ship date. Thanks,\nMike Alvarez",
+      "subject": "Status check for SO-104582",
+      "body": "Can you confirm whether SO-104582 is still on schedule? I have our crew scheduled for the install and need to confirm the arrival/ship date. Thanks,\nMike Alvarez",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -148,10 +148,10 @@
     {
       "id": "SY-013",
       "type": "Synthetic",
-      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "scenario": "Asks for tracking on SO-104590, the rotor order that shipped last week.",
       "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Shipment update request, SO-TEST-104590",
-      "body": "Hi Rain Bird team,\n\nCould you send over the tracking details for SO-TEST-104590? We were expecting it last week and it hasn't arrived yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
+      "subject": "Shipment update request, SO-104590",
+      "body": "Hi Rain Bird team,\n\nCould you send over the tracking details for SO-104590? We were expecting it last week and it hasn't arrived yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -208,10 +208,10 @@
     {
       "id": "SY-018",
       "type": "Synthetic",
-      "scenario": "SO-TEST-104611 decoders still show backordered; asks for an ETA.",
+      "scenario": "SO-104611 decoders still show backordered; asks for an ETA.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Status update requested for SO-TEST-104611 decoders",
-      "body": "SO-TEST-104611 has been showing backordered for several weeks. Can you provide an estimated ship date for the decoders? Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
+      "subject": "Status update requested for SO-104611 decoders",
+      "body": "SO-104611 has been showing backordered for several weeks. Can you provide an estimated ship date for the decoders? Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -232,10 +232,10 @@
     {
       "id": "SY-020",
       "type": "Synthetic",
-      "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
+      "scenario": "Asks for the ship date of SO-104500, which belongs to another course (Riverbend).",
       "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Can you confirm the ship date for SO-TEST-104500?",
-      "body": "Hi, could you confirm the ship date for SO-TEST-104500? A colleague at another course asked me to check on it. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
+      "subject": "Can you confirm the ship date for SO-104500?",
+      "body": "Hi, could you confirm the ship date for SO-104500? A colleague at another course asked me to check on it. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -244,10 +244,10 @@
     {
       "id": "SY-021",
       "type": "Synthetic",
-      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
+      "scenario": "Asks when the 24 rotors on SO-104582 will ship; aerifying the week of the 15th.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "When will SO-TEST-104582 ship?",
-      "body": "Can you confirm when the 24 rotors on SO-TEST-104582 will ship? We have aerifying scheduled the week of the 15th and need the rotors here before then.\n\nThanks,\nMike Alvarez\nSuperintendent, Pine Hollow Golf Club",
+      "subject": "When will SO-104582 ship?",
+      "body": "Can you confirm when the 24 rotors on SO-104582 will ship? We have aerifying scheduled the week of the 15th and need the rotors here before then.\n\nThanks,\nMike Alvarez\nSuperintendent, Pine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -256,10 +256,10 @@
     {
       "id": "SY-022",
       "type": "Synthetic",
-      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
+      "scenario": "Checks whether SO-104582 is still on schedule; crew is lined up for install.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Schedule confirmation for SO-TEST-104582",
-      "body": "Can you confirm whether SO-TEST-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed. Thanks, Mike Alvarez",
+      "subject": "Schedule confirmation for SO-104582",
+      "body": "Can you confirm whether SO-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed. Thanks, Mike Alvarez",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -268,10 +268,10 @@
     {
       "id": "SY-023",
       "type": "Synthetic",
-      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "scenario": "Asks for tracking on SO-104590, the rotor order that shipped last week.",
       "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Shipment update for SO-TEST-104590",
-      "body": "Hello,\n\nCould you send the tracking details for SO-TEST-104590? It was marked shipped last week but we haven\u2019t received it at Cedar Ridge yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent",
+      "subject": "Shipment update for SO-104590",
+      "body": "Hello,\n\nCould you send the tracking details for SO-104590? It was marked shipped last week but we haven\u2019t received it at Cedar Ridge yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -628,10 +628,10 @@
     {
       "id": "SY-053",
       "type": "Synthetic",
-      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
+      "scenario": "SO-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Release request for SO-TEST-104790",
-      "body": "SO-TEST-104790 is currently on hold pending PM approval for the golf application. Lakeview needs this next week, can you authorize the release? \n\nThanks,\nDana Price\nFairway Irrigation Supply",
+      "subject": "Release request for SO-104790",
+      "body": "SO-104790 is currently on hold pending PM approval for the golf application. Lakeview needs this next week, can you authorize the release? \n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 4,
         "action": "route"
@@ -640,10 +640,10 @@
     {
       "id": "SY-054",
       "type": "Synthetic",
-      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "scenario": "Follows up on the hold on SO-104790, asks who can approve the release.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Who can approve release for SO-TEST-104790?",
-      "body": "Hi, following up on the hold for SO-TEST-104790. The course is waiting on this; who can approve releasing the order? Please let me know the contact or next step. Thanks,\nDana Price",
+      "subject": "Who can approve release for SO-104790?",
+      "body": "Hi, following up on the hold for SO-104790. The course is waiting on this; who can approve releasing the order? Please let me know the contact or next step. Thanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -652,10 +652,10 @@
     {
       "id": "SY-055",
       "type": "Synthetic",
-      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
+      "scenario": "SO-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Release request for SO-TEST-104790, Lakeview timing",
-      "body": "I understand SO-TEST-104790 is currently on hold awaiting PM approval for the golf application. Lakeview needs the shipment next week; can the order be released? Thanks,\nDana Price",
+      "subject": "Release request for SO-104790, Lakeview timing",
+      "body": "I understand SO-104790 is currently on hold awaiting PM approval for the golf application. Lakeview needs the shipment next week; can the order be released? Thanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -664,10 +664,10 @@
     {
       "id": "SY-056",
       "type": "Synthetic",
-      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "scenario": "Follows up on the hold on SO-104790, asks who can approve the release.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Release approval needed for SO-TEST-104790",
-      "body": "Who can authorize the release of the hold on SO-TEST-104790? The course is waiting on this and needs an update. Thanks,\nDana Price",
+      "subject": "Release approval needed for SO-104790",
+      "body": "Who can authorize the release of the hold on SO-104790? The course is waiting on this and needs an update. Thanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -676,10 +676,10 @@
     {
       "id": "SY-057",
       "type": "Synthetic",
-      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
+      "scenario": "SO-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Release request for SO-TEST-104790",
-      "body": "SO-TEST-104790 is currently on hold pending PM approval for golf application. Lakeview needs it next week, can you release the order?\n\nThanks,\nDana Price",
+      "subject": "Release request for SO-104790",
+      "body": "SO-104790 is currently on hold pending PM approval for golf application. Lakeview needs it next week, can you release the order?\n\nThanks,\nDana Price",
       "expected": {
         "category": 4,
         "action": "route"
@@ -688,10 +688,10 @@
     {
       "id": "SY-058",
       "type": "Synthetic",
-      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "scenario": "Follows up on the hold on SO-104790, asks who can approve the release.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Who can approve release of SO-TEST-104790?",
-      "body": "Hello,\n\nThe course is waiting, who can approve the release of the hold on SO-TEST-104790? Please let me know.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
+      "subject": "Who can approve release of SO-104790?",
+      "body": "Hello,\n\nThe course is waiting, who can approve the release of the hold on SO-104790? Please let me know.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 4,
         "action": "route"
@@ -700,10 +700,10 @@
     {
       "id": "SY-059",
       "type": "Synthetic",
-      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "scenario": "RB-4471 shows as discontinued; asks for the replacement part number.",
       "from": "parts@fairwayirrigation.example.com",
-      "subject": "Question about replacement for TEST-4471",
-      "body": "Hi, our inventory shows TEST-4471 as discontinued. Can you confirm which part number replaces TEST-4471? \n\nThanks,\nParts Desk\nFairway Irrigation Supply",
+      "subject": "Question about replacement for RB-4471",
+      "body": "Hi, our inventory shows RB-4471 as discontinued. Can you confirm which part number replaces RB-4471? \n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -724,10 +724,10 @@
     {
       "id": "SY-061",
       "type": "Synthetic",
-      "scenario": "TEST-4480 is discontinued in their system; asks what replaces it.",
+      "scenario": "RB-4480 is discontinued in their system; asks what replaces it.",
       "from": "parts@fairwayirrigation.example.com",
-      "subject": "Inquiry: TEST-4480 discontinued",
-      "body": "Hi,\n\nOur system shows TEST-4480 is discontinued. Can you let me know what part replaces it?\n\nThanks,\nDana Price",
+      "subject": "Inquiry: RB-4480 discontinued",
+      "body": "Hi,\n\nOur system shows RB-4480 is discontinued. Can you let me know what part replaces it?\n\nThanks,\nDana Price",
       "expected": {
         "category": 5,
         "action": "route"
@@ -736,10 +736,10 @@
     {
       "id": "SY-062",
       "type": "Synthetic",
-      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "scenario": "RB-4471 shows as discontinued; asks for the replacement part number.",
       "from": "parts@fairwayirrigation.example.com",
-      "subject": "Question about replacement for TEST-4471",
-      "body": "Our inventory shows TEST-4471 as discontinued. Can you confirm the replacement part number for TEST-4471?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
+      "subject": "Question about replacement for RB-4471",
+      "body": "Our inventory shows RB-4471 as discontinued. Can you confirm the replacement part number for RB-4471?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -760,10 +760,10 @@
     {
       "id": "SY-064",
       "type": "Synthetic",
-      "scenario": "TEST-4480 is discontinued in their system; asks what replaces it.",
+      "scenario": "RB-4480 is discontinued in their system; asks what replaces it.",
       "from": "parts@fairwayirrigation.example.com",
-      "subject": "Question about replacement for TEST-4480",
-      "body": "Hi Rain Bird team,\n\nOur system shows TEST-4480 as discontinued, can you confirm that and let us know what replaces it?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
+      "subject": "Question about replacement for RB-4480",
+      "body": "Hi Rain Bird team,\n\nOur system shows RB-4480 as discontinued, can you confirm that and let us know what replaces it?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -772,10 +772,10 @@
     {
       "id": "SY-065",
       "type": "Synthetic",
-      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "scenario": "RB-4471 shows as discontinued; asks for the replacement part number.",
       "from": "parts@fairwayirrigation.example.com",
-      "subject": "Replacement part number for TEST-4471?",
-      "body": "Hi,\n\nOur records show TEST-4471 is discontinued. Please confirm the correct replacement part number.\n\nThanks,\nDana Price\nParts Desk\nFairway Irrigation Supply",
+      "subject": "Replacement part number for RB-4471?",
+      "body": "Hi,\n\nOur records show RB-4471 is discontinued. Please confirm the correct replacement part number.\n\nThanks,\nDana Price\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"

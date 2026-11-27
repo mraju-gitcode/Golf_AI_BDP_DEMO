@@ -10,7 +10,7 @@ location: Box: Golf / Technical and Quality Council
 updated: 2026-10-15
 ---
 ## Top field issues
-1. TEST-7710 drive failures, lot TEST-2291 (RGA-2026-114).
+1. RB-7710 drive failures, lot 2291 (RGA-2026-114).
 2. Decoder surge damage after storms in the southeast.
 3. Nozzle part changes (TB-2026-07) causing order questions.
 

@@ -24,6 +24,8 @@ uvicorn golfpm.api:app --port 8000
 - API docs: http://localhost:8000/docs
 - To change the UI: `cd ui && npm install && npm run dev` (hot reload on :3000, proxies `/api` to :8000), then `npm run build`. The AI Studio prompt and theme are in [docs/UI_SPEC_FOR_AI_STUDIO.md](docs/UI_SPEC_FOR_AI_STUDIO.md).
 
+**Live email demo:** set `GOLFPM_MAILBOX_ADDRESS` and `GOLFPM_MAILBOX_PASSWORD` in `.env` and real emails sent to that mailbox are processed and answered live. See [docs/LIVE_DEMO.md](docs/LIVE_DEMO.md).
+
 **Modes**
 - **LLM mode** (key present): OpenAI models handle triage and write the replies.
   - The default model is `gpt-5-mini` with `GOLFPM_REASONING_EFFORT=low`, which takes about 2 to 5 seconds per email.
@@ -104,7 +106,7 @@ Offline rules also pass both sets.
 - `data/synthetic_cases.json`: emails generated from the story, weighted like the real mailbox (order status about 28%). Regenerate from Quality & Testing or with `python -m golfpm.synthetic`.
 - `data/test_cases.json`: Chris's 39 test cases (BDP_Rainbird_GolfPM_Sample_Test_Cases.xlsx) with structured expected outcomes, plus red-team cases RT-01 to RT-05.
 - `data/kb/*.md`: **synthetic placeholder** troubleshooting and warranty text. It is not Rain Bird content and must be replaced with approved sources.
-- `data/orders.json`, `data/contacts.json`: invented accounts and orders (example.com domains, TEST- numbers).
+- `data/orders.json`, `data/contacts.json`: invented accounts and orders (example.com domains, RB- numbers).
 
 Where a test case depends on an open question, the demo uses a stated default:
 

@@ -325,6 +325,7 @@ def process_email(raw: dict[str, Any]) -> dict:
         "id": raw.get("id") or store.new_id("EML"),
         "received_at": time.time(),
         "from": raw["from"].strip(),
+        "from_name": raw.get("from_name", ""),
         "cc": raw.get("cc", []),
         "subject": raw.get("subject", ""),
         "body": raw.get("body", ""),

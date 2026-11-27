@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from . import documents, evaluation, knowledge, store, synthetic
+from . import documents, evaluation, knowledge, mailbox, store, synthetic
 from .config import ROOT, get_config, llm_enabled, reset_config, update_config
 from .llm import mode_label
 from .pipeline import PIPELINE_LOCK, process_email
@@ -52,6 +52,23 @@ class TakeOver(BaseModel):
 
 def _email_detail(email: dict) -> dict:
     return {**email, "trace": store.events_for_email(email["id"]), "outbox": store.outbox_for_email(email["id"])}
+
+
+@app.on_event("startup")
+def start_mailbox():
+    mailbox.start()
+
+
+@app.get("/api/live")
+def live():
+    """Live mailbox status: address, last check, emails being processed right now."""
+    return mailbox.live_status()
+
+
+@app.get("/api/activity")
+def activity(limit: int = 60):
+    """Most recent agent steps across all emails, newest first (the live log)."""
+    return store.recent_activity(limit)
 
 
 @app.get("/api/health")
@@ -241,6 +258,8 @@ def reset_demo(config: bool = False):
         store.reset()
         if config:
             reset_config()
+            if mailbox.MAILBOX is not None:
+                mailbox.apply_live_defaults()
     return {"status": "reset"}
 
 

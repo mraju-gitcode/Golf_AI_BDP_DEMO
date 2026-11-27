@@ -41,6 +41,22 @@ def load_json(name: str):
 
 
 CONTACTS = load_json("contacts.json")
+
+
+def _load_demo() -> dict:
+    """demo_config.json (repo root, not committed): real addresses for the live demo."""
+    path = ROOT / "demo_config.json"
+    if not path.exists():
+        return {}
+    demo = json.loads(path.read_text())
+    accounts = {a["id"]: a for a in CONTACTS["accounts"]}
+    for addr, acc_id in demo.get("contacts", {}).items():
+        if acc_id in accounts and addr.lower() not in accounts[acc_id]["contacts"]:
+            accounts[acc_id]["contacts"].append(addr.lower())
+    return demo
+
+
+DEMO = _load_demo()
 ORDERS = load_json("orders.json")
 _DEFAULT_CONFIG = load_json("config.json")
 

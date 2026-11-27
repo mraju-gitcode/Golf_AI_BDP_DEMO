@@ -54,7 +54,7 @@ def test_identical_resend_is_ignored():
 def test_csr_takeover_keeps_agent_out():
     first = client.post("/api/test-cases/TC-01/send").json()
     client.post(f"/api/cases/{first['case_id']}/takeover", json={"csr": "Alex (CSR)"})
-    r = client.post("/api/emails", json={"from": "mike.alvarez@pinehollowgc.example.com", "subject": "RE: Ship date for SO-TEST-104582",
+    r = client.post("/api/emails", json={"from": "mike.alvarez@pinehollowgc.example.com", "subject": "RE: Ship date for SO-104582",
                                          "body": "Thanks, can you also confirm the carrier?", "thread_id": first["thread_id"]}).json()
     assert r["result"]["action"] == "review"
     assert not [m for m in r["outbox"] if m["kind"] == "reply"]
@@ -92,4 +92,4 @@ def test_links_never_opened_and_pii_masked():
     r = client.post("/api/test-cases/RT-01/send").json()
     assert any("NOT opened" in t["title"] for t in r["trace"])
     r = client.post("/api/test-cases/TC-26/send").json()
-    assert all("TEST-PASS-0000" not in m["body"] for m in r["outbox"])
+    assert all("GSP-4417" not in m["body"] for m in r["outbox"])

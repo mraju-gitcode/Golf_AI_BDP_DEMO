@@ -30,7 +30,6 @@ export function Sidebar({
   onSelect,
 }: SidebarProps) {
   const workspaceItems: NavItem[] = [
-    { id: 'journey', label: 'Customer Journey', shortLabel: 'Journey', icon: Compass },
     { id: 'inbox', label: 'GolfPM Inbox', shortLabel: 'Inbox', icon: Inbox },
     {
       id: 'review',

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowRight,
   CheckCircle2,
@@ -14,6 +14,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import type {
+  LiveStatus,
   OutboxMessage,
   ProcessedEmail,
   TestCaseItem,
@@ -38,6 +39,7 @@ import {
   type LifecycleNode,
   type ScenarioFilter,
 } from '../utils/journey';
+import { LiveMailboxHeader } from './LivePanels';
 import { ScenarioRunner } from './ScenarioRunner';
 import { ToneBadge } from './ToneBadge';
 
@@ -55,6 +57,7 @@ interface InboxViewProps {
   backendReachable: boolean;
   onSelectTestCase: (tc: TestCaseItem) => void;
   onRunTestCase: (tc: TestCaseItem) => void;
+  live?: LiveStatus | null;
   runError?: string | null;
   onResendTestCase: (tcId: string) => void;
   onSelectProcessedEmail: (emailId: string) => void;
@@ -221,6 +224,7 @@ export function InboxView({
   backendReachable,
   onSelectTestCase,
   onRunTestCase,
+  live,
   runError,
   onResendTestCase,
   onSelectProcessedEmail,
@@ -233,7 +237,10 @@ export function InboxView({
     selectedTestCaseId && !sentTestCaseMap[selectedTestCaseId]
       ? testCases.find((tc) => tc.id === selectedTestCaseId) ?? null
       : null;
-  const [listMode, setListMode] = useState<'scenarios' | 'processed'>('scenarios');
+  const [listMode, setListMode] = useState<'scenarios' | 'processed'>(live ? 'processed' : 'scenarios');
+  useEffect(() => {
+    if (live) setListMode('processed');
+  }, [Boolean(live)]);
   const [scenarioFilter, setScenarioFilter] = useState<ScenarioFilter>('all');
   const [scenarioQuery, setScenarioQuery] = useState('');
   const [outboxView, setOutboxView] = useState<'cards' | 'outlook'>('cards');
@@ -309,6 +316,9 @@ export function InboxView({
       >
         {/* Mode Switch */}
         <div className="p-3 border-b border-[#DDE4E0] dark:border-[#24342C] bg-[#FAFBFB] dark:bg-[#131C18]">
+          {live ? (
+            <LiveMailboxHeader live={live} />
+          ) : (
           <div
             role="tablist"
             aria-label="Mailbox view"
@@ -341,6 +351,7 @@ export function InboxView({
               Processed ({processedEmails.length})
             </button>
           </div>
+          )}
 
           {listMode === 'scenarios' && testCases.length > 0 && (
             <div className="mt-2.5 space-y-2">

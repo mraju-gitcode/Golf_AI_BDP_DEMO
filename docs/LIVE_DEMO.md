@@ -30,6 +30,19 @@ screen shows a live activity log, a "Processing…" card for each new email, and
 Only mail that arrives **after** the app starts is processed; older mail in the inbox is left alone.
 Emails from the mailbox's own address are ignored, so there are no reply loops.
 
+## How the mailbox is connected
+
+GolfPM Assist logs into the mailbox like any mail client (code: `golfpm/mailbox.py`):
+
+| Direction | Protocol | What it does |
+|---|---|---|
+| Reading | IMAP, imap.gmail.com | Checks the Inbox every `GOLFPM_POLL_SECONDS` and runs each new email through the agent |
+| Sending | SMTP, smtp.gmail.com | Sends replies, acknowledgements and forwards as the mailbox address, threaded with In-Reply-To/References |
+
+It signs in with the address and App Password from `.env`. The App Password stays on the machine running
+the app, is never committed, and can be revoked in the Google account at any time. On start it notes the
+newest email already in the Inbox and only processes mail after that.
+
 ## What happens in live mode
 
 | Category | Behaviour |

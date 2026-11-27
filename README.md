@@ -9,6 +9,8 @@ All data is synthetic. Nothing is deployed and no real mailbox is used.
 
 ## Run it
 
+Needs Python 3.10 to 3.13 (3.14 is not supported yet). On Windows, create the environment with the python.org install (`py -3.10 -m venv .venv`), not uv-managed Python, which Windows Application Control can block.
+
 ```bash
 python3 -m venv .venv
 . .venv/bin/activate        # Windows: .venv\Scripts\activate

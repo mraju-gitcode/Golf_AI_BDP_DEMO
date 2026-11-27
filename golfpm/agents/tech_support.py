@@ -14,7 +14,8 @@ from .common import decision, reply, summarize, wrap_reply
 HARD_SAFETY_RE = re.compile(r"\b(burning smell|smoke|smoking|sparks?|on fire|electric(al)? shock|exposed wir|lightning (hit|struck|strike))\b", re.I)
 SOFT_SAFETY_RE = re.compile(r"\b(storm|lightning|surge|power outage)\b", re.I)
 PRODUCT_RE = re.compile(r"\b(rotors?|decoders?|controllers?|valves?|nozzles?|stations?|cirruspro|heads?|turret|arc|program)\b", re.I)
-SYMPTOM_RE = re.compile(r"\b(rotat|pop|stuck|won'?t|doesn'?t|not (run|turn|come)|adjust|create|set up|leak|noise|pressure|arc|program)\w*", re.I)
+SYMPTOM_RE = re.compile(r"\b(rotat|pop|stuck|won'?t|doesn'?t|don'?t|isn'?t|aren'?t|not (run|turn|come|respond|activat|work)|"
+                        r"none of|come on|turn on|respond|activat|fail|dead|offline|error|fault|adjust|create|set ?up|leak|noise|pressure|arc|program)\w*", re.I)
 MIN_SCORE = 0.25
 
 

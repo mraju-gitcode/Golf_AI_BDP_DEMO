@@ -13,7 +13,9 @@ from .. import knowledge, llm
 from .common import PHONE_RE, ack_text, decision, parts_in, reply, summarize, wrap_reply
 
 ESCALATE_RE = re.compile(r"\b(attorney|lawyer|legal|lawsuit|sue|liabilit|property damage|flooded|injur|fire)\b", re.I)
-NON_WARRANTY_RE = re.compile(r"\b(over-?ordered|overstock|wrong item|cut back|shipping damage|no longer need)\b", re.I)
+NON_WARRANTY_RE = re.compile(r"\b(over-?ordered|overstock|excess|surplus|unused|wrong item|cut (the \w+ )?back|shipping damage|no longer need)", re.I)
+FAILURE_RE = re.compile(r"\b(fail|stopp|broke|defect|crack|leak|not (work|rotat|pop)|won'?t|doesn'?t|warranty)\w*", re.I)
+RETURN_FOR_CREDIT_RE = re.compile(r"\b(return|send back)\b.*\bcredit\b|\bcredit\b.*\breturn", re.I | re.S)
 REQUIRED = ["contact", "part_numbers"]
 FORM_NOTE = ("Warranty information form (synthetic demo form): course name, course contact name and phone, affected part "
              "numbers and quantities, installation date, and a short description of the failure. Photos are helpful.")
@@ -46,7 +48,7 @@ def handle(email: dict, intake: dict, triage: dict, case: dict) -> dict:
                         forward={"to": "Warranty escalations (named by Rain Bird)", "summary": "ESCALATED CLAIM: " + summarize(email, text)},
                         teams={"to": "Warranty escalations", "text": f"Urgent: claim with legal/property-damage language from {intake['sender']['account_name']}"},
                         case_status="escalated", checks={"no_commitment": True})
-    if NON_WARRANTY_RE.search(text):
+    if NON_WARRANTY_RE.search(text) or (RETURN_FOR_CREDIT_RE.search(text) and not FAILURE_RE.search(text)):
         return decision("route", "Non-warranty return (overstock); handling pending R-Q6, routed to a CSR",
                         customer_reply=reply("ack", wrap_reply(email, ack_text("our returns team"))),
                         forward={"to": owner, "summary": "Non-warranty return request. " + summarize(email, text)},

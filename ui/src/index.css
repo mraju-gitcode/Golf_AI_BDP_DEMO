@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-sans: "Open Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-rb-green: #018752;
+  --color-rb-green-dark: #006A40;
+  --color-rb-green-deep: #004A2D;
+  --color-rb-green-tint: #E6F3ED;
+  --color-rb-green-bright: #2FB06A;
+  --color-rb-blue: #0072BC;
+  --color-rb-blue-tint: #E6F1FA;
+  --color-rb-amber: #F2A900;
+  --color-rb-bg: #F4F6F5;
+  --color-rb-border: #DDE4E0;
+  --color-rb-text: #1D2A24;
+  --color-rb-muted: #6F7F77;
+  --color-rb-dark-bg: #0F1613;
+  --color-rb-dark-card: #16201B;
+  --color-rb-dark-border: #24342C;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-rb-text);
+    background-color: var(--color-rb-bg);
+  }
+
+  html.dark {
+    color: #EAF1ED;
+    background-color: var(--color-rb-dark-bg);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.rb-card {
+  background-color: #ffffff;
+  border: 1px solid #DDE4E0;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(29, 42, 36, 0.05), 0 1px 2px rgba(29, 42, 36, 0.03);
+}
+
+.dark .rb-card {
+  background-color: #16201B;
+  border-color: #24342C;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes traceStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trace-step-enter {
+  opacity: 0;
+  animation: traceStepIn 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-step-enter {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* Custom Range Slider in Rain Bird Green */
+input[type="range"].rb-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #DDE4E0;
+  outline: none;
+}
+
+.dark input[type="range"].rb-slider {
+  background: #24342C;
+}
+
+input[type="range"].rb-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #018752;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+
+.dark input[type="range"].rb-slider::-webkit-slider-thumb {
+  background: #2FB06A;
+  border-color: #16201B;
+}
+
+input[type="range"].rb-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #018752;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}

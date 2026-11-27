@@ -250,8 +250,12 @@ def run_evaluation(file: str = "test_cases.json"):
 
 
 @app.post("/api/synthetic/generate")
-def generate_synthetic(per_category: int = 10, use_llm: bool = False):
-    return {"written": synthetic.write(per_category, use_llm), "file": "synthetic_cases.json"}
+def generate_synthetic(per_category: int = 10, total: int | None = None, use_llm: bool | None = None):
+    """Story-driven synthetic emails, weighted like the real mailbox (order status most common).
+    Written by the model when a key is configured, unless use_llm=false."""
+    use = llm_enabled() if use_llm is None else use_llm
+    n = total or per_category * 9
+    return {"written": synthetic.write(n, use), "file": "synthetic_cases.json", "llm": use and llm_enabled()}
 
 
 @app.get("/api/kb/search")
@@ -259,10 +263,23 @@ def kb_search(q: str):
     return knowledge.search(q, k=5)
 
 
-web = ROOT / "web"
+web = ROOT / "web"            # classic console (no build step)
+ui_dist = ROOT / "ui" / "dist"  # AI Studio UI, built with `npm run build` in ui/
+
 if web.exists():
     app.mount("/static", StaticFiles(directory=web), name="static")
 
+    @app.get("/classic")
+    def classic():
+        return FileResponse(web / "index.html")
+
+if (ui_dist / "index.html").exists():
+    app.mount("/assets", StaticFiles(directory=ui_dist / "assets"), name="ui-assets")
+
+    @app.get("/")
+    def index():
+        return FileResponse(ui_dist / "index.html")
+elif web.exists():
     @app.get("/")
     def index():
         return FileResponse(web / "index.html")

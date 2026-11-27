@@ -17,12 +17,15 @@ cp .env.example .env        # add OPENAI_API_KEY (OPENAI_KEY also works) for LLM
 uvicorn golfpm.api:app --port 8000
 ```
 
-- Demo UI (Rain Bird themed): http://localhost:8000
+- **GolfPM Assist UI** (built in Google AI Studio, Rain Bird themed): http://localhost:8000. The built UI ships in `ui/dist`, so no Node.js is needed to run the demo.
+- Classic console (no build step, fallback): http://localhost:8000/classic
 - API docs: http://localhost:8000/docs
-- Rebuild or restyle the UI in Google AI Studio: see [docs/UI_SPEC_FOR_AI_STUDIO.md](docs/UI_SPEC_FOR_AI_STUDIO.md)
+- To change the UI: `cd ui && npm install && npm run dev` (hot reload on :3000, proxies `/api` to :8000), then `npm run build`. The AI Studio prompt and theme are in [docs/UI_SPEC_FOR_AI_STUDIO.md](docs/UI_SPEC_FOR_AI_STUDIO.md).
 
 **Modes**
-- **LLM mode** (key present): OpenAI models handle triage and write the replies. The default model is `gpt-5-mini`; set `GOLFPM_TRIAGE_MODEL` / `GOLFPM_REPLY_MODEL` to change it.
+- **LLM mode** (key present): OpenAI models handle triage and write the replies.
+  - The default model is `gpt-5-mini` with `GOLFPM_REASONING_EFFORT=low`, which takes about 2 to 5 seconds per email.
+  - Set `GOLFPM_TRIAGE_MODEL` / `GOLFPM_REPLY_MODEL` to change the models.
 - **Offline mode** (no key, or `GOLFPM_MODE=offline`): deterministic rules do the same job, so the demo still runs with no network.
 
 In both modes, the workflow code makes every control decision: who may see an order, round limits, approvals, output checks and the kill switch. Any model error falls back to offline behaviour, and the trace records it.
@@ -30,11 +33,23 @@ In both modes, the workflow code makes every control decision: who may see an or
 **Tests and evaluation**
 
 ```bash
-python -m pytest -q                                   # 8 tests, offline
+python -m pytest -q                                   # 8 backend tests, offline
+cd ui && npm test                                     # 11 UI tests
 python -m golfpm.evaluation                           # Chris's 39 cases + 5 red-team cases
-python -m golfpm.synthetic --per-category 20 [--llm]  # generate more synthetic emails
+python -m golfpm.synthetic --total 90 --llm           # story-driven synthetic emails, written by the model
 python -m golfpm.evaluation synthetic_cases.json
 ```
+
+The evaluation runs cases in parallel (8 workers), so an LLM-mode run takes about 30 seconds.
+
+Results in LLM mode (gpt-5-mini, 27 Nov 2026):
+
+| Set | Passed | Routing | Safety and red-team |
+|---|---|---|---|
+| Test set (39 + 5 red team) | 44/44 | 100% | 10/10 |
+| Story-driven synthetic, written by the model | 88/88 | 100% | n/a |
+
+Offline rules also pass both sets.
 
 ## What the demo covers
 
@@ -82,6 +97,8 @@ python -m golfpm.evaluation synthetic_cases.json
 
 ## Synthetic data and placeholders
 
+- `data/story.md`: the demo story (cast, courses, orders, POs, parts and timeline). The test cases, order feed and synthetic generator all follow it.
+- `data/synthetic_cases.json`: emails generated from the story, weighted like the real mailbox (order status about 28%). Regenerate from Quality & Testing or with `python -m golfpm.synthetic`.
 - `data/test_cases.json`: Chris's 39 test cases (BDP_Rainbird_GolfPM_Sample_Test_Cases.xlsx) with structured expected outcomes, plus red-team cases RT-01 to RT-05.
 - `data/kb/*.md`: **synthetic placeholder** troubleshooting and warranty text. It is not Rain Bird content and must be replaced with approved sources.
 - `data/orders.json`, `data/contacts.json`: invented accounts and orders (example.com domains, TEST- numbers).

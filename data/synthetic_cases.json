@@ -1,13 +1,13 @@
 {
-  "_note": "Generated synthetic emails (golfpm.synthetic). Labels come from the templates.",
+  "_note": "Generated from the demo story (data/story.md) by golfpm.synthetic. Labels come from the scenarios.",
   "cases": [
     {
       "id": "SY-001",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
+      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Ship date SO-TEST-104582",
-      "body": "Hi, could you confirm the ship date for SO-TEST-104582? Thanks, Mike",
+      "subject": "Shipping date for SO-TEST-104582",
+      "body": "Hi \u2014 Can you confirm the ship date for SO-TEST-104582? We aerify the week of the 15th and need the 24 rotors on-site before then. Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -16,10 +16,10 @@
     {
       "id": "SY-002",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
+      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order SO-TEST-104582",
-      "body": "When will SO-TEST-104582 ship? Our crew is booked for install. Mike",
+      "subject": "Status check for SO-TEST-104582 installation",
+      "body": "Hi,\n\nCan you confirm if SO-TEST-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed.\n\nThanks,\nMike Alvarez",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -28,10 +28,10 @@
     {
       "id": "SY-003",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "ETA for PO 55187",
-      "body": "Hello, what is the current ETA for PO 55187? Regards, Dana",
+      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Requesting tracking for SO-TEST-104590",
+      "body": "Hi \u2014 Could you please send the tracking information for SO-TEST-104590? It was scheduled to ship last week and we still haven\u2019t received it. Thanks,\n\nJen Walsh",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -40,10 +40,10 @@
     {
       "id": "SY-004",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tracking for PO 55120",
-      "body": "Can you send tracking for PO 55120? The course is asking. Dana",
+      "scenario": "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
+      "from": "orders@fairwayirrigation.example.com",
+      "subject": "Requesting ETA for PO 55187",
+      "body": "Hi,\n\nCan you confirm the current ETA for our stock order PO 55187 (24 rotors)? Thanks for the quick update.\n\nThanks,\nDana Price",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -52,22 +52,22 @@
     {
       "id": "SY-005",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Where is our order?",
-      "body": "Hi, any update on when our last rotor order will arrive? Jen",
+      "scenario": "Lakeview is asking about PO 55120; asks whether it has shipped and for tracking.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Status request for PO 55120",
+      "body": "Hi,\n\nLakeview is asking about the rotors on PO 55120. Has it shipped, and can you provide the tracking number?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 1,
-        "action": "ask"
+        "action": "reply"
       }
     },
     {
       "id": "SY-006",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Order update",
-      "body": "Checking on the status of our order from a few weeks ago. Sam",
+      "scenario": "Asks for an update on 'our rotor order from last month' without giving any order or PO number.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Checking on last month's rotor order",
+      "body": "Hi\u2014do you have an update on the rotor order we placed last month? We're planning winter work around its arrival and need to confirm timing. Thanks,\nJen Walsh\nAssistant Superintendent",
       "expected": {
         "category": 1,
         "action": "ask"
@@ -76,22 +76,22 @@
     {
       "id": "SY-007",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "SO-TEST-104611 update",
-      "body": "SO-TEST-104611 still shows backordered. When will it ship? Mike",
+      "scenario": "Asks when 'our order' will arrive, no order number given, renovation underway.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "ETA for our renovation order",
+      "body": "We're mid-renovation at Lakeview and need to confirm the ETA for our order. Can you tell me when we should expect it to arrive?\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
         "category": 1,
-        "action": "route"
+        "action": "ask"
       }
     },
     {
       "id": "SY-008",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Stock availability",
-      "body": "Do you have 60 golf rotors available for quick ship next week? Dana",
+      "scenario": "SO-TEST-104611 decoders still show backordered; asks for an ETA.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "ETA needed for decoders on SO-TEST-104611",
+      "body": "SO-TEST-104611 has been showing backordered for several weeks. Can you provide an updated estimated arrival date for the decoders? Thanks,\n\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
         "category": 1,
         "action": "route"
@@ -100,34 +100,34 @@
     {
       "id": "SY-009",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Ship date SO-TEST-104582",
-      "body": "Good morning, Hi, could you confirm the ship date for SO-TEST-104582? Thanks, Mike",
+      "scenario": "Asks whether 40 full-circle golf rotors are in stock for quick ship for a spring renovation.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Availability: 40 full-circle rotors for quick ship",
+      "body": "Can you confirm if you have 40 full-circle golf rotors available for immediate shipment? We need them for an upcoming spring renovation and would like to arrange quick ship if possible.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 1,
-        "action": "reply"
+        "action": "route"
       }
     },
     {
       "id": "SY-010",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order SO-TEST-104582",
-      "body": "Hi team, When will SO-TEST-104582 ship? Our crew is booked for install. Mike",
+      "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Ship date request for SO-TEST-104500",
+      "body": "Hi \u2014 could you confirm the ship date for SO-TEST-104500? A friend at another course asked me to check on it.\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 1,
-        "action": "reply"
+        "action": "route"
       }
     },
     {
       "id": "SY-011",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "ETA for PO 55187",
-      "body": "Hello, what is the current ETA for PO 55187? Regards, Dana",
+      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Shipping date for 24 rotors on SO-TEST-104582",
+      "body": "Can you confirm when the 24 rotors on SO-TEST-104582 will ship? We aerify the week of the 15th and need them here before then.\n\nThanks,\nMike Alvarez\nSuperintendent",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -136,10 +136,10 @@
     {
       "id": "SY-012",
       "type": "Synthetic",
-      "scenario": "Generated category 1 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tracking for PO 55120",
-      "body": "Hello, Can you send tracking for PO 55120? The course is asking. Dana",
+      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Status check for SO-TEST-104582",
+      "body": "Can you confirm whether SO-TEST-104582 is still on schedule? I have our crew scheduled for the install and need to confirm the arrival/ship date. Thanks,\nMike Alvarez",
       "expected": {
         "category": 1,
         "action": "reply"
@@ -148,562 +148,562 @@
     {
       "id": "SY-013",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Warranty on failed rotors",
-      "body": "Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Shipment update request \u2014 SO-TEST-104590",
+      "body": "Hi Rain Bird team,\n\nCould you send over the tracking details for SO-TEST-104590? We were expecting it last week and it hasn't arrived yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
       "expected": {
-        "category": 2,
-        "action": "ask"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-014",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "RMA request",
-      "body": "We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "scenario": "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
+      "from": "orders@fairwayirrigation.example.com",
+      "subject": "Status update: PO 55187",
+      "body": "Hi \u2014 can you confirm the current ETA on our stock order PO 55187 for 24 rotors?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 2,
-        "action": "ask"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-015",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
+      "scenario": "Lakeview is asking about PO 55120; asks whether it has shipped and for tracking.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Return for credit",
-      "body": "We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "subject": "Status request for PO 55120 (Lakeview)",
+      "body": "Hi,\n\nLakeview is asking for an update on the rotors on PO 55120. Can you confirm whether it has shipped and, if so, provide the tracking number?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 2,
-        "action": "route"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-016",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "irrigation@harborpointclub.example.com",
-      "subject": "Damage claim",
-      "body": "A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "scenario": "Asks for an update on 'our rotor order from last month' without giving any order or PO number.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Checking status of the rotors we ordered last month",
+      "body": "Hi \u2014 any update on the rotor order we placed last month? We\u2019re scheduling winter work and need to confirm timing. Thanks,\n\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
       "expected": {
-        "category": 2,
-        "action": "escalate"
+        "category": 1,
+        "action": "ask"
       }
     },
     {
       "id": "SY-017",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
+      "scenario": "Asks when 'our order' will arrive, no order number given, renovation underway.",
       "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Warranty on failed rotors",
-      "body": "Hello, Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "subject": "Delivery timing for our renovation order",
+      "body": "Hi,\n\nWe're in the middle of the renovation and need to plan crews around the delivery. Can you let me know when our order is expected to arrive?\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
-        "category": 2,
+        "category": 1,
         "action": "ask"
       }
     },
     {
       "id": "SY-018",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "RMA request",
-      "body": "Hello, We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "scenario": "SO-TEST-104611 decoders still show backordered; asks for an ETA.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Status update requested for SO-TEST-104611 decoders",
+      "body": "SO-TEST-104611 has been showing backordered for several weeks. Can you provide an estimated ship date for the decoders? Thanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
-        "category": 2,
-        "action": "ask"
+        "category": 1,
+        "action": "route"
       }
     },
     {
       "id": "SY-019",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
+      "scenario": "Asks whether 40 full-circle golf rotors are in stock for quick ship for a spring renovation.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Return for credit",
-      "body": "Good morning, We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "subject": "Stock check \u2014 40 full-circle rotors for quick ship",
+      "body": "Hi,\n\nDo you have 40 full-circle golf rotors in stock for quick ship? Spring renovation starts soon.\n\nThanks,\nDana Price",
       "expected": {
-        "category": 2,
+        "category": 1,
         "action": "route"
       }
     },
     {
       "id": "SY-020",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "irrigation@harborpointclub.example.com",
-      "subject": "Damage claim",
-      "body": "Hello, A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "scenario": "Asks for the ship date of SO-TEST-104500, which belongs to another course (Riverbend).",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Can you confirm the ship date for SO-TEST-104500?",
+      "body": "Hi \u2014 could you confirm the ship date for SO-TEST-104500? A colleague at another course asked me to check on it. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
-        "category": 2,
-        "action": "escalate"
+        "category": 1,
+        "action": "route"
       }
     },
     {
       "id": "SY-021",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Warranty on failed rotors",
-      "body": "Hi team, Four of our rotors failed this month. Can we get them replaced under warranty? Sam",
+      "scenario": "Asks when the 24 rotors on SO-TEST-104582 will ship; aerifying the week of the 15th.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "When will SO-TEST-104582 ship?",
+      "body": "Can you confirm when the 24 rotors on SO-TEST-104582 will ship? We have aerifying scheduled the week of the 15th and need the rotors here before then.\n\nThanks,\nMike Alvarez\nSuperintendent, Pine Hollow Golf Club",
       "expected": {
-        "category": 2,
-        "action": "ask"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-022",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "RMA request",
-      "body": "Hello, We need an RMA for some decoders that failed. How do we start a warranty claim? Jen",
+      "scenario": "Checks whether SO-TEST-104582 is still on schedule; crew is lined up for install.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Schedule confirmation for SO-TEST-104582",
+      "body": "Can you confirm whether SO-TEST-104582 is still on schedule? I have the crew lined up for the install and want to make sure the date hasn\u2019t changed. Thanks, Mike Alvarez",
       "expected": {
-        "category": 2,
-        "action": "ask"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-023",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Return for credit",
-      "body": "Hello, We over-ordered nozzles on our last order and would like to return them for credit. Dana",
+      "scenario": "Asks for tracking on SO-TEST-104590, the rotor order that shipped last week.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Shipment update for SO-TEST-104590",
+      "body": "Hello,\n\nCould you send the tracking details for SO-TEST-104590? It was marked shipped last week but we haven\u2019t received it at Cedar Ridge yet.\n\nThanks,\nJen Walsh\nAssistant Superintendent",
       "expected": {
-        "category": 2,
-        "action": "route"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-024",
       "type": "Synthetic",
-      "scenario": "Generated category 2 email",
-      "from": "irrigation@harborpointclub.example.com",
-      "subject": "Damage claim",
-      "body": "A valve failure flooded our cart barn. Our lawyer says we should file a claim for the damage. Chris",
+      "scenario": "Asks for the ETA on PO 55187, their stock order of 24 rotors.",
+      "from": "orders@fairwayirrigation.example.com",
+      "subject": "Status update for PO 55187",
+      "body": "Hi \u2014 can you confirm the current ETA on our stock order PO 55187? I need to pass the timing along to our purchasing team. Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 2,
-        "action": "escalate"
+        "category": 1,
+        "action": "reply"
       }
     },
     {
       "id": "SY-025",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Rotor stuck",
-      "body": "One rotor on hole 4 pops up but doesn't rotate. Pressure is fine. What should we check? Sam",
+      "scenario": "Lakeview is asking about PO 55120; asks whether it has shipped and for tracking.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Status request for PO 55120 (Lakeview)",
+      "body": "Hi,\n\nLakeview is asking about the rotors on PO 55120. Can you confirm whether PO 55120 has shipped and, if so, provide the tracking number?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 3,
+        "category": 1,
         "action": "reply"
       }
     },
     {
       "id": "SY-026",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Adjusting arc",
-      "body": "How do we adjust the arc on our part-circle rotors? Jen",
+      "scenario": "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty replacement request for failed rotors",
+      "body": "Several of our rotors stopped working this season and need to be replaced under warranty. Please let me know the next steps to submit these for warranty replacements. Thank you,\n\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "ask"
       }
     },
     {
       "id": "SY-027",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
+      "scenario": "Five rotors from last year's order stopped rotating; asks for replacement under warranty, no part numbers.",
       "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "CirrusPRO program",
-      "body": "How do I create a new watering program in CirrusPRO for our new chipping green? Mike",
+      "subject": "Request: warranty replacement for five rotors",
+      "body": "Hi,\n\nFive rotors from our order last year have stopped rotating. Can these be replaced under warranty, and what are the next steps?\n\nThanks,\nMike Alvarez\nSuperintendent, Pine Hollow Golf Club",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "ask"
       }
     },
     {
       "id": "SY-028",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Hole 12 stations",
-      "body": "Several stations on hole 12 won't come on from central control. Could the decoders be the issue? Meadowbrook Pro Shop",
+      "scenario": "Over-ordered spray nozzles after a project was cut back; wants to return 3 cases for credit.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Return request: 3 cases of spray nozzles for credit",
+      "body": "We scaled back a project and now have three extra cases of spray nozzles. Can we return the 3 cases for credit?\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "route"
       }
     },
     {
       "id": "SY-029",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Irrigation issue",
-      "body": "Something is wrong with our sprinklers. Can someone help? Meadowbrook Pro Shop",
+      "scenario": "A failed valve flooded the clubhouse basement; their attorney wants to file a damage claim.",
+      "from": "gm@harborpointclub.example.com",
+      "subject": "Damage claim for clubhouse basement flooding",
+      "body": "A failed valve caused flooding in our clubhouse basement. Our attorney has asked that we file a claim for the damage.\n\nThanks,\nPat Greene\nGeneral Manager\nHarbor Point Club",
       "expected": {
-        "category": 3,
-        "action": "ask"
+        "category": 2,
+        "action": "escalate"
       }
     },
     {
       "id": "SY-030",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "irrigation@harborpointclub.example.com",
-      "subject": "Smoke from controller",
-      "body": "There is smoke coming out of a field controller after the storm. Can we reset it? Chris",
+      "scenario": "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty replacements needed for failed rotors",
+      "body": "Several of our rotors stopped working this season and need warranty replacements. Please let me know how to proceed.\n\nThanks,\nSam Ortiz",
       "expected": {
-        "category": 3,
-        "action": "escalate"
+        "category": 2,
+        "action": "ask"
       }
     },
     {
       "id": "SY-031",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Rotor stuck",
-      "body": "One rotor on hole 4 pops up but doesn't rotate. Pressure is fine. What should we check? Sam",
+      "scenario": "Five rotors from last year's order stopped rotating; asks for replacement under warranty, no part numbers.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Warranty replacement for five rotors",
+      "body": "Hi,\n\nFive of the rotors from last year's order have stopped rotating. Can those be replaced under warranty?\n\nThanks,\nMike Alvarez\nSuperintendent, Pine Hollow Golf Club",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "ask"
       }
     },
     {
       "id": "SY-032",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "jen.walsh@cedarridgecc.example.com",
-      "subject": "Adjusting arc",
-      "body": "Hello, How do we adjust the arc on our part-circle rotors? Jen",
+      "scenario": "Over-ordered spray nozzles after a project was cut back; wants to return 3 cases for credit.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Request to return 3 cases of spray nozzles for credit",
+      "body": "Hi Rain Bird team,\n\nWe over-ordered spray nozzles after a project was scaled back and would like to return 3 cases for credit. Please advise the return process and any paperwork needed.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "route"
       }
     },
     {
       "id": "SY-033",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "CirrusPRO program",
-      "body": "Hi team, How do I create a new watering program in CirrusPRO for our new chipping green? Mike",
+      "scenario": "A failed valve flooded the clubhouse basement; their attorney wants to file a damage claim.",
+      "from": "gm@harborpointclub.example.com",
+      "subject": "Clubhouse basement flooding \u2014 damage claim",
+      "body": "A failed valve flooded our clubhouse basement. Our attorney has asked us to file a damage claim for the resulting damage. This message is to notify you of that intent.\n\nSincerely,\nPat Greene\nGeneral Manager\nHarbor Point Club",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "escalate"
       }
     },
     {
       "id": "SY-034",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Hole 12 stations",
-      "body": "Hello, Several stations on hole 12 won't come on from central control. Could the decoders be the issue? Meadowbrook Pro Shop",
+      "scenario": "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty replacement request \u2014 failed rotors",
+      "body": "Hi Rain Bird team,\n\nSeveral of our rotors stopped working this season and we are requesting warranty replacements. Please process this claim.\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
-        "category": 3,
-        "action": "reply"
+        "category": 2,
+        "action": "ask"
       }
     },
     {
       "id": "SY-035",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Irrigation issue",
-      "body": "Something is wrong with our sprinklers. Can someone help? Meadowbrook Pro Shop",
+      "scenario": "Five rotors from last year's order stopped rotating; asks for replacement under warranty, no part numbers.",
+      "from": "mike.alvarez@pinehollowgc.example.com",
+      "subject": "Request: warranty replacement for five rotors",
+      "body": "Morning \u2014 five rotors from last year\u2019s order have stopped rotating. Can you confirm whether these are covered under warranty and what the next steps are to get them replaced?\n\nThanks,\nMike Alvarez\nSuperintendent\nPine Hollow Golf Club",
       "expected": {
-        "category": 3,
+        "category": 2,
         "action": "ask"
       }
     },
     {
       "id": "SY-036",
       "type": "Synthetic",
-      "scenario": "Generated category 3 email",
+      "scenario": "Over-ordered spray nozzles after a project was cut back; wants to return 3 cases for credit.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Return request: 3 cases of spray nozzles for credit",
+      "body": "We cut back the project and ended up over-ordering spray nozzles. Please let me know the steps to return 3 cases for credit and any paperwork you need from us. Thanks,\nDana Price\nFairway Irrigation Supply",
+      "expected": {
+        "category": 2,
+        "action": "route"
+      }
+    },
+    {
+      "id": "SY-037",
+      "type": "Synthetic",
+      "scenario": "A failed valve flooded the clubhouse basement; their attorney wants to file a damage claim.",
+      "from": "gm@harborpointclub.example.com",
+      "subject": "Clubhouse basement flooding \u2014 claim request",
+      "body": "A failed valve flooded our clubhouse basement. Our attorney has asked us to file a claim for the damage.\n\nSincerely,\nPat Greene\nGeneral Manager\nHarbor Point Club",
+      "expected": {
+        "category": 2,
+        "action": "escalate"
+      }
+    },
+    {
+      "id": "SY-038",
+      "type": "Synthetic",
+      "scenario": "Wants warranty replacement for rotors that stopped working; no part numbers or contact details given.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Warranty replacement request - failed rotors",
+      "body": "Several of our rotors stopped functioning this season. Please advise on the next steps to initiate warranty replacements. Thanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
+      "expected": {
+        "category": 2,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-039",
+      "type": "Synthetic",
+      "scenario": "Rotor on hole 9 pops up but stays in one position and does not rotate; pressure seems fine.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Hole 9 rotor pops up but remains stuck",
+      "body": "The rotor on hole 9 pops up like it should but stays in one position and won't rotate. Pressure looks fine from our checks. What should we look at or test first to get it spinning again?\n\nThanks,\nSam Ortiz",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-040",
+      "type": "Synthetic",
+      "scenario": "Since the storm all stations on hole 7 won't come on from central control; suspects decoders.",
+      "from": "luis.romero@cedarridgecc.example.com",
+      "subject": "Hole 7 stations not coming on after the storm",
+      "body": "Since the storm, none of the stations on hole 7 will come on from central control. Could it be the decoders?\n\nThanks,\nLuis Romero\nIrrigation Technician, Cedar Ridge CC",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-041",
+      "type": "Synthetic",
+      "scenario": "How to create a new watering program in CirrusPRO for the new practice area.",
+      "from": "luis.romero@cedarridgecc.example.com",
+      "subject": "Creating a CirrusPRO program for our new practice area",
+      "body": "Hi team,\n\nWe\u2019ve added a new practice area and I need to set up a watering program in CirrusPRO for it. Can you walk me through the steps to create and assign a new program for that area?\n\nThanks,\nLuis Romero",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-042",
+      "type": "Synthetic",
+      "scenario": "How to adjust the arc on part-circle rotors around the new tee boxes.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Setting the arc on part\u2011circle rotors at the new tee boxes",
+      "body": "We installed several part\u2011circle rotors around the new tee boxes and need guidance on adjusting their arcs. Can you outline the steps or point me to the right reference for adjusting these rotors? Thanks,\n\nJen Walsh\nAssistant Superintendent\nCedar Ridge Country Club",
+      "expected": {
+        "category": 3,
+        "action": "reply"
+      }
+    },
+    {
+      "id": "SY-043",
+      "type": "Synthetic",
+      "scenario": "Vague: sprinklers are acting up, asks for help, no product or symptom details.",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Problems with our sprinkler system",
+      "body": "Hello,\n\nOur sprinkler system has been acting up lately. Could someone please help or advise on next steps? We don't have any further details at this time.\n\nThanks,\nMeadowbrook Pro Shop",
+      "expected": {
+        "category": 3,
+        "action": "ask"
+      }
+    },
+    {
+      "id": "SY-044",
+      "type": "Synthetic",
+      "scenario": "After the lightning strike there is a burning smell at the field controller by hole 14; asks if they can reset it.",
       "from": "irrigation@harborpointclub.example.com",
-      "subject": "Smoke from controller",
-      "body": "Hello, There is smoke coming out of a field controller after the storm. Can we reset it? Chris",
+      "subject": "Burning odor at hole 14 field controller \u2014 can you reset it?",
+      "body": "Lightning struck near the shop last night and there\u2019s a burning smell coming from the field controller by hole 14. Can you perform a remote reset to see if that clears it? Thanks,\n\nChris Dunn\nIrrigation Technician\nHarbor Point Club",
       "expected": {
         "category": 3,
         "action": "escalate"
       }
     },
     {
-      "id": "SY-037",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-038",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-039",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-040",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-041",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-042",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-043",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-044",
-      "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
-      "expected": {
-        "category": 4,
-        "action": "route"
-      }
-    },
-    {
       "id": "SY-045",
       "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "Hello, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "scenario": "Rotor on hole 9 pops up but stays in one position and does not rotate; pressure seems fine.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Hole 9 rotor pops up but won\u2019t rotate",
+      "body": "The rotor at hole 9 comes up but stays fixed in one position and won't rotate. System pressure seems normal. What should we check to troubleshoot this?\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
-        "category": 4,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-046",
       "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Hi team, Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "scenario": "Since the storm all stations on hole 7 won't come on from central control; suspects decoders.",
+      "from": "luis.romero@cedarridgecc.example.com",
+      "subject": "Hole 7 stations unresponsive after storm",
+      "body": "The stations on hole 7 are not responding to commands from central control since the storm. Could this be a decoder issue? Thanks,\nLuis Romero",
       "expected": {
-        "category": 4,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-047",
       "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Hold on SO-TEST-104790",
-      "body": "Good morning, SO-TEST-104790 is on hold for PM approval. Can you get it released this week? Dana",
+      "scenario": "How to create a new watering program in CirrusPRO for the new practice area.",
+      "from": "luis.romero@cedarridgecc.example.com",
+      "subject": "Setting up a new CirrusPRO watering program for our practice area",
+      "body": "Hi,\n\nI need to create a new watering program in CirrusPRO for our new practice area \u2014 can you walk me through how to set that up?\n\nThanks,\nLuis Romero\nIrrigation Technician\nCedar Ridge CC",
       "expected": {
-        "category": 4,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-048",
       "type": "Synthetic",
-      "scenario": "Generated category 4 email",
-      "from": "mike.alvarez@pinehollowgc.example.com",
-      "subject": "Order on hold",
-      "body": "Our order shows on hold pending golf application approval. Who can release it? Mike",
+      "scenario": "How to adjust the arc on part-circle rotors around the new tee boxes.",
+      "from": "jen.walsh@cedarridgecc.example.com",
+      "subject": "Adjusting spray arc on part-circle rotors near new tee boxes",
+      "body": "Can you tell me how to adjust the spray arc on the part-circle rotors we installed around the new tee boxes? Thanks,\n\nJen Walsh",
       "expected": {
-        "category": 4,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-049",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "scenario": "Vague: sprinklers are acting up, asks for help, no product or symptom details.",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Sprinkler system needs attention",
+      "body": "Hello,\n\nOur sprinkler system has been acting up recently and we could use some assistance. Can someone from support please advise or arrange a service visit?\n\nThanks,\nMeadowbrook Pro Shop",
       "expected": {
-        "category": 5,
-        "action": "route"
+        "category": 3,
+        "action": "ask"
       }
     },
     {
       "id": "SY-050",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Nozzle compatibility",
-      "body": "Are the new nozzles compatible with our older rotor bodies? Sam",
+      "scenario": "After the lightning strike there is a burning smell at the field controller by hole 14; asks if they can reset it.",
+      "from": "irrigation@harborpointclub.example.com",
+      "subject": "Burning smell at controller by hole 14",
+      "body": "Lightning struck near the shop last night and now there's a persistent burning smell coming from the field controller at hole 14. Can we just reset that controller to see if it clears up?\n\nThanks,\nChris Dunn\nIrrigation Technician\nHarbor Point Club\nirrigation@harborpointclub.example.com",
       "expected": {
-        "category": 5,
-        "action": "route"
+        "category": 3,
+        "action": "escalate"
       }
     },
     {
       "id": "SY-051",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Hi team, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "scenario": "Rotor on hole 9 pops up but stays in one position and does not rotate; pressure seems fine.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Hole 9 rotor pops up but won't rotate",
+      "body": "The rotor on hole 9 pops up but stays facing one direction and won\u2019t rotate. System pressure checked and seems normal. What should I check to troubleshoot this?\n\nThanks,\nSam Ortiz\nSuperintendent\nLakeview Golf Club",
       "expected": {
-        "category": 5,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-052",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Nozzle compatibility",
-      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "scenario": "Since the storm all stations on hole 7 won't come on from central control; suspects decoders.",
+      "from": "luis.romero@cedarridgecc.example.com",
+      "subject": "Hole 7 stations not responding since the storm",
+      "body": "After the storm, central control won\u2019t activate any of the stations on hole 7. Could the decoders be causing this?\n\nThanks,\nLuis Romero",
       "expected": {
-        "category": 5,
-        "action": "route"
+        "category": 3,
+        "action": "reply"
       }
     },
     {
       "id": "SY-053",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
+      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Good morning, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "subject": "Release request for SO-TEST-104790",
+      "body": "SO-TEST-104790 is currently on hold pending PM approval for the golf application. Lakeview needs this next week \u2014 can you authorize the release? \n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-054",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Nozzle compatibility",
-      "body": "Hi team, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Who can approve release for SO-TEST-104790?",
+      "body": "Hi \u2014 following up on the hold for SO-TEST-104790. The course is waiting on this; who can approve releasing the order? Please let me know the contact or next step. Thanks,\nDana Price",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-055",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
+      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Hello, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "subject": "Release request for SO-TEST-104790 \u2014 Lakeview timing",
+      "body": "I understand SO-TEST-104790 is currently on hold awaiting PM approval for the golf application. Lakeview needs the shipment next week; can the order be released? Thanks,\nDana Price",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-056",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Nozzle compatibility",
-      "body": "Hi team, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Release approval needed for SO-TEST-104790",
+      "body": "Who can authorize the release of the hold on SO-TEST-104790? The course is waiting on this and needs an update. Thanks,\nDana Price",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-057",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
+      "scenario": "SO-TEST-104790 is on hold pending PM approval for golf application; Lakeview needs it next week.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Good morning, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "subject": "Release request for SO-TEST-104790",
+      "body": "SO-TEST-104790 is currently on hold pending PM approval for golf application. Lakeview needs it next week \u2014 can you release the order?\n\nThanks,\nDana Price",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-058",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "sam.ortiz@lakeviewgolf.example.com",
-      "subject": "Nozzle compatibility",
-      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "scenario": "Follows up on the hold on SO-TEST-104790, asks who can approve the release.",
+      "from": "dana.price@fairwayirrigation.example.com",
+      "subject": "Who can approve release of SO-TEST-104790?",
+      "body": "Hello,\n\nThe course is waiting \u2014 who can approve the release of the hold on SO-TEST-104790? Please let me know.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 5,
+        "category": 4,
         "action": "route"
       }
     },
     {
       "id": "SY-059",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Discontinued part",
-      "body": "Hello, Part TEST-4480 is discontinued. What is the replacement part number? Dana",
+      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "from": "parts@fairwayirrigation.example.com",
+      "subject": "Question about replacement for TEST-4471",
+      "body": "Hi \u2014 our inventory shows TEST-4471 as discontinued. Can you confirm which part number replaces TEST-4471? \n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
         "category": 5,
         "action": "route"
@@ -712,10 +712,10 @@
     {
       "id": "SY-060",
       "type": "Synthetic",
-      "scenario": "Generated category 5 email",
+      "scenario": "Asks if current nozzles are compatible with the rotor bodies installed ten years ago.",
       "from": "sam.ortiz@lakeviewgolf.example.com",
       "subject": "Nozzle compatibility",
-      "body": "Hello, Are the new nozzles compatible with our older rotor bodies? Sam",
+      "body": "Hi,\n\nAre the current nozzles compatible with the rotor bodies we installed about ten years ago?\n\nThanks,\nSam Ortiz\nSuperintendent, Lakeview Golf Club",
       "expected": {
         "category": 5,
         "action": "route"
@@ -724,70 +724,70 @@
     {
       "id": "SY-061",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "TEST-4480 is discontinued in their system; asks what replaces it.",
+      "from": "parts@fairwayirrigation.example.com",
+      "subject": "Inquiry: TEST-4480 discontinued",
+      "body": "Hi,\n\nOur system shows TEST-4480 is discontinued. Can you let me know what part replaces it?\n\nThanks,\nDana Price",
       "expected": {
-        "category": 6,
+        "category": 5,
         "action": "route"
       }
     },
     {
       "id": "SY-062",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "from": "parts@fairwayirrigation.example.com",
+      "subject": "Question about replacement for TEST-4471",
+      "body": "Our inventory shows TEST-4471 as discontinued. Can you confirm the replacement part number for TEST-4471?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
-        "category": 6,
+        "category": 5,
         "action": "route"
       }
     },
     {
       "id": "SY-063",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "Hi team, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "Asks if current nozzles are compatible with the rotor bodies installed ten years ago.",
+      "from": "sam.ortiz@lakeviewgolf.example.com",
+      "subject": "Do current nozzles fit our 10-year-old rotor bodies?",
+      "body": "Hi,\n\nCan you confirm whether the nozzles you currently supply are compatible with the rotor bodies we had installed about ten years ago? Please let me know if there are any differences we should expect.\n\nThanks,\nSam Ortiz",
       "expected": {
-        "category": 6,
+        "category": 5,
         "action": "route"
       }
     },
     {
       "id": "SY-064",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "scenario": "TEST-4480 is discontinued in their system; asks what replaces it.",
+      "from": "parts@fairwayirrigation.example.com",
+      "subject": "Question about replacement for TEST-4480",
+      "body": "Hi Rain Bird team,\n\nOur system shows TEST-4480 as discontinued \u2014 can you confirm that and let us know what replaces it?\n\nThanks,\nParts Desk\nFairway Irrigation Supply",
       "expected": {
-        "category": 6,
+        "category": 5,
         "action": "route"
       }
     },
     {
       "id": "SY-065",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "TEST-4471 shows as discontinued; asks for the replacement part number.",
+      "from": "parts@fairwayirrigation.example.com",
+      "subject": "Replacement part number for TEST-4471?",
+      "body": "Hi,\n\nOur records show TEST-4471 is discontinued. Please confirm the correct replacement part number.\n\nThanks,\nDana Price\nParts Desk\nFairway Irrigation Supply",
       "expected": {
-        "category": 6,
+        "category": 5,
         "action": "route"
       }
     },
     {
       "id": "SY-066",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Good morning, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "scenario": "Just installed CirrusPRO; wants to set up an account and subscription.",
+      "from": "office@newbridgegolf.example.com",
+      "subject": "CirrusPRO account & subscription setup",
+      "body": "We've just completed our CirrusPRO installation and are ready to set up an account and subscription. Could you tell me who I should contact to get this arranged? Thanks,\nKelly Fox",
       "expected": {
         "category": 6,
         "action": "route"
@@ -796,10 +796,10 @@
     {
       "id": "SY-067",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "Asks to renew the CirrusPRO plan for next year.",
+      "from": "office@meadowbrookgc.example.com",
+      "subject": "CirrusPRO plan renewal request",
+      "body": "We would like to renew our CirrusPRO plan for next year. Please process the renewal at your earliest convenience.\n\nThank you,\nMeadowbrook Golf Club Office",
       "expected": {
         "category": 6,
         "action": "route"
@@ -808,10 +808,10 @@
     {
       "id": "SY-068",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "scenario": "Just installed CirrusPRO; wants to set up an account and subscription.",
+      "from": "office@newbridgegolf.example.com",
+      "subject": "CirrusPRO account and subscription setup",
+      "body": "Hello,\n\nWe just installed CirrusPRO and would like to set up our account and subscription. Who should I contact to get this started?\n\nThanks,\nKelly Fox\nNewbridge Golf",
       "expected": {
         "category": 6,
         "action": "route"
@@ -820,10 +820,10 @@
     {
       "id": "SY-069",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "Good morning, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "Asks to renew the CirrusPRO plan for next year.",
+      "from": "office@meadowbrookgc.example.com",
+      "subject": "Please renew our CirrusPRO plan for next year",
+      "body": "Hello,\n\nPlease renew our CirrusPRO plan for next year.\n\nThanks,\nMeadowbrook Golf Club Office",
       "expected": {
         "category": 6,
         "action": "route"
@@ -832,10 +832,10 @@
     {
       "id": "SY-070",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Good morning, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
+      "scenario": "Just installed CirrusPRO; wants to set up an account and subscription.",
+      "from": "office@newbridgegolf.example.com",
+      "subject": "CirrusPRO account and subscription setup",
+      "body": "We just installed CirrusPRO and would like to get our account and subscription set up. Who should I contact to get this started? Thanks,\nKelly Fox\nNewbridge Golf",
       "expected": {
         "category": 6,
         "action": "route"
@@ -844,46 +844,58 @@
     {
       "id": "SY-071",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "CirrusPRO subscription",
-      "body": "Hi team, We would like to set up a CirrusPRO subscription for our course. Who do we contact? Taylor",
+      "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
+      "from": "purchasing@fairwayirrigation.example.com",
+      "subject": "PO 55240 \u2014 Lakeview renovation",
+      "body": "Attached is PO 55240 for the Lakeview renovation. Requested ship date is March 2.\n\nThanks,\nPurchasing, Fairway Irrigation Supply",
       "expected": {
-        "category": 6,
+        "category": 7,
         "action": "route"
-      }
+      },
+      "attachments": [
+        {
+          "name": "PO_55240.pdf",
+          "type": "application/pdf"
+        }
+      ]
     },
     {
       "id": "SY-072",
       "type": "Synthetic",
-      "scenario": "Generated category 6 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "GSP renewal",
-      "body": "Hi team, Please renew our GSP service plan for next year. Meadowbrook Pro Shop",
-      "expected": {
-        "category": 6,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-073",
-      "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Please find attached PO 55300 for the spring stock order. Dana",
+      "subject": "Update to PO 55187 \u2014 quantity change",
+      "body": "Hi,\n\nPlease update PO 55187 and change the quantity from 24 to 36 rotors. Same ship-to.\n\nThanks,\nDana Price",
       "expected": {
         "category": 7,
         "action": "route"
       }
     },
     {
+      "id": "SY-073",
+      "type": "Synthetic",
+      "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
+      "from": "purchasing@fairwayirrigation.example.com",
+      "subject": "PO 55240 \u2014 Lakeview renovation, requested ship date March 2",
+      "body": "Attached is PO 55240 for the Lakeview renovation. The requested ship date is March 2.\n\nThanks,\nPurchasing\nFairway Irrigation Supply",
+      "expected": {
+        "category": 7,
+        "action": "route"
+      },
+      "attachments": [
+        {
+          "name": "PO_55240.pdf",
+          "type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "SY-074",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "PO 55187 \u2014 change qty to 36 rotors",
+      "body": "Hi,\n\nPlease update PO 55187 to change the quantity from 24 to 36 rotors. Same ship-to.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
         "action": "route"
@@ -892,22 +904,28 @@
     {
       "id": "SY-075",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Hi team, Please find attached PO 55300 for the spring stock order. Dana",
+      "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
+      "from": "purchasing@fairwayirrigation.example.com",
+      "subject": "Attached: PO 55240 for Lakeview Renovation",
+      "body": "Attached is PO 55240 for the Lakeview renovation. The requested ship date is March 2.\n\nThanks,\nPurchasing\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
         "action": "route"
-      }
+      },
+      "attachments": [
+        {
+          "name": "PO_55240.pdf",
+          "type": "application/pdf"
+        }
+      ]
     },
     {
       "id": "SY-076",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Hello, Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "Request to adjust PO 55187 quantity",
+      "body": "Please change the quantity on PO 55187 from 24 to 36 rotors. Same ship-to as before. Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
         "action": "route"
@@ -916,22 +934,28 @@
     {
       "id": "SY-077",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "scenario": "Sends PO 55240 for the Lakeview renovation (PDF attached), requested ship date March 2.",
+      "from": "purchasing@fairwayirrigation.example.com",
+      "subject": "Attached: PO 55240 for the Lakeview renovation",
+      "body": "Please see the attached PO 55240 for the Lakeview renovation. Requested ship date is March 2.\n\nThanks,\nPurchasing\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
         "action": "route"
-      }
+      },
+      "attachments": [
+        {
+          "name": "PO_55240.pdf",
+          "type": "application/pdf"
+        }
+      ]
     },
     {
       "id": "SY-078",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks to change the quantity on PO 55187 from 24 to 36 rotors.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "Change to PO 55187",
+      "body": "Hi,\n\nPlease update PO 55187 to change the quantity from 24 to 36 rotors. Same ship-to.\n\nThanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
         "category": 7,
         "action": "route"
@@ -940,358 +964,118 @@
     {
       "id": "SY-079",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
+      "from": "projects@greenlinegolfbuild.example.com",
+      "subject": "RFQ \u2014 Willow Creek GC 18-hole renovation",
+      "body": "Hello,\n\nWe are preparing a bid for the Willow Creek GC 18-hole renovation and request a quote for rotors, decoders and central control. The bid is due Dec 15.\n\nThank you,\nProjects Team\nGreenline Golf Construction",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-080",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks whether tariffs will change pricing on the 2027 early order program.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "Tariffs and 2027 early-order pricing",
+      "body": "Hi \u2014 Will tariffs change pricing on our 2027 early order program? We are setting budgets now and need to know if we should expect any adjustments. Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-081",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Good morning, Please find attached PO 55300 for the spring stock order. Dana",
+      "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
+      "from": "projects@greenlinegolfbuild.example.com",
+      "subject": "RFQ: Willow Creek GC 18-hole renovation",
+      "body": "Hello,\n\nWe are preparing a bid for the Willow Creek GC 18-hole renovation and would like a quote for rotors, decoders and central control. The bid is due Dec 15 \u2014 please send pricing and availability to support our submission.\n\nThanks,\nProjects Team\nGreenline Golf Construction",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-082",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks whether tariffs will change pricing on the 2027 early order program.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Hello, Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "Impact of tariffs on 2027 early order pricing",
+      "body": "We're finalizing budgets and I need to know whether tariffs will affect pricing on our 2027 early order program. Can you confirm if any anticipated tariff changes will alter the pricing? Thanks,\nDana Price\nFairway Irrigation Supply",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-083",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "New PO 55300",
-      "body": "Hello, Please find attached PO 55300 for the spring stock order. Dana",
+      "scenario": "Requests a quote for rotors, decoders and central control for the Willow Creek GC 18-hole renovation bid.",
+      "from": "projects@greenlinegolfbuild.example.com",
+      "subject": "Quote request \u2014 Willow Creek 18-hole renovation",
+      "body": "We are preparing a bid for the Willow Creek GC 18-hole renovation and request a quote for rotors, decoders and central control. The bid is due Dec 15. Regards,\nProjects Team, Greenline Golf Construction",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-084",
       "type": "Synthetic",
-      "scenario": "Generated category 7 email",
+      "scenario": "Asks whether tariffs will change pricing on the 2027 early order program.",
       "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Change to PO 55120",
-      "body": "Please change the quantity on PO 55120 from 30 to 40 rotors. Dana",
+      "subject": "Will tariffs affect pricing for our 2027 early order program?",
+      "body": "Hi \u2014 as we're setting budgets I need to confirm whether tariffs will affect pricing on our 2027 early order program. Please let me know if we should plan for tariff-related increases. Thanks,\nDana Price",
       "expected": {
-        "category": 7,
+        "category": 8,
         "action": "route"
       }
     },
     {
       "id": "SY-085",
       "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "scenario": "Asks for a copy of the current golf product catalog.",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Request: current golf product catalog",
+      "body": "Hello,\n\nCould you please send us the current golf product catalog? We\u2019d like to review your offerings for Meadowbrook Golf Club ahead of our season planning.\n\nThanks,\nPro Shop\nMeadowbrook Golf Club",
       "expected": {
-        "category": 8,
-        "action": "route"
+        "category": 9,
+        "action": "reply"
       }
     },
     {
       "id": "SY-086",
       "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Will tariffs affect our pricing for 2027 orders? Dana",
+      "scenario": "Vendor solicitation offering to triple leads with AI outreach; asks for 15 minutes.",
+      "from": "hello@turfgrowthagency.example.com",
+      "subject": "Quick 15-minute chat to grow your irrigation leads?",
+      "body": "We help irrigation brands triple their leads using AI-powered outreach. Could you spare 15 minutes this week for a quick conversation?\n\nThanks,\nGrowth Team\nTurf Growth Agency",
       "expected": {
-        "category": 8,
-        "action": "route"
+        "category": 9,
+        "action": "file"
       }
     },
     {
       "id": "SY-087",
       "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Hi team, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
+      "scenario": "Asks for a copy of the current golf product catalog.",
+      "from": "pro.shop@meadowbrookgc.example.com",
+      "subject": "Request for current golf product catalog",
+      "body": "Hello,\n\nCould you please send us the most recent golf product catalog? We\u2019re looking to review options for the upcoming season.\n\nThank you,\nPro Shop\nMeadowbrook Golf Club",
       "expected": {
-        "category": 8,
-        "action": "route"
+        "category": 9,
+        "action": "reply"
       }
     },
     {
       "id": "SY-088",
       "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-089",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Hi team, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-090",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Will tariffs affect our pricing for 2027 orders? Dana",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-091",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-092",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Hello, Will tariffs affect our pricing for 2027 orders? Dana",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-093",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Hello, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-094",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-095",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "RFQ - 9 hole upgrade",
-      "body": "Good morning, Please quote rotors and decoders for a 9-hole upgrade. Bid due next month. Taylor",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-096",
-      "type": "Synthetic",
-      "scenario": "Generated category 8 email",
-      "from": "dana.price@fairwayirrigation.example.com",
-      "subject": "Tariff question",
-      "body": "Good morning, Will tariffs affect our pricing for 2027 orders? Dana",
-      "expected": {
-        "category": 8,
-        "action": "route"
-      }
-    },
-    {
-      "id": "SY-097",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-098",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
-      "expected": {
-        "category": 9,
-        "action": "file"
-      }
-    },
-    {
-      "id": "SY-099",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-100",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
-      "expected": {
-        "category": 9,
-        "action": "file"
-      }
-    },
-    {
-      "id": "SY-101",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Hello, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-102",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "Hello, We help irrigation brands triple their leads. Do you have 15 minutes this week?",
-      "expected": {
-        "category": 9,
-        "action": "file"
-      }
-    },
-    {
-      "id": "SY-103",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Good morning, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-104",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
-      "expected": {
-        "category": 9,
-        "action": "file"
-      }
-    },
-    {
-      "id": "SY-105",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Hello, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-106",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "Hello, We help irrigation brands triple their leads. Do you have 15 minutes this week?",
-      "expected": {
-        "category": 9,
-        "action": "file"
-      }
-    },
-    {
-      "id": "SY-107",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "pro.shop@meadowbrookgc.example.com",
-      "subject": "Catalog request",
-      "body": "Good morning, Could you send me the latest golf catalog? Meadowbrook Pro Shop",
-      "expected": {
-        "category": 9,
-        "action": "reply"
-      }
-    },
-    {
-      "id": "SY-108",
-      "type": "Synthetic",
-      "scenario": "Generated category 9 email",
-      "from": "office@oakmontvalley.example.com",
-      "subject": "Boost your leads",
-      "body": "We help irrigation brands triple their leads. Do you have 15 minutes this week?",
+      "scenario": "Vendor solicitation offering to triple leads with AI outreach; asks for 15 minutes.",
+      "from": "hello@turfgrowthagency.example.com",
+      "subject": "Interested in tripling your irrigation leads in 15 minutes?",
+      "body": "We help irrigation brands triple their leads with AI-powered outreach. Do you have 15 minutes this week for a short conversation to see if it\u2019s a fit? Thanks \u2014 Growth Team, Turf Growth Agency",
       "expected": {
         "category": 9,
         "action": "file"

@@ -9,11 +9,13 @@ the original of a duplicate). Scores:
 from __future__ import annotations
 
 import json
+import os
 import time
 from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor
 
 from . import store
-from .config import DATA, get_config, reset_config, save_config
+from .config import DATA, RUNTIME, get_config, reset_config, save_config
 from .pipeline import PIPELINE_LOCK, process_email
 
 
@@ -66,18 +68,40 @@ def run_case(tc: dict, by_id: dict) -> dict:
     }
 
 
-def run(case_file: str = "test_cases.json", only: list[str] | None = None) -> dict:
+def _worker_init():
+    # Each worker process gets its own evaluation database.
+    store.set_db(f"golfpm_eval_{os.getpid()}.db")
+
+
+def _worker_run(args):
+    tc, by_id = args
+    return run_case(tc, by_id)
+
+
+def run(case_file: str = "test_cases.json", only: list[str] | None = None, workers: int | None = None) -> dict:
+    """Run the test set. Cases run in parallel worker processes (each with its own DB),
+    so an LLM-mode run takes about a minute instead of several."""
     cases = load_cases(case_file)
     by_id = {c["id"]: c for c in cases}
+    selected = [tc for tc in cases if not only or tc["id"] in only]
+    workers = workers or int(os.environ.get("GOLFPM_EVAL_WORKERS", "8"))
     started = time.time()
     with PIPELINE_LOCK:
         saved_cfg = get_config()
-        prev_db = store.set_db("golfpm_eval.db")
         try:
             reset_config()  # evaluate against the default config, kill switch off
-            results = [run_case(tc, by_id) for tc in cases if not only or tc["id"] in only]
+            for old in RUNTIME.glob("golfpm_eval_*.db"):
+                old.unlink(missing_ok=True)
+            if workers > 1 and len(selected) > 1:
+                with ProcessPoolExecutor(max_workers=min(workers, len(selected)), initializer=_worker_init) as pool:
+                    results = list(pool.map(_worker_run, [(tc, by_id) for tc in selected]))
+            else:
+                prev_db = store.set_db("golfpm_eval.db")
+                try:
+                    results = [run_case(tc, by_id) for tc in selected]
+                finally:
+                    store.set_db(prev_db)
         finally:
-            store.set_db(prev_db)
             save_config(saved_cfg)
     by_cat = defaultdict(lambda: {"total": 0, "passed": 0})
     for r in results:
